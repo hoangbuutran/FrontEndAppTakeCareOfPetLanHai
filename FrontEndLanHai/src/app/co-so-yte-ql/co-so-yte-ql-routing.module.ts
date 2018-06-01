@@ -10,6 +10,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeYteComponent },
+      { path: 'khachhang', loadChildren: './khach-hang/khach-hang.module#KhachHangModule' },
     ]
   }
 ];

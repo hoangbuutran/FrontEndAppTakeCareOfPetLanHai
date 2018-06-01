@@ -8,9 +8,7 @@ export class SessionService {
     }
 
     get currentUser() {
-
         if (!this.currentSession) { return null; }
-
         return {
             IdTaiKhoan: this.currentSession.IdTaiKhoan,
             UserName: this.currentSession.UserName,
@@ -21,7 +19,6 @@ export class SessionService {
 
     get currentSession() {
         if (!window.sessionStorage['session']) { return null; }
-
         return JSON.parse(window.sessionStorage['session']);
     }
 

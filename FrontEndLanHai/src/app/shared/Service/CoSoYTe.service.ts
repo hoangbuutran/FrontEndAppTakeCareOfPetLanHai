@@ -45,6 +45,11 @@ export class CoSoYTeService {
         return this.apiService.get(this.url);
     }
 
+    viewWithIdTaiKhoan(taiKhoanId: number | string): Observable<any> {
+        this.url = 'http://localhost:57777/api/cosoyte/getbyidtaikhoan/' + taiKhoanId;
+        return this.apiService.get(this.url);
+    }
+
     countCoSoYTe(): Observable<any> {
         this.url = 'http://localhost:57777/api/cosoyte/listcountcosoyte';
         return this.apiService.get(this.url);
