@@ -16,16 +16,6 @@ export class KhachHangListComponent implements OnInit {
 
   chuyenMucList: NguoiDungModel[] = null;
 
-  IdNguoiDungDetail: number;
-  TenNguoiDungDetail: string;
-  DiaChiDetail: string;
-  NgaySinhDetail: string;
-  SDTDetail: string;
-  EmailDetail: string;
-  TrangThaiDetail: boolean;
-  HinhAnhDetail: string;
-  IdCoSoYTeDetail: number;
-
   arrayDelete = [];
   constructor(
     private nguoiDungService: NguoiDungService,

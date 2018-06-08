@@ -22,7 +22,7 @@ export class TaiKhoanService {
         return this.apiService.post(this.url, loginModel);
     }
 
-    view(taiKhoanId: number | string): Observable<TaiKhoanModel> {
+    view(taiKhoanId: number | string) {
         this.url = 'http://localhost:57777/api/taikhoan/getbyid/' + taiKhoanId;
         return this.apiService.get(this.url);
     }

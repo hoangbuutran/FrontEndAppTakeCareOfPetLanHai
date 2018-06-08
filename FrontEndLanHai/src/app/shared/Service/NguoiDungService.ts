@@ -56,6 +56,11 @@ export class NguoiDungService {
         return this.apiService.get(this.url);
     }
 
+    viewNguoiDungVoiIDTaiKhoan(taiKhoanId: number | string): Observable<any> {
+        this.url = 'http://localhost:57777/api/nguoidung/getbyidtaikhoan/' + taiKhoanId;
+        return this.apiService.get(this.url);
+    }
+
     countNguoiDung(): Observable<any> {
         this.url = 'http://localhost:57777/api/nguoidung/listcountnguoidung';
         return this.apiService.get(this.url);
@@ -72,13 +77,6 @@ export class NguoiDungService {
           this.viewNguoiDungVoiCSYT(res.data.IdCoSoYTe).subscribe(res1 => {
             this.nguoiDungListProperty = res1.data;
           });
-        }
-        );
-    }
-    nguoiDungList() {
-        this.url = 'http://localhost:57777/api/nguoidung/getall';
-        this.apiService.get(this.url).subscribe(res => {
-            this.nguoiDungListProperty = res.data;
         });
     }
 }

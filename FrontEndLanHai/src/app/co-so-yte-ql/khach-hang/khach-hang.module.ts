@@ -7,6 +7,7 @@ import { KhachHangListComponent } from './khach-hang-list/khach-hang-list.compon
 import { KhachHangDetailComponent } from './khach-hang-detail/khach-hang-detail.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ThuCungDetailWithKhachHangComponent } from './thu-cung-detail-with-khach-hang/thu-cung-detail-with-khach-hang.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     NgxPaginationModule
   ],
-  declarations: [KhachHangComponent, KhachHangListComponent, KhachHangDetailComponent]
+  declarations: [KhachHangComponent, KhachHangListComponent, KhachHangDetailComponent, ThuCungDetailWithKhachHangComponent]
 })
 export class KhachHangModule { }

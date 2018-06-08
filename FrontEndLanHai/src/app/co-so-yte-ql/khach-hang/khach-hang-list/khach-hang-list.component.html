@@ -9,17 +9,12 @@
                   <h2 class="box-title">Danh sách khách hàng</h2>
               </div>
               <br>
-              <div class="btnthem">
-                  <button class="btn btn-primary btn-md m-b-10 m-l-5 btn-them" (click)="xoaNhieu()">
-                      Xóa nhiều
-                  </button>
-              </div>
               <!-- /.box-header -->
               <div class="box-body">
                   <table class="table table-bordered">
                       <thead>
                           <tr>
-                              <th style="width: 10px">Select</th>
+                              <th>STT</th>
                               <th>Tên khách hàng</th>
                               <th>Trạng thái</th>
                               <th>Tùy chọn</th>
@@ -28,7 +23,7 @@
                       <tbody *ngFor="let item of nguoiDungService.nguoiDungListProperty | paginate: { itemsPerPage: 5, currentPage: p }">
                           <tr>
                               <td>
-                                  <input type="checkbox" name="DeleteMulti" (change)="checkboxDelete(item.IdNguoiDung)">
+                                  1
                               </td>
                               <td>
                                   {{ item.TenNguoiDung }}

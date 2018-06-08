@@ -24,6 +24,9 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CoSoYTeService } from './shared/Service/CoSoYTe.service';
 import { NguoiDungService } from './shared/Service/NguoiDungService';
+import { ThuCungService } from './shared/Service/ThuCung.service';
+import { CanNangService } from './shared/Service/CanNang.service';
+import { TinhTrangService } from './shared/Service/TinhTrang.service';
 
 @NgModule({
   declarations: [
@@ -52,8 +55,11 @@ import { NguoiDungService } from './shared/Service/NguoiDungService';
     SessionService,
     QuyenService,
     NguoiDungService,
+    ThuCungService,
     CoSoYTeService,
     TaiKhoanService,
+    CanNangService,
+    TinhTrangService,
     GiongThuCungService,
     ChuyenMucService,
     AuthGuard,
