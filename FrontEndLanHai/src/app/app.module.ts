@@ -27,12 +27,14 @@ import { NguoiDungService } from './shared/Service/NguoiDungService';
 import { ThuCungService } from './shared/Service/ThuCung.service';
 import { CanNangService } from './shared/Service/CanNang.service';
 import { TinhTrangService } from './shared/Service/TinhTrang.service';
+// import { EscapeHtmlPipe } from './shared/Pipe/EscapeHtmlPipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    // EscapeHtmlPipe
   ],
   imports: [
     BrowserModule,

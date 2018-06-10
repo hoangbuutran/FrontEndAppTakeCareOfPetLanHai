@@ -20,11 +20,21 @@
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">Giới thiệu</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" formControlName="GioiThieu" placeholder="Gioi Thieu">
+                <editor formControlName="GioiThieu" class="col-md-12"></editor>
                 <p *ngIf="GiongThuCungAddForm.get('GioiThieu').invalid && GiongThuCungAddForm.get('GioiThieu').touched">Required</p>
               </div>
             </div>
+
+            <!-- <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Giới thiệu</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" formControlName="GioiThieu" placeholder="giới thiệu">
+                <p *ngIf="GiongThuCungAddForm.get('GioiThieu').invalid && GiongThuCungAddForm.get('GioiThieu').touched">Required</p>
+              </div>
+            </div> -->
+
             <br>
+
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">Hình ảnh</label>
               <div class="col-sm-9">

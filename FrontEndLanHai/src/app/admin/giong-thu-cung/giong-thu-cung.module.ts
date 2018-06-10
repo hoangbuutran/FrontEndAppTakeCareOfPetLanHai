@@ -8,14 +8,18 @@ import { GiongThuCungAddComponent } from './giong-thu-cung-add/giong-thu-cung-ad
 import { GiongThuCungEditComponent } from './giong-thu-cung-edit/giong-thu-cung-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { EscapeHtmlPipe } from '../../shared/Pipe/EscapeHtmlPipe.pipe';
+
 @NgModule({
   imports: [
     CommonModule,
     GiongThuCungRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    EditorModule
   ],
-  declarations: [GiongThuCungComponent, GiongThuCungListComponent, GiongThuCungAddComponent, GiongThuCungEditComponent]
+  declarations: [GiongThuCungComponent, GiongThuCungListComponent, GiongThuCungAddComponent, GiongThuCungEditComponent, EscapeHtmlPipe]
 })
 export class GiongThuCungModule { }

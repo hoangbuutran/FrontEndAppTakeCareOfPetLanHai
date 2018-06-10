@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewContainerRef } from '@angular/core';
 import { GiongThuCungModel } from '../../../shared/Model/GiongThuCung.model';
 import { GiongThuCungService } from '../../../shared/Service/GiongThuCung.service';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class GiongThuCungListComponent implements OnInit {
   arrayDelete = [];
   TenGiongThuCungDetail: string;
-  GioiThieuDetail: string;
+  GioiThieuDetail: any;
   HinhAnhDetail: string;
   DacDiemDetail: string;
   TinhCachDetail: string;
