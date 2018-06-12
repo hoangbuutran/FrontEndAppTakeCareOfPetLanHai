@@ -29,20 +29,20 @@
             <tbody *ngFor="let item of coSoYTeService.coSoYTeListProperty | paginate: { itemsPerPage: 5, currentPage: p }">
               <tr>
                 <td>
-                  <input type="checkbox" name="DeleteMulti" (change)="checkboxDelete(item.IdCoSoYTe)">
+                  <input type="checkbox" name="DeleteMulti" (change)="checkboxDelete(item.IdCoSoThuY)">
                 </td>
                 <td>
-                  {{ item.TenCoSoYTe }}
+                  {{ item.TenCoSoThuY }}
                 </td>
                 <td>
                   {{ item.TrangThai }}
                 </td>
                 <td>
-                  <button class="btn btn-warning btn-rounded m-b-10 m-l-5" routerLink="/admin/cosoyte/edit/{{ item.IdCoSoYTe }}">Sửa</button>
-                  <button class="btn btn-warning btn-rounded m-b-10 m-l-5" routerLink="/admin/cosoyte/detail/{{ item.IdCoSoYTe }}">Xem chi tiết</button>
-                  <button class="btn btn-dark btn-rounded m-b-10 m-l-5" (click)="khoaMo(item.IdCoSoYTe)">Khóa Mở</button>
+                  <button class="btn btn-warning btn-rounded m-b-10 m-l-5" routerLink="/admin/cosoyte/edit/{{ item.IdCoSoThuY }}">Sửa</button>
+                  <button class="btn btn-warning btn-rounded m-b-10 m-l-5" routerLink="/admin/cosoyte/detail/{{ item.IdCoSoThuY }}">Xem chi tiết</button>
+                  <button class="btn btn-dark btn-rounded m-b-10 m-l-5" (click)="khoaMo(item.IdCoSoThuY)">Khóa Mở</button>
                   <button class="btn btn-dark btn-rounded m-b-10 m-l-5" (click)="xemTaiKhoanCoSoYTe(item.IdTaiKhoan)" data-toggle="modal" data-target="#CoSoYTeDetalModal">Tài khoản</button>
-                  <button class="btn btn-primary btn-rounded m-b-10 m-l-5" (click)="xoaCoSoYTe(item.IdCoSoYTe)">Xóa</button>
+                  <button class="btn btn-primary btn-rounded m-b-10 m-l-5" (click)="xoaCoSoYTe(item.IdCoSoThuY)">Xóa</button>
                 </td>
               </tr>
             </tbody>

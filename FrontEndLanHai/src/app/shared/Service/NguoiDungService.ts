@@ -28,41 +28,41 @@ export class NguoiDungService {
     url: string;
 
     create(nguoiDung: any): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/nguoidung/create';
+        this.url = 'http://localhost:1650/api/nguoidung/create';
         return this.apiService.post(this.url, nguoiDung);
     }
 
     KhoaMo(nguoiDungId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/nguoidung/khoamo/' + nguoiDungId;
+        this.url = 'http://localhost:1650/api/nguoidung/khoamo/' + nguoiDungId;
         return this.apiService.get(this.url);
     }
 
     delete(nguoiDungId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/nguoidung/delete/' + nguoiDungId;
+        this.url = 'http://localhost:1650/api/nguoidung/delete/' + nguoiDungId;
         return this.apiService.get(this.url);
     }
     Update(nguoiDung: NguoiDungModel) {
-        this.url = 'http://takecareofthepet.somee.com/api/nguoidung/update';
+        this.url = 'http://localhost:1650/api/nguoidung/update';
         return this.apiService.put(this.url, nguoiDung);
     }
 
     view(nguoiDungId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/nguoidung/getbyid/' + nguoiDungId;
+        this.url = 'http://localhost:1650/api/nguoidung/getbyid/' + nguoiDungId;
         return this.apiService.get(this.url);
     }
 
     viewNguoiDungVoiCSYT(cSYTId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/nguoidung/getallbyidcosoyte/' + cSYTId;
+        this.url = 'http://localhost:1650/api/nguoidung/getallbyidcosoyte/' + cSYTId;
         return this.apiService.get(this.url);
     }
 
     viewNguoiDungVoiIDTaiKhoan(taiKhoanId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/nguoidung/getbyidtaikhoan/' + taiKhoanId;
+        this.url = 'http://localhost:1650/api/nguoidung/getbyidtaikhoan/' + taiKhoanId;
         return this.apiService.get(this.url);
     }
 
     countNguoiDung(): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/nguoidung/listcountnguoidung';
+        this.url = 'http://localhost:1650/api/nguoidung/listcountnguoidung';
         return this.apiService.get(this.url);
     }
 
@@ -74,7 +74,7 @@ export class NguoiDungService {
     nguoiDungListVoiCSYT() {
         this.sessionuser = this.sessionService.getToken();
         this.coSoYTeService.viewWithIdTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
-          this.viewNguoiDungVoiCSYT(res.data.IdCoSoYTe).subscribe(res1 => {
+          this.viewNguoiDungVoiCSYT(res.data.IdCoSoThuY).subscribe(res1 => {
             this.nguoiDungListProperty = res1.data;
           });
         });

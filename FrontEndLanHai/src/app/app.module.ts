@@ -27,14 +27,15 @@ import { NguoiDungService } from './shared/Service/NguoiDungService';
 import { ThuCungService } from './shared/Service/ThuCung.service';
 import { CanNangService } from './shared/Service/CanNang.service';
 import { TinhTrangService } from './shared/Service/TinhTrang.service';
-// import { EscapeHtmlPipe } from './shared/Pipe/EscapeHtmlPipe.pipe';
+import { ShopService } from './shared/Service/Shop.service';
+import { LoaiSanPhamService } from './shared/Service/LoaiSanPham.service';
+import { SanPhamService } from './shared/Service/SanPham.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PageNotFoundComponent,
-    // EscapeHtmlPipe
   ],
   imports: [
     BrowserModule,
@@ -56,16 +57,19 @@ import { TinhTrangService } from './shared/Service/TinhTrang.service';
     ApiService,
     SessionService,
     QuyenService,
+    ShopService,
     NguoiDungService,
     ThuCungService,
     CoSoYTeService,
     TaiKhoanService,
+    LoaiSanPhamService,
+    SanPhamService,
     CanNangService,
     TinhTrangService,
     GiongThuCungService,
     ChuyenMucService,
     AuthGuard,
-  ],
+  ], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

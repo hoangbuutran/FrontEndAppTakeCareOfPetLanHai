@@ -44,6 +44,10 @@ export class LoginComponent implements OnInit {
             this.sessionService.saveSession(res.data);
             this.router.navigate(['/sinhvien']);
 
+          } else if (res.data.IdQuyen === 4) { // Nguoi dung
+            this.sessionService.saveSession(res.data);
+            this.router.navigate(['/shop']);
+
           }
         } else { // sai tai khoan
           this.errorMessenger = res.message;

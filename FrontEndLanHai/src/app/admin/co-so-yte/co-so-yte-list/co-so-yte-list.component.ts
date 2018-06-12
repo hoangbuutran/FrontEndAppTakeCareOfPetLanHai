@@ -38,7 +38,7 @@ export class CoSoYteListComponent implements OnInit {
         this.coSoYTeService.coSoYTeList();
       });
     });
-    this.toastr.warning('Xóa nhiều cơ sở y tế thành công', 'Thông báo');
+    this.toastr.warning('Xóa nhiều cơ sở thú y thành công', 'Thông báo');
   }
 
   xemTaiKhoanCoSoYTe(id: number) {
@@ -50,7 +50,7 @@ export class CoSoYteListComponent implements OnInit {
   }
 
   khoaMo(id: number) {
-    if (confirm('Bạn có chắc chắn muốn khóa cơ sở y tế ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn khóa cơ sở thú y ?') === true) {
       this.coSoYTeService.KhoaMo(id)
         .subscribe(x => {
           this.coSoYTeService.coSoYTeList();
@@ -60,11 +60,11 @@ export class CoSoYteListComponent implements OnInit {
   }
 
   xoaCoSoYTe(id: number) {
-    if (confirm('Bạn có chắc chắn muốn xóa cơ sở y tế ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn xóa cơ sở thú y ?') === true) {
       this.coSoYTeService.delete(id)
         .subscribe(x => {
           this.coSoYTeService.coSoYTeList();
-          this.toastr.warning('Xóa cơ sở y tế thành công', 'Thông báo');
+          this.toastr.warning('Xóa cơ sở thú y thành công', 'Thông báo');
         });
     }
   }

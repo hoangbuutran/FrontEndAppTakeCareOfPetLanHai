@@ -41,8 +41,8 @@ export class ThuCungDetailWithKhachHangComponent implements OnInit {
 
   XemThongTinTinhTrang(IdTinhTrang: number) {
     this.tinhTrangService.view(IdTinhTrang).subscribe(res => {
-      this.hinhAnhDetail = 'http://localhost:57777/Images/' + res.data.HinhAnh;
-      this.noiDungTinhTrangDetail = res.data.TinhTrang1;
+      this.hinhAnhDetail = 'http://localhost:1650/Images/' + res.data.HinhAnh;
+      this.noiDungTinhTrangDetail = res.data.NoiDungTinhTrang;
     });
   }
 }

@@ -1,6 +1,6 @@
 export class CoSoYTeModel {
-    IdCoSoYTe: number;
-    TenCoSoYTe: string;
+    IdCoSoThuY: number;
+    TenCoSoThuY: string;
     DiaDiem: string;
     SDT: string;
     Email: string;

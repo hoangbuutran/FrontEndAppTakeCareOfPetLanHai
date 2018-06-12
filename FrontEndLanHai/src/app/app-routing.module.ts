@@ -14,6 +14,7 @@ const routesConfig: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'admin', loadChildren: './admin/admin.module#AdminModule', canActivate: [AuthGuard] },
     { path: 'cosoyteql', loadChildren: './co-so-yte-ql/co-so-yte-ql.module#CoSoYteQlModule', canActivate: [AuthGuard] },
+    { path: 'shop', loadChildren: './shop/shop.module#ShopModule', canActivate: [AuthGuard] },
     { path: '**', component: PageNotFoundComponent },
 ];
 

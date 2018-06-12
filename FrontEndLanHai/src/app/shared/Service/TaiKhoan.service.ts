@@ -18,12 +18,12 @@ export class TaiKhoanService {
     url: string;
 
     Login(loginModel: LoginModel) {
-        this.url = 'http://takecareofthepet.somee.com/api/taikhoan/login';
+        this.url = 'http://localhost:1650/api/taikhoan/login';
         return this.apiService.post(this.url, loginModel);
     }
 
     view(taiKhoanId: number | string) {
-        this.url = 'http://takecareofthepet.somee.com/api/taikhoan/getbyid/' + taiKhoanId;
+        this.url = 'http://localhost:1650/api/taikhoan/getbyid/' + taiKhoanId;
         return this.apiService.get(this.url);
     }
 }

@@ -21,12 +21,14 @@ export class CoSoYteQlComponent implements OnInit {
   ngOnInit() {
     this.coSoYTeIdTaiKhoan();
   }
+
   coSoYTeIdTaiKhoan() {
     this.sessionuser = this.sessionService.getToken();
     this.coSoYTeService.viewWithIdTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
-      this.tenCSYT = res.data.TenCoSoYTe;
+      this.tenCSYT = res.data.TenCoSoThuY;
     });
   }
+  
   LogOut() {
     sessionStorage.removeItem('session');
     this.route.navigate(['/login']);
