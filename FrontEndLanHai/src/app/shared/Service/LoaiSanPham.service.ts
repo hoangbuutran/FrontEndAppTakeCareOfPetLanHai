@@ -26,7 +26,7 @@ export class LoaiSanPhamService {
     loaiSanPhamListProperty: LoaiSanPhamModel[];
 
     url: string;
-
+    idShop;
     create(loaiSanPham: any): Observable<any> {
         this.url = 'http://localhost:1650/api/loaisanpham/create';
         return this.apiService.post(this.url, loaiSanPham);
@@ -69,6 +69,7 @@ export class LoaiSanPhamService {
     loaiSanPhamListWithIdShop() {
         this.sessionuser = this.sessionService.getToken();
         this.shopService.viewShopVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
+            this.idShop = res.data.IdShop;
             this.viewLoaiSanPhamVoiIdShop(res.data.IdShop).subscribe(res1 => {
                 this.loaiSanPhamListProperty = res1.data;
             });

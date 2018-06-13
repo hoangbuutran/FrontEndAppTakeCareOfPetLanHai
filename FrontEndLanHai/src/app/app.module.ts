@@ -30,6 +30,7 @@ import { TinhTrangService } from './shared/Service/TinhTrang.service';
 import { ShopService } from './shared/Service/Shop.service';
 import { LoaiSanPhamService } from './shared/Service/LoaiSanPham.service';
 import { SanPhamService } from './shared/Service/SanPham.service';
+import { HoaDonService } from './shared/Service/HoaDon.service';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { SanPhamService } from './shared/Service/SanPham.service';
     ThuCungService,
     CoSoYTeService,
     TaiKhoanService,
+    HoaDonService,
     LoaiSanPhamService,
     SanPhamService,
     CanNangService,

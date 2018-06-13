@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeShopComponent },
-      // { path: 'khachhang', loadChildren: './khach-hang/khach-hang.module#KhachHangModule' },
+      { path: 'loaisanpham', loadChildren: './loai-san-pham/loai-san-pham.module#LoaiSanPhamModule' },
     ]
   }
 ];
