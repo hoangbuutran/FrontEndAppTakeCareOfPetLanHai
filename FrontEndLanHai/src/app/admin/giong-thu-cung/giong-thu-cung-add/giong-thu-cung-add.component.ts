@@ -49,7 +49,6 @@ export class GiongThuCungAddComponent implements OnInit {
       this.imageUrl = event.target.result;
     };
     reader.readAsDataURL(this.fileToUpload);
-    this.GiongThuCungAddForm.get('HinhAnh').patchValue(this.fileToUpload);
   }
 
   GiongThuCungAddSubmitForm() {

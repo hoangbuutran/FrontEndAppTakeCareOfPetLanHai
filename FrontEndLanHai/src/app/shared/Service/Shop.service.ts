@@ -8,7 +8,6 @@ import { ApiService } from './api.service';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { SessionService } from './session.service';
-import { CoSoYTeService } from './CoSoYTe.service';
 import { ShopModel } from '../Model/Shop.model';
 
 @Injectable()
@@ -27,41 +26,46 @@ export class ShopService {
     url: string;
 
     create(shop: any): Observable<any> {
-        this.url = 'http://localhost:1650/api/shop/create';
+        this.url = 'http://takecareofthepet.somee.com/api/shop/create';
         return this.apiService.post(this.url, shop);
     }
 
     KhoaMo(shopId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/shop/khoamo/' + shopId;
+        this.url = 'http://takecareofthepet.somee.com/api/shop/khoamo/' + shopId;
         return this.apiService.get(this.url);
     }
 
     delete(shopId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/shop/delete/' + shopId;
+        this.url = 'http://takecareofthepet.somee.com/api/shop/delete/' + shopId;
         return this.apiService.get(this.url);
     }
     Update(shop: ShopModel) {
-        this.url = 'http://localhost:1650/api/shop/update';
+        this.url = 'http://takecareofthepet.somee.com/api/shop/update';
         return this.apiService.put(this.url, shop);
     }
 
     view(shopId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/shop/getbyid/' + shopId;
+        this.url = 'http://takecareofthepet.somee.com/api/shop/getbyid/' + shopId;
         return this.apiService.get(this.url);
     }
 
-    // viewShopVoiCSYT(cSYTId: number | string): Observable<any> {
-    //     this.url = 'http://localhost:1650/api/shop/getallbyidcosoyte/' + cSYTId;
-    //     return this.apiService.get(this.url);
-    // }
+    viewListShop() {
+        this.url = 'http://takecareofthepet.somee.com/api/shop/getall';
+        this.apiService.get(this.url).subscribe(res => {
+            this.shopListProperty = res.data;
+        });
+    }
 
     viewShopVoiIDTaiKhoan(taiKhoanId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/shop/getbyidtaikhoan/' + taiKhoanId;
+        this.url = 'http://takecareofthepet.somee.com/api/shop/getbyidtaikhoan/' + taiKhoanId;
         return this.apiService.get(this.url);
     }
-
+    xemTaiKhoanShop(ShopId: number | string): Observable<any> {
+        this.url = 'http://takecareofthepet.somee.com/api/taikhoan/getbyid/' + ShopId;
+        return this.apiService.get(this.url);
+    }
     countshop(): Observable<any> {
-        this.url = 'http://localhost:1650/api/shop/listcountshop';
+        this.url = 'http://takecareofthepet.somee.com/api/shop/listcountshop';
         return this.apiService.get(this.url);
     }
 
@@ -69,13 +73,4 @@ export class ShopService {
         this.url = '';
         return this.apiService.get(this.url);
     }
-
-    // shopListVoiCSYT() {
-    //     this.sessionuser = this.sessionService.getToken();
-    //     this.coSoYTeService.viewWithIdTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
-    //       this.viewshopVoiCSYT(res.data.IdCoSoThuY).subscribe(res1 => {
-    //         this.shopListProperty = res1.data;
-    //       });
-    //     });
-    // }
 }

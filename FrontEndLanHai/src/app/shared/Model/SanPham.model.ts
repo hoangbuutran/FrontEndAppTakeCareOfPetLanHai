@@ -4,6 +4,7 @@ export class SanPhamModel {
     IdLoaiSanPham: number;
     IdShop: number;
     Gia: number;
+    SoLuong: number;
     DacDiem: string;
     NgayNhap: string;
     TrangThai: boolean;

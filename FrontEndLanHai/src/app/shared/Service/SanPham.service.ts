@@ -24,35 +24,56 @@ export class SanPhamService {
         private shopService: ShopService
     ) { }
     sanPhamListProperty: SanPhamModel[];
-
+    toTal: number;
     url: string;
 
     create(sanPham: any): Observable<any> {
-        this.url = 'http://localhost:1650/api/sanpham/create';
+        this.url = 'http://takecareofthepet.somee.com/api/sanpham/create';
         return this.apiService.post(this.url, sanPham);
     }
 
     KhoaMo(sanPhamId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/sanpham/khoamo/' + sanPhamId;
+        this.url = 'http://takecareofthepet.somee.com/api/sanpham/khoamo/' + sanPhamId;
         return this.apiService.get(this.url);
     }
 
     delete(sanPhamId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/sanpham/delete/' + sanPhamId;
+        this.url = 'http://takecareofthepet.somee.com/api/sanpham/delete/' + sanPhamId;
         return this.apiService.get(this.url);
     }
+
+    upFile(idSanPham: string, fileToUpload: any): Observable<any> {
+        // upFile(idSanPham: string, fileToUpload: any) {
+        const formData: FormData = new FormData();
+        formData.append('Image', fileToUpload, fileToUpload.name);
+        formData.append('IdSanPham', idSanPham);
+        this.url = 'http://takecareofthepet.somee.com/api/giongthucung/uploadimage';
+
+        console.log(fileToUpload);
+
+        return this.http.post(this.url, formData);
+    }
+
+    uploadFiles(idSanPham: string, myFiles: any): Observable<any>  {
+        const frmData = new FormData();
+        frmData.append("fileUpload", myFiles);
+        frmData.append("IdSanPham", idSanPham);
+        this.url = 'http://takecareofthepet.somee.com/api/hinhanhsanpham/uploadimage';
+        return this.http.post(this.url, frmData);
+    }
+
     Update(sanPham: SanPhamModel) {
-        this.url = 'http://localhost:1650/api/sanpham/update';
+        this.url = 'http://takecareofthepet.somee.com/api/sanpham/update';
         return this.apiService.put(this.url, sanPham);
     }
 
     view(sanPhamId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/sanpham/getbyid/' + sanPhamId;
+        this.url = 'http://takecareofthepet.somee.com/api/sanpham/getbyid/' + sanPhamId;
         return this.apiService.get(this.url);
     }
 
     countSanPham(idShop: number): Observable<any> {
-        this.url = 'http://localhost:1650/api/sanpham/listcountsanphamwithidshop/' + idShop;
+        this.url = 'http://takecareofthepet.somee.com/api/sanpham/listcountsanphamwithidshop/' + idShop;
         return this.apiService.get(this.url);
     }
 
@@ -62,7 +83,7 @@ export class SanPhamService {
     }
 
     viewSanPhamVoiIdShop(idShop: number) {
-        this.url = 'http://localhost:1650/api/sanpham/getallbyidshop/' + idShop;
+        this.url = 'http://takecareofthepet.somee.com/api/sanpham/getallbyidshop/' + idShop;
         return this.apiService.get(this.url);
     }
 
@@ -71,6 +92,7 @@ export class SanPhamService {
         this.shopService.viewShopVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
             this.viewSanPhamVoiIdShop(res.data.IdShop).subscribe(res1 => {
                 this.sanPhamListProperty = res1.data;
+                this.toTal = res1.toTal;
             });
         });
     }

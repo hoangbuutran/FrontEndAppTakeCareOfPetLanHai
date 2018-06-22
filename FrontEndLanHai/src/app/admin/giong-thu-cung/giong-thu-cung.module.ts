@@ -20,6 +20,12 @@ import { EscapeHtmlPipe } from '../../shared/Pipe/EscapeHtmlPipe.pipe';
     NgxPaginationModule,
     EditorModule
   ],
-  declarations: [GiongThuCungComponent, GiongThuCungListComponent, GiongThuCungAddComponent, GiongThuCungEditComponent, EscapeHtmlPipe]
+  declarations: [
+    GiongThuCungComponent,
+    GiongThuCungListComponent,
+    GiongThuCungAddComponent,
+    GiongThuCungEditComponent,
+    EscapeHtmlPipe
+  ]
 })
 export class GiongThuCungModule { }

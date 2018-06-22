@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../../shared/Service/session.service';
 import { TaiKhoanModel } from '../../../shared/Model/TaiKhoan.model';
 import { NguoiDungService } from '../../../shared/Service/NguoiDungService';
-import { CoSoYTeService } from '../../../shared/Service/CoSoYTe.service';
+import { CoSoThuYService } from '../../../shared/Service/CoSoThuY.service';
 import { NguoiDungModel } from '../../../shared/Model/NguoiDung.model';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';

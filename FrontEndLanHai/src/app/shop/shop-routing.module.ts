@@ -11,6 +11,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeShopComponent },
       { path: 'loaisanpham', loadChildren: './loai-san-pham/loai-san-pham.module#LoaiSanPhamModule' },
+      { path: 'sanpham', loadChildren: './san-pham/san-pham.module#SanPhamModule' },
+      { path: 'hoadon', loadChildren: './hoa-don/hoa-don.module#HoaDonModule' },
     ]
   }
 ];

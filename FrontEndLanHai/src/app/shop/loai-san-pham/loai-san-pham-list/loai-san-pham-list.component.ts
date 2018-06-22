@@ -11,7 +11,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoaiSanPhamListComponent implements OnInit {
 
-  // LoaiSanPhamList: LoaiSanPhamModel[] = null;
   arrayDelete = [];
   constructor(
     private loaiSanPhamService: LoaiSanPhamService,

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SessionService } from '../shared/Service/session.service';
 import { NguoiDungService } from '../shared/Service/NguoiDungService';
-import { CoSoYTeService } from '../shared/Service/CoSoYTe.service';
+import { CoSoThuYService } from '../shared/Service/CoSoThuY.service';
 
 @Component({
   selector: 'app-co-so-yte-ql',
@@ -14,17 +14,17 @@ export class CoSoYteQlComponent implements OnInit {
   tenCSYT;
   constructor(
     private route: Router,
-    private coSoYTeService: CoSoYTeService,
+    private coSoThuYService: CoSoThuYService,
     private sessionService: SessionService,
   ) { }
 
   ngOnInit() {
-    this.coSoYTeIdTaiKhoan();
+    this.coSoThuYIdTaiKhoan();
   }
 
-  coSoYTeIdTaiKhoan() {
+  coSoThuYIdTaiKhoan() {
     this.sessionuser = this.sessionService.getToken();
-    this.coSoYTeService.viewWithIdTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
+    this.coSoThuYService.viewWithIdTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
       this.tenCSYT = res.data.TenCoSoThuY;
     });
   }

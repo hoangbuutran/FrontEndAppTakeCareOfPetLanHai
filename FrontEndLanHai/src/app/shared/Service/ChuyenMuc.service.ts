@@ -22,31 +22,31 @@ export class ChuyenMucService {
     url: string;
 
     create(chuyenMuc: any): Observable<any> {
-        this.url = 'http://localhost:1650/api/chuyenmuc/create';
+        this.url = 'http://takecareofthepet.somee.com/api/chuyenmuc/create';
         return this.apiService.post(this.url, chuyenMuc);
     }
 
     KhoaMo(chuyenMucId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/chuyenmuc/khoamo/' + chuyenMucId;
+        this.url = 'http://takecareofthepet.somee.com/api/chuyenmuc/khoamo/' + chuyenMucId;
         return this.apiService.get(this.url);
     }
 
     delete(chuyenMucId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/chuyenmuc/delete/' + chuyenMucId;
+        this.url = 'http://takecareofthepet.somee.com/api/chuyenmuc/delete/' + chuyenMucId;
         return this.apiService.get(this.url);
     }
     Update(chuyenMuc: ChuyenMucModel) {
-        this.url = 'http://localhost:1650/api/chuyenmuc/update';
+        this.url = 'http://takecareofthepet.somee.com/api/chuyenmuc/update';
         return this.apiService.put(this.url, chuyenMuc);
     }
 
     view(chuyenMucId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/chuyenmuc/getbyid/' + chuyenMucId;
+        this.url = 'http://takecareofthepet.somee.com/api/chuyenmuc/getbyid/' + chuyenMucId;
         return this.apiService.get(this.url);
     }
 
     countchuyenMuc(): Observable<any> {
-        this.url = 'http://localhost:1650/api/chuyenmuc/listcountchuyenmuc';
+        this.url = 'http://takecareofthepet.somee.com/api/chuyenmuc/listcountchuyenmuc';
         return this.apiService.get(this.url);
     }
 
@@ -56,7 +56,7 @@ export class ChuyenMucService {
     }
 
     chuyenMucList() {
-        this.url = 'http://localhost:1650/api/chuyenmuc/getall';
+        this.url = 'http://takecareofthepet.somee.com/api/chuyenmuc/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.chuyenMucListProperty = res.data;
         });

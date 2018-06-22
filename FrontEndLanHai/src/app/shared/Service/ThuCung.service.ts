@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { ThuCungModel } from '../Model/ThuCung.model';
 import { SessionService } from './session.service';
-import { CoSoYTeService } from './CoSoYTe.service';
+import { CoSoThuYService } from './CoSoThuY.service';
 
 @Injectable()
 
@@ -21,7 +21,7 @@ export class ThuCungService {
         private toastr: ToastrService,
         private http: HttpClient,
         private sessionService: SessionService,
-        private coSoYTeService: CoSoYTeService,
+        private coSoThuYService: CoSoThuYService,
     ) { }
 
     thuCungListProperty: ThuCungModel[];
@@ -29,38 +29,38 @@ export class ThuCungService {
     url: string;
 
     create(thuCung: any): Observable<any> {
-        this.url = 'http://localhost:1650/api/thucung/create';
+        this.url = 'http://takecareofthepet.somee.com/api/thucung/create';
         return this.apiService.post(this.url, thuCung);
     }
 
     KhoaMo(thuCungId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/thucung/khoamo/' + thuCungId;
+        this.url = 'http://takecareofthepet.somee.com/api/thucung/khoamo/' + thuCungId;
         return this.apiService.get(this.url);
     }
 
     delete(thuCungId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/thucung/delete/' + thuCungId;
+        this.url = 'http://takecareofthepet.somee.com/api/thucung/delete/' + thuCungId;
         return this.apiService.get(this.url);
     }
     Update(thuCung: ThuCungModel) {
-        this.url = 'http://localhost:1650/api/thucung/update';
+        this.url = 'http://takecareofthepet.somee.com/api/thucung/update';
         return this.apiService.put(this.url, thuCung);
     }
 
     view(thuCungId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/thucung/getbyid/' + thuCungId;
+        this.url = 'http://takecareofthepet.somee.com/api/thucung/getbyid/' + thuCungId;
         return this.apiService.get(this.url);
     }
 
     viewthuCungVoiIdNguoiDung(idNguoiDung: number | string) {
-        this.url = 'http://localhost:1650/api/thucung/getbyidnguoidung/' + idNguoiDung;
+        this.url = 'http://takecareofthepet.somee.com/api/thucung/getallbyidnguoidung/' + idNguoiDung;
         return this.apiService.get(this.url).subscribe(res => {
             this.listThuCungWithIdNguoiDung = res.data;
         });
     }
 
     countthuCung(): Observable<any> {
-        this.url = 'http://localhost:1650/api/thucung/listcountthucung';
+        this.url = 'http://takecareofthepet.somee.com/api/thucung/listcountthucung';
         return this.apiService.get(this.url);
     }
 
@@ -71,8 +71,8 @@ export class ThuCungService {
 
     // thuCungListVoiCSYT() {
     //     this.sessionuser = this.sessionService.getToken();
-    //     this.coSoYTeService.viewWithIdTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
-    //       this.viewthuCungVoiIdNguoiDung(res.data.IdCoSoYTe).subscribe(res1 => {
+    //     this.coSoThuYService.viewWithIdTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
+    //       this.viewthuCungVoiIdNguoiDung(res.data.IdCoSoThuY).subscribe(res1 => {
     //         this.thuCungListProperty = res1.data;
     //       });
     //     }
@@ -80,7 +80,7 @@ export class ThuCungService {
     // }
 
     thuCungList() {
-        this.url = 'http://localhost:1650/api/thucung/getall';
+        this.url = 'http://takecareofthepet.somee.com/api/thucung/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.thuCungListProperty = res.data;
         });

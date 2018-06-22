@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { CanNangModel } from '../Model/CanNang.model';
 import { SessionService } from './session.service';
-import { CoSoYTeService } from './CoSoYTe.service';
+import { CoSoThuYService } from './CoSoThuY.service';
 
 @Injectable()
 
@@ -24,40 +24,40 @@ export class CanNangService {
     canNangListProperty: CanNangModel[];
     listcanNangWithIdThuCung: CanNangModel[];
     url: string;
-
+    
     create(canNang: any): Observable<any> {
-        this.url = 'http://localhost:1650/api/cannang/create';
+        this.url = 'http://takecareofthepet.somee.com/api/cannang/create';
         return this.apiService.post(this.url, canNang);
     }
 
     KhoaMo(canNangId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/cannang/khoamo/' + canNangId;
+        this.url = 'http://takecareofthepet.somee.com/api/cannang/khoamo/' + canNangId;
         return this.apiService.get(this.url);
     }
 
     delete(canNangId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/cannang/delete/' + canNangId;
+        this.url = 'http://takecareofthepet.somee.com/api/cannang/delete/' + canNangId;
         return this.apiService.get(this.url);
     }
     Update(canNang: CanNangModel) {
-        this.url = 'http://localhost:1650/api/cannang/update';
+        this.url = 'http://takecareofthepet.somee.com/api/cannang/update';
         return this.apiService.put(this.url, canNang);
     }
 
     view(canNangId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/cannang/getbyid/' + canNangId;
+        this.url = 'http://takecareofthepet.somee.com/api/cannang/getbyid/' + canNangId;
         return this.apiService.get(this.url);
     }
 
     viewcanNangVoiIdThuCung(idThuCung: number | string) {
-        this.url = 'http://localhost:1650/api/cannang/getallcannangwithidthucung/' + idThuCung;
+        this.url = 'http://takecareofthepet.somee.com/api/cannang/getallcannangwithidthucung/' + idThuCung;
         return this.apiService.get(this.url).subscribe(res => {
             this.listcanNangWithIdThuCung = res.data;
         });
     }
 
     countcanNang(): Observable<any> {
-        this.url = 'http://localhost:1650/api/cannang/listcountcanNang';
+        this.url = 'http://takecareofthepet.somee.com/api/cannang/listcountcanNang';
         return this.apiService.get(this.url);
     }
 
@@ -67,7 +67,7 @@ export class CanNangService {
     }
 
     canNangList() {
-        this.url = 'http://localhost:1650/api/cannang/getall';
+        this.url = 'http://takecareofthepet.somee.com/api/cannang/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.canNangListProperty = res.data;
         });

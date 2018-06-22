@@ -28,31 +28,32 @@ export class HoaDonService {
     url: string;
 
     create(hoaDon: any): Observable<any> {
-        this.url = 'http://localhost:1650/api/hoadon/create';
+        this.url = 'http://takecareofthepet.somee.com/api/hoadon/create';
         return this.apiService.post(this.url, hoaDon);
     }
 
     updateTrangThai(hoaDonId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/hoadon/updatetrangthai/' + hoaDonId;
+        this.url = 'http://takecareofthepet.somee.com/api/hoadon/updatetrangthai/' + hoaDonId;
         return this.apiService.get(this.url);
     }
 
     delete(HoaDonId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/hoadon/delete/' + HoaDonId;
+        this.url = 'http://takecareofthepet.somee.com/api/hoadon/delete/' + HoaDonId;
         return this.apiService.get(this.url);
     }
+    
     Update(HoaDon: HoaDonModel) {
-        this.url = 'http://localhost:1650/api/hoadon/update';
+        this.url = 'http://takecareofthepet.somee.com/api/hoadon/update';
         return this.apiService.put(this.url, HoaDon);
     }
 
     view(HoaDonId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/hoadon/getbyid/' + HoaDonId;
+        this.url = 'http://takecareofthepet.somee.com/api/hoadon/getbyid/' + HoaDonId;
         return this.apiService.get(this.url);
     }
 
     countHoaDon(idShop: number): Observable<any> {
-        this.url = 'http://localhost:1650/api/hoadon/listcounthoadonshop/' + idShop;
+        this.url = 'http://takecareofthepet.somee.com/api/hoadon/listcounthoadonshop/' + idShop;
         return this.apiService.get(this.url);
     }
 
@@ -62,7 +63,7 @@ export class HoaDonService {
     }
 
     viewHoaDonVoiIdShop(idShop: number) {
-        this.url = 'http://localhost:1650/api/hoadon/getallbyidshop/' + idShop;
+        this.url = 'http://takecareofthepet.somee.com/api/hoadon/getallbyidshop/' + idShop;
         return this.apiService.get(this.url);
     }
 

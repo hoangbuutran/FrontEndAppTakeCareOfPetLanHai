@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -22,7 +20,7 @@ import { ChuyenMucService } from './shared/Service/ChuyenMuc.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { CoSoYTeService } from './shared/Service/CoSoYTe.service';
+import { CoSoThuYService } from './shared/Service/CoSoThuY.service';
 import { NguoiDungService } from './shared/Service/NguoiDungService';
 import { ThuCungService } from './shared/Service/ThuCung.service';
 import { CanNangService } from './shared/Service/CanNang.service';
@@ -31,6 +29,9 @@ import { ShopService } from './shared/Service/Shop.service';
 import { LoaiSanPhamService } from './shared/Service/LoaiSanPham.service';
 import { SanPhamService } from './shared/Service/SanPham.service';
 import { HoaDonService } from './shared/Service/HoaDon.service';
+import { EscapeHtmlPipe } from './shared/Pipe/EscapeHtmlPipe.pipe';
+import { HinhAnhSanPhamService } from './shared/Service/HinhAnhSanPham.service';
+import { ErrorService } from './shared/Service/error.service';
 
 @NgModule({
   declarations: [
@@ -61,15 +62,17 @@ import { HoaDonService } from './shared/Service/HoaDon.service';
     ShopService,
     NguoiDungService,
     ThuCungService,
-    CoSoYTeService,
+    CoSoThuYService,
     TaiKhoanService,
     HoaDonService,
+    ErrorService,
     LoaiSanPhamService,
     SanPhamService,
     CanNangService,
     TinhTrangService,
     GiongThuCungService,
     ChuyenMucService,
+    HinhAnhSanPhamService,
     AuthGuard,
   ], 
   bootstrap: [AppComponent]

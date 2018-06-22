@@ -74,7 +74,7 @@ export class GiongThuCungListComponent implements OnInit {
     }
   }
 
-  XoaQuyen(id: number) {
+  XoaGiongThuCung(id: number) {
     if (confirm('Bạn có chắc chắn muốn xóa giống thú cưng ?') === true) {
       this.giongThuCungService.delete(id)
         .subscribe(x => {

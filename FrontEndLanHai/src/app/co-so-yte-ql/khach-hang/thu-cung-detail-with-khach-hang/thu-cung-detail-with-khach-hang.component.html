@@ -45,7 +45,7 @@
                     <th>Ngày</th>
                   </tr>
                 </thead>
-                <tbody *ngFor="let item of canNangService.listcanNangWithIdThuCung | paginate: { itemsPerPage: 5, currentPage: p }">
+                <tbody *ngFor="let item of canNangService.listcanNangWithIdThuCung | paginate: { itemsPerPage: 5, currentPage: p1, id: 'first' }">
                   <tr>
                     <td>
                       {{ item.CanNang1 }}
@@ -56,7 +56,7 @@
                   </tr>
                 </tbody>
               </table>
-              <pagination-controls (pageChange)="p =$event"></pagination-controls>
+              <pagination-controls (pageChange)="p1 =$event" id="first"></pagination-controls>
             </div>
           </div>
           <div class="col-lg-4 col-xs-4">
@@ -69,7 +69,7 @@
                     <th>Tùy chọn</th>
                   </tr>
                 </thead>
-                <tbody *ngFor="let item of tinhTrangService.listtinhTrangWithIdThuCung | paginate: { itemsPerPage: 5, currentPage: p }">
+                <tbody *ngFor="let item of tinhTrangService.listtinhTrangWithIdThuCung | paginate: { itemsPerPage: 5, currentPage: p2, id: 'second' }">
                   <tr>
                     <td>
                       {{ item.NgayCapNhat | date: "dd-MM-yyyy"}}
@@ -81,7 +81,7 @@
                   </tr>
                 </tbody>
               </table>
-              <pagination-controls (pageChange)="p =$event"></pagination-controls>
+              <pagination-controls (pageChange)="p2 =$event" id="second"></pagination-controls>
             </div>
           </div>
         </div>
