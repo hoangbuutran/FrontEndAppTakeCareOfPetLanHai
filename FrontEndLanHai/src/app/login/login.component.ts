@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
 
           } else if (res.data.IdQuyen === 3) { // Nguoi dung
             this.sessionService.saveSession(res.data);
-            this.router.navigate(['/sinhvien']);
+            this.router.navigate(['/nguoidung']);
 
           } else if (res.data.IdQuyen === 4) { // Nguoi dung
             this.sessionService.saveSession(res.data);

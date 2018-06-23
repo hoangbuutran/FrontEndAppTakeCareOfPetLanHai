@@ -26,4 +26,9 @@ export class TaiKhoanService {
         this.url = 'http://takecareofthepet.somee.com/api/taikhoan/getbyid/' + taiKhoanId;
         return this.apiService.get(this.url);
     }
+    
+    ChangePass(ChangePassModel: any) {
+        this.url = 'http://takecareofthepet.somee.com/api/taikhoan/doimatkhau';
+        return this.apiService.post(this.url, ChangePassModel);
+    }
 }

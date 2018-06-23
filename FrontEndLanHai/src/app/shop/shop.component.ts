@@ -10,13 +10,13 @@ import { ShopService } from '../shared/Service/Shop.service';
 })
 export class ShopComponent implements OnInit {
   sessionuser: any;
-  tenShop;
+  tenShop: any;
+  idShop: any;
   constructor(
     private route: Router,
     private shopService: ShopService,
     private sessionService: SessionService,
   ) { }
-
   ngOnInit() {
     this.ShopIdTaiKhoan();
   }
@@ -25,6 +25,7 @@ export class ShopComponent implements OnInit {
     this.sessionuser = this.sessionService.getToken();
     this.shopService.viewShopVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
       this.tenShop = res.data.TenShop;
+      this.idShop = res.data.IdShop;
     });
   }
 

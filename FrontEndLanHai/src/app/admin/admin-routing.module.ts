@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { QuyenModule } from './quyen/quyen.module';
 import { AdminComponent } from './admin.component';
 import { ErrorComponent } from './error/error.component';
+import { ChangePassComponent } from './change-pass/change-pass.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'cosothuy', loadChildren: './co-so-thu-y/co-so-thu-y.module#CoSoThuYModule' },
       { path: 'qlshop', loadChildren: './qlshop/qlshop.module#QlshopModule' },
       { path: 'error', component: ErrorComponent },
+      { path: 'changepass', component: ChangePassComponent },
     ]
   }
 ];

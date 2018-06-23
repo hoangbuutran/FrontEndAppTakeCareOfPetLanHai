@@ -85,7 +85,7 @@
           <div class="form-group">
             <div class="col-md-10">
               <label>Tính cách: </label>
-              {{ TinhCachDetail }}
+              <div [innerHTML]="TinhCachDetail | keepHtml"></div> 
             </div>
           </div>
         </div>
@@ -103,7 +103,7 @@
           <div class="form-group">
             <div class="col-md-10">
               <label>Đặc điểm: </label>
-              {{ DacDiemDetail }}
+              <div [innerHTML]="DacDiemDetail | keepHtml"></div> 
             </div>
           </div>
         </div>
@@ -111,7 +111,7 @@
           <div class="form-group">
             <div class="col-md-10">
               <label>Cách chăm sóc: </label>
-              {{ CachChamSocDetail }}
+              <div [innerHTML]="CachChamSocDetail | keepHtml"></div> 
             </div>
           </div>
         </div>
@@ -119,7 +119,7 @@
           <div class="form-group">
             <div class="col-md-10">
               <label>Lưu ý sức khỏe: </label>
-              {{ LuuYSucKhoeDetail }}
+              <div [innerHTML]="LuuYSucKhoeDetail | keepHtml"></div> 
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@
           <div class="form-group">
             <div class="col-md-10">
               <label>Lịch sử: </label>
-              {{ LichSuDetail }}
+              <div [innerHTML]="LichSuDetail | keepHtml"></div> 
             </div>
           </div>
         </div>

@@ -47,12 +47,12 @@ export class GiongThuCungAddComponent implements OnInit {
     const reader = new FileReader();
     reader.onload = (event: any) => {
       this.imageUrl = event.target.result;
+      this.GiongThuCungAddForm.get('HinhAnh').patchValue(file.item(0).name);
     };
     reader.readAsDataURL(this.fileToUpload);
   }
 
   GiongThuCungAddSubmitForm() {
-    console.log(this.GiongThuCungAddForm.value);
     this.giongThuCungService.create(this.GiongThuCungAddForm.value)
       .subscribe(data => {
         this.giongThuCungService.upFile(data.data.IdGiongThuCung, this.fileToUpload)

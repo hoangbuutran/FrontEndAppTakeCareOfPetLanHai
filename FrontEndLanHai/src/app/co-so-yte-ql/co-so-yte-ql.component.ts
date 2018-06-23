@@ -12,6 +12,7 @@ import { CoSoThuYService } from '../shared/Service/CoSoThuY.service';
 export class CoSoYteQlComponent implements OnInit {
   sessionuser: any;
   tenCSYT;
+  IdCSTY: any;
   constructor(
     private route: Router,
     private coSoThuYService: CoSoThuYService,
@@ -26,6 +27,7 @@ export class CoSoYteQlComponent implements OnInit {
     this.sessionuser = this.sessionService.getToken();
     this.coSoThuYService.viewWithIdTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
       this.tenCSYT = res.data.TenCoSoThuY;
+      this.IdCSTY = res.data.IdCoSoThuY;
     });
   }
   
