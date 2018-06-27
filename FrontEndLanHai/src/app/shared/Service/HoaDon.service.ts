@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { HoaDonModel } from '../Model/HoaDon.model';
 import { SessionService } from './session.service';
 import { ShopService } from './Shop.service';
+import { ChiTietHoaDonModel } from '../Model/ChiTietHoaDon.model';
 
 @Injectable()
 
@@ -64,6 +65,11 @@ export class HoaDonService {
 
     viewHoaDonVoiIdShop(idShop: number) {
         this.url = 'http://takecareofthepet.somee.com/api/hoadon/getallbyidshop/' + idShop;
+        return this.apiService.get(this.url);
+    }
+
+    viewCTHoaDonVoiIdHoaDon(idHoaDon: number) {
+        this.url = 'http://takecareofthepet.somee.com/api/hoadon/getallcthdbyidhoadon/' + idHoaDon;
         return this.apiService.get(this.url);
     }
 

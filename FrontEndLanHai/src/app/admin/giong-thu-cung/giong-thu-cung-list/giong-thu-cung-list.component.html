@@ -67,7 +67,7 @@
       <div class="modal-body">
         <div class="form-horizontal">
           <div class="form-group">
-            <div class="col-md-10">
+            <div class="col-md-12">
               <label>Tên giống thú cưng: </label>
               {{ TenGiongThuCungDetail }}
             </div>
@@ -75,7 +75,7 @@
         </div>
         <div class="form-horizontal">
           <div class="form-group">
-            <div class="col-md-10">
+            <div class="col-md-12">
               <label>Giới thiệu: </label>
               <div [innerHTML]="GioiThieuDetail | keepHtml"></div>             
             </div>
@@ -83,7 +83,7 @@
         </div>
         <div class="form-horizontal">
           <div class="form-group">
-            <div class="col-md-10">
+            <div class="col-md-12">
               <label>Tính cách: </label>
               <div [innerHTML]="TinhCachDetail | keepHtml"></div> 
             </div>
@@ -91,17 +91,17 @@
         </div>
         <div class="form-horizontal">
           <div class="form-group">
-            <div class="col-md-10">
+            <div class="col-md-12">
               <label>Hình ảnh: </label>
               <br>
-              <img [src]="HinhAnhDetail" style="width:350px;height:250px; border-radius: 10px">
+              <img [src]="HinhAnhDetail" class="center-block" style="width:350px;height:250px; border-radius: 10px">
             </div>
           </div>
         </div>
 
         <div class="form-horizontal">
           <div class="form-group">
-            <div class="col-md-10">
+            <div class="col-md-12">
               <label>Đặc điểm: </label>
               <div [innerHTML]="DacDiemDetail | keepHtml"></div> 
             </div>
@@ -109,7 +109,7 @@
         </div>
         <div class="form-horizontal">
           <div class="form-group">
-            <div class="col-md-10">
+            <div class="col-md-12">
               <label>Cách chăm sóc: </label>
               <div [innerHTML]="CachChamSocDetail | keepHtml"></div> 
             </div>
@@ -117,7 +117,7 @@
         </div>
         <div class="form-horizontal">
           <div class="form-group">
-            <div class="col-md-10">
+            <div class="col-md-12">
               <label>Lưu ý sức khỏe: </label>
               <div [innerHTML]="LuuYSucKhoeDetail | keepHtml"></div> 
             </div>
@@ -125,7 +125,7 @@
         </div>
         <div class="form-horizontal">
           <div class="form-group">
-            <div class="col-md-10">
+            <div class="col-md-12">
               <label>Lịch sử: </label>
               <div [innerHTML]="LichSuDetail | keepHtml"></div> 
             </div>

@@ -39,24 +39,30 @@
               </div>
             </div>
             <div class="form-group">
-              <div class="col-md-12">
-                  <div class="btn-info col-md-2" id="buttonxoaanhcu" (click)="xoaAnhCu()" style="float: right; align-content: center">Xóa ảnh củ</div>
-              </div>
-              
-              <label for="inputEmail3" class="col-sm-2 control-label">Hình ảnh cho sản phẩm</label>
-              <div class="col-sm-9">
-                <div>
-                  <img *ngFor="let url of listLinkHinhAnh" [src]="url" class="col-md-6" style="width: 390px;height:330px; border-radius: 10px">
-                </div>
-                <div>
-                  <img *ngFor="let url of urls" [src]="url" value="" class="rounded mb-3" style="width:180px;height:250px; border-radius: 10px">
-                </div>
-                <hr>
-                <br>
-                <input type="file" id="file" multiple (change)="getFileDetails($event)">
+              <div class="col-sm-12">
+                <div class="btn btn-info col-md-3 full-right" id="buttonxoaanhcu" (click)="xoaAnhCu()" style="float: right; align-content: center">Xóa ảnh củ</div>
               </div>
             </div>
-
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Hình ảnh cho sản phẩm</label>
+              <div class="col-sm-9 center-block">
+                <div>
+                  <img *ngFor="let url of listLinkHinhAnh" [src]="url" class="rounded mb-3" style="width: 353px;height:330px; border-radius: 10px">
+                </div>
+                <div>
+                  <img *ngFor="let url of urls" [src]="url" value="" class="rounded mb-3" style="width:353px;height:330px; border-radius: 10px">
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label"></label>
+              <div class="col-sm-9">
+                <div class="center-block">
+                  <input type="file" id="file" multiple (change)="getFileDetails($event)">
+                </div>
+              </div>
+            </div>
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">Loại sản phẩm</label>
               <div class="col-sm-3">

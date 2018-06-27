@@ -38,6 +38,7 @@
                 <label class="col-lg-3 control-label">Tên đăng nhập:</label>
                 <div class="col-lg-7">
                   <input class="form-control" type="text" formControlName="UserName">
+                  <p *ngIf="ChangePassForm.get('UserName').invalid && ChangePassForm.get('UserName').touched">Required</p>
                 </div>
               </div>
 
@@ -45,6 +46,7 @@
                 <label class="col-lg-3 control-label">Mật khẩu củ:</label>
                 <div class="col-lg-7">
                   <input class="form-control" type="text" formControlName="PassOld">
+                  <p *ngIf="ChangePassForm.get('PassOld').invalid && ChangePassForm.get('PassOld').touched">Required</p>
                 </div>
               </div>
 
@@ -52,6 +54,7 @@
                 <label class="col-lg-3 control-label">Mật khẩu mới:</label>
                 <div class="col-lg-7">
                   <input class="form-control" type="text" formControlName="PassNew">
+                  <p *ngIf="ChangePassForm.get('PassNew').invalid && ChangePassForm.get('PassNew').touched">Required</p>
                 </div>
               </div>
 
