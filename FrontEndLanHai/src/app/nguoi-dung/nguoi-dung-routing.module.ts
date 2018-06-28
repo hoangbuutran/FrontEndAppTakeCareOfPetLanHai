@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeNguoiDungComponent } from './home-nguoi-dung/home-nguoi-dung.component';
 import { NguoiDungComponent } from './nguoi-dung.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeNguoiDungComponent },
+      { path: 'cart', component: CartComponent },
       { path: 'kenhnguoiban', loadChildren: './kenh-nguoi-ban/kenh-nguoi-ban.module#KenhNguoiBanModule' },
       { path: 'nguoidungprofile', loadChildren: './nguoi-dung-profile/nguoi-dung-profile.module#NguoiDungProfileModule' },
       { path: 'thucungnguoidung', loadChildren: './thu-cung-nguoi-dung/thu-cung-nguoi-dung.module#ThuCungNguoiDungModule' },
