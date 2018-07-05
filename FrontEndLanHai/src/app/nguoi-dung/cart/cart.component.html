@@ -1,147 +1,339 @@
 <div class="row col-md-12">
-  <div class="col-sm-1 col-md-1">
+  <div class="col-sm-2 col-md-2">
+    <br>
+    <br>
+    <ul class="sidebar-menu">
+      <li class="">
+        <a routerLink="/nguoidung/home">
+          <i class="fa fa-link"></i>
+          <span>Trang Chủ</span>
+        </a>
+      </li>
+      <li class="">
+        <a routerLink="/nguoidung/thucungnguoidung/home/1">
+          <i class="fa fa-link"></i>
+          <span>Thú cưng của bạn</span>
+        </a>
+      </li>
+      <li class="">
+        <a routerLink="/nguoidung/kenhnguoiban">
+          <i class="fa fa-link"></i>
+          <span>Mua sản phẩm</span>
+        </a>
+      </li>
+    </ul>
   </div>
-  <div class="col-sm-8 col-md-8">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th class="text-center">Price</th>
-          <th class="text-center">Total</th>
-          <th> </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="col-sm-8 col-md-6">
-            <div class="media">
-              <a class="thumbnail pull-left" href="#">
-                <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"
-                  style="width: 72px; height: 72px;"> </a>
-              <div class="media-body">
-                <h4 class="media-heading">
-                  <a href="#">Product name</a>
-                </h4>
-                <h5 class="media-heading"> by
-                  <a href="#">Brand name</a>
-                </h5>
-                <span>Status: </span>
-                <span class="text-success">
-                  <strong>In Stock</strong>
-                </span>
+  <div class="col-sm-7 col-md-7">
+    <br>
+    <br>
+    <div class="box box-primary">
+      <table id="cart" class="table table-hover table-condensed">
+        <thead>
+          <tr>
+            <th style="width:50%">Tên sản phẩm</th>
+            <th style="width:10%">Giá</th>
+            <th style="width:8%">Số lượng</th>
+            <th style="width:22%" class="text-center">Thành tiền</th>
+            <th style="width:10%"> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-th="Product">
+              <div class="row">
+                <div class="col-sm-2 hidden-xs">
+                  <img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" alt="Sản phẩm 1"
+                    class="img-responsive" width="100%">
+                </div>
+                <div class="col-sm-10">
+                  <h4 class="nomargin">Sản phẩm 1</h4>
+                  <p>Mô tả của sản phẩm 1</p>
+                </div>
               </div>
-            </div>
-          </td>
-          <td class="col-sm-1 col-md-1" style="text-align: center">
-            <input type="email" class="form-control" id="exampleInputEmail1" value="3">
-          </td>
-          <td class="col-sm-1 col-md-1 text-center">
-            <strong>$4.87</strong>
-          </td>
-          <td class="col-sm-1 col-md-1 text-center">
-            <strong>$14.61</strong>
-          </td>
-          <td class="col-sm-1 col-md-1">
-            <button type="button" class="btn btn-danger">
-              <span class="glyphicon glyphicon-remove"></span> Remove
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td class="col-md-6">
-            <div class="media">
-              <a class="thumbnail pull-left" href="#">
-                <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"
-                  style="width: 72px; height: 72px;"> </a>
-              <div class="media-body">
-                <h4 class="media-heading">
-                  <a href="#">Product name</a>
-                </h4>
-                <h5 class="media-heading"> by
-                  <a href="#">Brand name</a>
-                </h5>
-                <span>Status: </span>
-                <span class="text-warning">
-                  <strong>Leaves warehouse in 2 - 3 weeks</strong>
-                </span>
+            </td>
+            <td data-th="Price">200.000 đ</td>
+            <td data-th="Quantity">
+              <input class="form-control text-center" value="1" type="number">
+            </td>
+            <td data-th="Subtotal" class="text-center">200.000 đ</td>
+            <td class="actions" data-th="">
+              <button class="btn btn-info btn-sm">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-danger btn-sm">
+                <i class="fa fa-trash-o"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td data-th="Product">
+              <div class="row">
+                <div class="col-sm-2 hidden-xs">
+                  <img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" alt="Sản phẩm 1"
+                    class="img-responsive" width="100">
+                </div>
+                <div class="col-sm-10">
+                  <h4 class="nomargin">Sản phẩm 2</h4>
+                  <p>Mô tả của sản phẩm 2</p>
+                </div>
               </div>
-            </div>
-          </td>
-          <td class="col-md-1" style="text-align: center">
-            <input type="email" class="form-control" id="exampleInputEmail1" value="2">
-          </td>
-          <td class="col-md-1 text-center">
-            <strong>$4.99</strong>
-          </td>
-          <td class="col-md-1 text-center">
-            <strong>$9.98</strong>
-          </td>
-          <td class="col-md-1">
-            <button type="button" class="btn btn-danger">
-              <span class="glyphicon glyphicon-remove"></span> Remove
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>   </td>
-          <td>   </td>
-          <td>   </td>
-          <td>
-            <h5>Subtotal</h5>
-          </td>
-          <td class="text-right">
-            <h5>
-              <strong>$24.59</strong>
-            </h5>
-          </td>
-        </tr>
-        <tr>
-          <td>   </td>
-          <td>   </td>
-          <td>   </td>
-          <td>
-            <h5>Estimated shipping</h5>
-          </td>
-          <td class="text-right">
-            <h5>
-              <strong>$6.94</strong>
-            </h5>
-          </td>
-        </tr>
-        <tr>
-          <td>   </td>
-          <td>   </td>
-          <td>   </td>
-          <td>
-            <h3>Total</h3>
-          </td>
-          <td class="text-right">
-            <h3>
-              <strong>$31.53</strong>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td>   </td>
-          <td>   </td>
-          <td>   </td>
-          <td>
-            <button type="button" class="btn btn-default">
-              <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-success">
-              Checkout
-              <span class="glyphicon glyphicon-play"></span>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            </td>
+            <td data-th="Price">300.000 đ</td>
+            <td data-th="Quantity">
+              <input class="form-control text-center" value="1" type="number">
+            </td>
+            <td data-th="Subtotal" class="text-center">300.000 đ</td>
+            <td class="actions" data-th="">
+              <button class="btn btn-info btn-sm">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-danger btn-sm">
+                <i class="fa fa-trash-o"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="visible-xs">
+            <td class="text-center">
+              <strong>Tổng 200.000 đ</strong>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a routerLink="/nguoidung/kenhnguoiban/home" class="btn btn-warning">
+                <i class="fa fa-angle-left"></i> Tiếp tục mua hàng</a>
+            </td>
+            <td colspan="2" class="hidden-xs"> </td>
+            <td class="hidden-xs text-center">
+              <strong>Tổng tiền 500.000 đ</strong>
+            </td>
+            <td>
+              <a href="#" class="btn btn-success btn-block">Thanh toán
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
   </div>
   <div class="col-sm-3 col-md-3">
-    sản phẩm xem gần đây
+    <br>
+    <br>
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">Recently Added Products</h3>
+        <div class="box-tools pull-right">
+          <button class="btn btn-box-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button class="btn btn-box-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <ul class="products-list product-list-in-box">
+          <li class="item">
+            <div class="product-img">
+              <img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" alt="Product Image">
+            </div>
+            <div class="product-info">
+              <a href="javascript::;" class="product-title">Sản phẩm 1
+                <span class="label label-warning pull-right">$1800</span>
+              </a>
+              <span class="product-description">
+                Samsung 32" 1080p 60Hz LED Smart HDTV.
+              </span>
+            </div>
+          </li>
+          <!-- /.item -->
+          <li class="item">
+            <div class="product-img">
+              <img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" alt="Product Image">
+            </div>
+            <div class="product-info">
+              <a href="javascript::;" class="product-title">Sản phẩm 2
+                <span class="label label-info pull-right">$700</span>
+              </a>
+              <span class="product-description">
+                26" Mongoose Dolomite Men's 7-speed, Navy Blue.
+              </span>
+            </div>
+          </li>
+          <!-- /.item -->
+          <li class="item">
+            <div class="product-img">
+              <img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" alt="Product Image">
+            </div>
+            <div class="product-info">
+              <a href="javascript::;" class="product-title">Sản phẩm 3
+                <span class="label label-danger pull-right">$350</span>
+              </a>
+              <span class="product-description">
+                Xbox One Console Bundle with Halo Master Chief Collection.
+              </span>
+            </div>
+          </li>
+          <!-- /.item -->
+          <li class="item">
+            <div class="product-img">
+              <img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" alt="Product Image">
+            </div>
+            <div class="product-info">
+              <a href="javascript::;" class="product-title">Sản phẩm 4
+                <span class="label label-success pull-right">$399</span>
+              </a>
+              <span class="product-description">
+                PlayStation 4 500GB Console (PS4)
+              </span>
+            </div>
+          </li>
+          <!-- /.item -->
+        </ul>
+      </div>
+      <!-- /.box-body -->
+    </div>
   </div>
-</div>
+  <!-- <div class="col-sm-8 col-md-8">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th class="text-center">Price</th>
+        <th class="text-center">Total</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-sm-8 col-md-6">
+          <div class="media">
+            <a class="thumbnail pull-left" href="#">
+              <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"
+                style="width: 72px; height: 72px;"> </a>
+            <div class="media-body">
+              <h4 class="media-heading">
+                <a href="#">Product name</a>
+              </h4>
+              <h5 class="media-heading"> by
+                <a href="#">Brand name</a>
+              </h5>
+              <span>Status: </span>
+              <span class="text-success">
+                <strong>In Stock</strong>
+              </span>
+            </div>
+          </div>
+        </td>
+        <td class="col-sm-1 col-md-1" style="text-align: center">
+          <input type="email" class="form-control" id="exampleInputEmail1" value="3">
+        </td>
+        <td class="col-sm-1 col-md-1 text-center">
+          <strong>$4.87</strong>
+        </td>
+        <td class="col-sm-1 col-md-1 text-center">
+          <strong>$14.61</strong>
+        </td>
+        <td class="col-sm-1 col-md-1">
+          <button type="button" class="btn btn-danger">
+            <span class="glyphicon glyphicon-remove"></span> Remove
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-6">
+          <div class="media">
+            <a class="thumbnail pull-left" href="#">
+              <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"
+                style="width: 72px; height: 72px;"> </a>
+            <div class="media-body">
+              <h4 class="media-heading">
+                <a href="#">Product name</a>
+              </h4>
+              <h5 class="media-heading"> by
+                <a href="#">Brand name</a>
+              </h5>
+              <span>Status: </span>
+              <span class="text-warning">
+                <strong>Leaves warehouse in 2 - 3 weeks</strong>
+              </span>
+            </div>
+          </div>
+        </td>
+        <td class="col-md-1" style="text-align: center">
+          <input type="email" class="form-control" id="exampleInputEmail1" value="2">
+        </td>
+        <td class="col-md-1 text-center">
+          <strong>$4.99</strong>
+        </td>
+        <td class="col-md-1 text-center">
+          <strong>$9.98</strong>
+        </td>
+        <td class="col-md-1">
+          <button type="button" class="btn btn-danger">
+            <span class="glyphicon glyphicon-remove"></span> Remove
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>   </td>
+        <td>   </td>
+        <td>   </td>
+        <td>
+          <h5>Subtotal</h5>
+        </td>
+        <td class="text-right">
+          <h5>
+            <strong>$24.59</strong>
+          </h5>
+        </td>
+      </tr>
+      <tr>
+        <td>   </td>
+        <td>   </td>
+        <td>   </td>
+        <td>
+          <h5>Estimated shipping</h5>
+        </td>
+        <td class="text-right">
+          <h5>
+            <strong>$6.94</strong>
+          </h5>
+        </td>
+      </tr>
+      <tr>
+        <td>   </td>
+        <td>   </td>
+        <td>   </td>
+        <td>
+          <h3>Total</h3>
+        </td>
+        <td class="text-right">
+          <h3>
+            <strong>$31.53</strong>
+          </h3>
+        </td>
+      </tr>
+      <tr>
+        <td>   </td>
+        <td>   </td>
+        <td>   </td>
+        <td>
+          <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+          </button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-success">
+            Checkout
+            <span class="glyphicon glyphicon-play"></span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->

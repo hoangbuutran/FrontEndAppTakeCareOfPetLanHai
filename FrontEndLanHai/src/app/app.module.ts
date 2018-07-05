@@ -32,6 +32,13 @@ import { HoaDonService } from './shared/Service/HoaDon.service';
 import { EscapeHtmlPipe } from './shared/Pipe/EscapeHtmlPipe.pipe';
 import { HinhAnhSanPhamService } from './shared/Service/HinhAnhSanPham.service';
 import { ErrorService } from './shared/Service/error.service';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { UploadFileService } from './shared/Service/UploadFile.service';
+import { BinhLuanService } from './shared/Service/BinhLuan.service';
+import { ThongKeService } from './shared/Service/ThongKe.service';
+import { BaiVietService } from './shared/Service/BaiViet.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +55,8 @@ import { ErrorService } from './shared/Service/error.service';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     ToastrModule.forRoot(),
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
@@ -63,7 +72,10 @@ import { ErrorService } from './shared/Service/error.service';
     NguoiDungService,
     ThuCungService,
     CoSoThuYService,
+    UploadFileService,
     TaiKhoanService,
+    BinhLuanService,
+    BaiVietService,
     HoaDonService,
     ErrorService,
     LoaiSanPhamService,
@@ -71,6 +83,7 @@ import { ErrorService } from './shared/Service/error.service';
     CanNangService,
     TinhTrangService,
     GiongThuCungService,
+    ThongKeService,
     ChuyenMucService,
     HinhAnhSanPhamService,
     AuthGuard,

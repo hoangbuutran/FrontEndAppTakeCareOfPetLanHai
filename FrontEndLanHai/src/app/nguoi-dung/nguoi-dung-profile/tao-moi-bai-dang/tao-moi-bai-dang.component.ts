@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { UploadFileService } from '../../../shared/Service/UploadFile.service';
 import { FileUpload } from '../../../shared/Model/FileUpload.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { UploadFileService } from '../../../shared/Service/UploadFile.service';
 
 @Component({
-  selector: 'app-thu-cung-nguoi-dung-home',
-  templateUrl: './thu-cung-nguoi-dung-home.component.html',
-  styleUrls: ['./thu-cung-nguoi-dung-home.component.css']
+  selector: 'app-tao-moi-bai-dang',
+  templateUrl: './tao-moi-bai-dang.component.html',
+  styleUrls: ['./tao-moi-bai-dang.component.css']
 })
-export class ThuCungNguoiDungHomeComponent implements OnInit {
-
+export class TaoMoiBaiDangComponent implements OnInit {
   selectedFiles: FileList;
   currentFileUpload: FileUpload;
   progress: { percentage: number } = { percentage: 0 };
   downloadURLLocal: any;
-
   BaiVietAddForm: FormGroup;
 
   trangThaiList = [

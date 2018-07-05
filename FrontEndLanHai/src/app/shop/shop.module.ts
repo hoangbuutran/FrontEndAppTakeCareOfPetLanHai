@@ -8,6 +8,7 @@ import { ChangePassShopComponent } from './change-pass-shop/change-pass-shop.com
 import { ChangeProfileShopComponent } from './change-profile-shop/change-profile-shop.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ThongKeDoanhSoShopComponent } from './thong-ke-doanh-so-shop/thong-ke-doanh-so-shop.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReactiveFormsModule,
     NgxPaginationModule,
   ],
-  declarations: [ShopComponent, HomeShopComponent, ChangePassShopComponent, ChangeProfileShopComponent]
+  declarations: [ShopComponent, HomeShopComponent, ChangePassShopComponent, ChangeProfileShopComponent, ThongKeDoanhSoShopComponent]
 })
 export class ShopModule { }

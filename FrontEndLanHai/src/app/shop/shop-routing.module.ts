@@ -4,6 +4,7 @@ import { ShopComponent } from './shop.component';
 import { HomeShopComponent } from './home-shop/home-shop.component';
 import { ChangePassShopComponent } from './change-pass-shop/change-pass-shop.component';
 import { ChangeProfileShopComponent } from './change-profile-shop/change-profile-shop.component';
+import { ThongKeDoanhSoShopComponent } from './thong-ke-doanh-so-shop/thong-ke-doanh-so-shop.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'sanpham', loadChildren: './san-pham/san-pham.module#SanPhamModule' },
       { path: 'hoadon', loadChildren: './hoa-don/hoa-don.module#HoaDonModule' },
       { path: 'changepass', component: ChangePassShopComponent },
+      { path: 'thongke', component: ThongKeDoanhSoShopComponent },
       { path: 'changeprofile/:IdShop', component: ChangeProfileShopComponent },
     ]
   }

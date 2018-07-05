@@ -20,6 +20,7 @@ const routes: Routes = [
       { path: 'chuyenmuc', loadChildren: './chuyen-muc/chuyen-muc.module#ChuyenMucModule' },
       { path: 'cosothuy', loadChildren: './co-so-thu-y/co-so-thu-y.module#CoSoThuYModule' },
       { path: 'qlshop', loadChildren: './qlshop/qlshop.module#QlshopModule' },
+      { path: 'qlbaiviet', loadChildren: './qlbai-viet-admin/qlbai-viet-admin.module#QlbaiVietAdminModule' },
       { path: 'error', component: ErrorComponent },
       { path: 'changepass', component: ChangePassComponent },
     ]
