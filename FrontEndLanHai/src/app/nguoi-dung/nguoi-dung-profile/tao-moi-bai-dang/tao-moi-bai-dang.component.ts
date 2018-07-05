@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UploadFileService } from '../../../shared/Service/UploadFile.service';
+import { BaiVietService } from '../../../shared/Service/BaiViet.service';
 
 @Component({
   selector: 'app-tao-moi-bai-dang',
@@ -16,7 +17,6 @@ export class TaoMoiBaiDangComponent implements OnInit {
   progress: { percentage: number } = { percentage: 0 };
   downloadURLLocal: any;
   BaiVietAddForm: FormGroup;
-
   trangThaiList = [
     { id: true, name: 'public' },
     { id: false, name: 'private' },
@@ -27,6 +27,7 @@ export class TaoMoiBaiDangComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService,
     private uploadService: UploadFileService,
+    private baiVietService: BaiVietService
   ) { }
 
   ngOnInit() {
@@ -54,7 +55,6 @@ export class TaoMoiBaiDangComponent implements OnInit {
     const file = this.selectedFiles.item(0);
     this.selectedFiles = undefined;
     this.currentFileUpload = new FileUpload(file);
-    this.uploadService.pushFileToStorage(this.BaiVietAddForm.value,this.currentFileUpload, this.progress);
+    this.uploadService.pushFileToStorage(this.BaiVietAddForm.value, this.currentFileUpload, this.progress);
   }
-
 }

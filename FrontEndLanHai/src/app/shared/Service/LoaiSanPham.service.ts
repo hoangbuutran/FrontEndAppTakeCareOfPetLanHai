@@ -27,31 +27,31 @@ export class LoaiSanPhamService {
     url: string;
     idShop;
     create(loaiSanPham: any): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/loaisanpham/create';
+        this.url = 'http://takecareofpets.somee.com/api/loaisanpham/create';
         return this.apiService.post(this.url, loaiSanPham);
     }
 
     KhoaMo(loaiSanPhamId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/loaisanpham/khoamo/' + loaiSanPhamId;
+        this.url = 'http://takecareofpets.somee.com/api/loaisanpham/khoamo/' + loaiSanPhamId;
         return this.apiService.get(this.url);
     }
 
     delete(loaiSanPhamId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/loaisanpham/delete/' + loaiSanPhamId;
+        this.url = 'http://takecareofpets.somee.com/api/loaisanpham/delete/' + loaiSanPhamId;
         return this.apiService.get(this.url);
     }
     Update(loaiSanPham: LoaiSanPhamModel) {
-        this.url = 'http://takecareofthepet.somee.com/api/loaisanpham/update';
+        this.url = 'http://takecareofpets.somee.com/api/loaisanpham/update';
         return this.apiService.put(this.url, loaiSanPham);
     }
 
     view(loaiSanPhamId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/loaisanpham/getbyid/' + loaiSanPhamId;
+        this.url = 'http://takecareofpets.somee.com/api/loaisanpham/getbyid/' + loaiSanPhamId;
         return this.apiService.get(this.url);
     }
 
     countLoaiSanPham(idShop: number): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/loaisanpham/listcountloaisanphamwithidshop/' + idShop;
+        this.url = 'http://takecareofpets.somee.com/api/loaisanpham/listcountloaisanphamwithidshop/' + idShop;
         return this.apiService.get(this.url);
     }
 
@@ -61,7 +61,7 @@ export class LoaiSanPhamService {
     }
 
     viewLoaiSanPhamVoiIdShop(idShop: number) {
-        this.url = 'http://takecareofthepet.somee.com/api/loaisanpham/getallbyidshop/' + idShop;
+        this.url = 'http://takecareofpets.somee.com/api/loaisanpham/getallbyidshop/' + idShop;
         return this.apiService.get(this.url);
     }
 

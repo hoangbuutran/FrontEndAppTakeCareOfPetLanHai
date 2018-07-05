@@ -26,46 +26,46 @@ export class ShopService {
     url: string;
 
     create(shop: any): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/shop/create';
+        this.url = 'http://takecareofpets.somee.com/api/shop/create';
         return this.apiService.post(this.url, shop);
     }
 
     KhoaMo(shopId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/shop/khoamo/' + shopId;
+        this.url = 'http://takecareofpets.somee.com/api/shop/khoamo/' + shopId;
         return this.apiService.get(this.url);
     }
 
     delete(shopId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/shop/delete/' + shopId;
+        this.url = 'http://takecareofpets.somee.com/api/shop/delete/' + shopId;
         return this.apiService.get(this.url);
     }
     Update(shop: ShopModel) {
-        this.url = 'http://takecareofthepet.somee.com/api/shop/update';
+        this.url = 'http://takecareofpets.somee.com/api/shop/update';
         return this.apiService.put(this.url, shop);
     }
 
     view(shopId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/shop/getbyid/' + shopId;
+        this.url = 'http://takecareofpets.somee.com/api/shop/getbyid/' + shopId;
         return this.apiService.get(this.url);
     }
 
     viewListShop() {
-        this.url = 'http://takecareofthepet.somee.com/api/shop/getall';
+        this.url = 'http://takecareofpets.somee.com/api/shop/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.shopListProperty = res.data;
         });
     }
 
     viewShopVoiIDTaiKhoan(taiKhoanId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/shop/getbyidtaikhoan/' + taiKhoanId;
+        this.url = 'http://takecareofpets.somee.com/api/shop/getbyidtaikhoan/' + taiKhoanId;
         return this.apiService.get(this.url);
     }
     xemTaiKhoanShop(ShopId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/taikhoan/getbyid/' + ShopId;
+        this.url = 'http://takecareofpets.somee.com/api/taikhoan/getbyid/' + ShopId;
         return this.apiService.get(this.url);
     }
     countshop(): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/shop/listcountshop';
+        this.url = 'http://takecareofpets.somee.com/api/shop/listcountshop';
         return this.apiService.get(this.url);
     }
 

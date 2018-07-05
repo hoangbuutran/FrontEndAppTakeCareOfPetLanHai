@@ -8,21 +8,25 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { SessionService } from './session.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BaiVietService } from './BaiViet.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class UploadFileService {
 
     private basePath = '/uploads';
-    downloadURLLocal: any;
     imageUrl;
+    trangthai = false;
     url: string;
     constructor(
         private db: AngularFireDatabase,
-        private http: HttpClient
+        private http: HttpClient,
+        private baiVietService: BaiVietService,
+        private toastr: ToastrService
     ) { }
 
-    pushFileToStorage(formData: any, fileUpload: FileUpload, progress: { percentage: number }) {
+    pushFileToStorage(baiViet: any, fileUpload: FileUpload, progress: { percentage: number }) {
         const storageRef = firebase.storage().ref();
         const uploadTask = storageRef.child(`${this.basePath}/${fileUpload.file.name}`).put(fileUpload.file);
 
@@ -40,9 +44,12 @@ export class UploadFileService {
                 // success
                 uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
                     this.imageUrl = downloadURL;
-                    formData.HinhAnh = this.imageUrl;
-                    this.url = 'http://localhost:1650/api/baiviet/create';
-                    //this.http.post(this.url, formData);
+                    baiViet.HinhAnh = this.imageUrl;
+                    this.baiVietService.create(baiViet).subscribe(
+                        res => {
+                            this.toastr.success(res.message, 'Thông báo');
+                        }
+                    );
                 });
             }
         );

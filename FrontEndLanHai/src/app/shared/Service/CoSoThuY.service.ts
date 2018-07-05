@@ -22,36 +22,36 @@ export class CoSoThuYService {
     url: string;
 
     create(coSoThuY: any): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/cosothuy/create';
+        this.url = 'http://takecareofpets.somee.com/api/cosothuy/create';
         return this.apiService.post(this.url, coSoThuY);
     }
 
     KhoaMo(coSoThuYId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/cosothuy/khoamo/' + coSoThuYId;
+        this.url = 'http://takecareofpets.somee.com/api/cosothuy/khoamo/' + coSoThuYId;
         return this.apiService.get(this.url);
     }
 
     delete(coSoThuYId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/cosothuy/delete/' + coSoThuYId;
+        this.url = 'http://takecareofpets.somee.com/api/cosothuy/delete/' + coSoThuYId;
         return this.apiService.get(this.url);
     }
     Update(coSoThuY: CoSoThuYModel) {
-        this.url = 'http://takecareofthepet.somee.com/api/cosothuy/update';
+        this.url = 'http://takecareofpets.somee.com/api/cosothuy/update';
         return this.apiService.put(this.url, coSoThuY);
     }
 
     view(coSoThuYId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/cosothuy/getbyid/' + coSoThuYId;
+        this.url = 'http://takecareofpets.somee.com/api/cosothuy/getbyid/' + coSoThuYId;
         return this.apiService.get(this.url);
     }
 
     viewWithIdTaiKhoan(taiKhoanId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/cosothuy/getbyidtaikhoan/' + taiKhoanId;
+        this.url = 'http://takecareofpets.somee.com/api/cosothuy/getbyidtaikhoan/' + taiKhoanId;
         return this.apiService.get(this.url);
     }
 
     countCoSoThuY(): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/cosothuy/listcountcosothuy';
+        this.url = 'http://takecareofpets.somee.com/api/cosothuy/listcountcosothuy';
         return this.apiService.get(this.url);
     }
 
@@ -61,12 +61,12 @@ export class CoSoThuYService {
     }
 
     xemTaiKhoanCoSoThuY(coSoThuYId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/taikhoan/getbyid/' + coSoThuYId;
+        this.url = 'http://takecareofpets.somee.com/api/taikhoan/getbyid/' + coSoThuYId;
         return this.apiService.get(this.url);
     }
 
     coSoThuYList() {
-        this.url = 'http://takecareofthepet.somee.com/api/cosothuy/getall';
+        this.url = 'http://takecareofpets.somee.com/api/cosothuy/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.coSoThuYListProperty = res.data;
         });

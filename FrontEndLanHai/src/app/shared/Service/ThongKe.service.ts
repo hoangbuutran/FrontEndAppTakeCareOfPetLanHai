@@ -27,7 +27,7 @@ export class ThongKeService {
     url: string;
 
     viewThongKeVoiIdShop(idShop: number) {
-        this.url = 'http://takecareofthepet.somee.com/api/thongke/getbyidshop/' + idShop;
+        this.url = 'http://takecareofpets.somee.com/api/thongke/getbyidshop/' + idShop;
         return this.apiService.get(this.url);
     }
 
