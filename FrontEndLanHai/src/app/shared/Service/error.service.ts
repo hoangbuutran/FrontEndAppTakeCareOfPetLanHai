@@ -21,14 +21,14 @@ export class ErrorService {
 
     url: string;
 
-    
+
     view(errorId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/error/getbyid/' + errorId;
+        this.url = 'http://takecareofpets.somee.com/api/error/getbyid/' + errorId;
         return this.apiService.get(this.url);
     }
-    
+
     errorList() {
-        this.url = 'http://takecareofthepet.somee.com/api/error/getall';
+        this.url = 'http://takecareofpets.somee.com/api/error/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.errorListProperty = res.data;
         });

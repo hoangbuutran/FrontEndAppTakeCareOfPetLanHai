@@ -20,24 +20,24 @@ export class BinhLuanService {
 
     listbinhLuanWithIdBaiViet: BinhLuanModel[];
     url: string;
-    
+
     create(binhLuan: any): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/binhluan/create';
+        this.url = 'http://takecareofpets.somee.com/api/binhluan/create';
         return this.apiService.post(this.url, binhLuan);
     }
 
     delete(binhLuanId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/binhluan/delete/' + binhLuanId;
+        this.url = 'http://takecareofpets.somee.com/api/binhluan/delete/' + binhLuanId;
         return this.apiService.get(this.url);
     }
 
     Update(binhLuan: BinhLuanModel) {
-        this.url = 'http://takecareofthepet.somee.com/api/binhluan/update';
+        this.url = 'http://takecareofpets.somee.com/api/binhluan/update';
         return this.apiService.put(this.url, binhLuan);
     }
 
     viewBinhLuanVoiIdBaiViet(idBaiViet: number | string) {
-        this.url = 'http://takecareofthepet.somee.com/api/binhluan/getallbinhLuanwithidBaiViet/' + idBaiViet;
+        this.url = 'http://takecareofpets.somee.com/api/binhluan/getallbinhLuanwithidBaiViet/' + idBaiViet;
         return this.apiService.get(this.url).subscribe(res => {
             this.listbinhLuanWithIdBaiViet = res.data;
         });

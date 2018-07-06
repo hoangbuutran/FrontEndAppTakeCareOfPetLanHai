@@ -25,12 +25,12 @@ export class HinhAnhSanPhamService {
     url: string;
 
     delete(sanphamId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/hinhanhsanpham/delete/' + sanphamId;
+        this.url = 'http://takecareofpets.somee.com/api/hinhanhsanpham/delete/' + sanphamId;
         return this.apiService.get(this.url);
     }
 
     viewHinhAnhSanPhamVoiIdSanPham(idSanPham: number | string) {
-        this.url = 'http://takecareofthepet.somee.com/api/hinhanhsanpham/getallwithidsanpham/' + idSanPham;
+        this.url = 'http://takecareofpets.somee.com/api/hinhanhsanpham/getallwithidsanpham/' + idSanPham;
         return this.apiService.get(this.url);
     }
 

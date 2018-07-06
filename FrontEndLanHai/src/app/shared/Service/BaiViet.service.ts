@@ -21,42 +21,42 @@ export class BaiVietService {
     listBaiVietWithIdNguoiDung: BaiVietModel[];
     listBaiViet: BaiVietModel[];
     url: string;
-    
+
     create(baiViet: any): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/baiviet/create';
+        this.url = 'http://localhost:1650/api/baiviet/create';
         return this.apiService.post(this.url, baiViet);
     }
 
     delete(baiVietId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/baiviet/delete/' + baiVietId;
+        this.url = 'http://takecareofpets.somee.com/api/baiviet/delete/' + baiVietId;
         return this.apiService.get(this.url);
     }
 
     view(baiVietId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/baiviet/getbyid/' + baiVietId;
+        this.url = 'http://takecareofpets.somee.com/api/baiviet/getbyid/' + baiVietId;
         return this.apiService.get(this.url);
     }
 
     KhoaMo(baivietId: number | string): Observable<any> {
-        this.url = 'http://takecareofthepet.somee.com/api/baiviet/khoamo/' + baivietId;
+        this.url = 'http://takecareofpets.somee.com/api/baiviet/khoamo/' + baivietId;
         return this.apiService.get(this.url);
     }
 
 
     Update(baiViet: BaiVietModel) {
-        this.url = 'http://takecareofthepet.somee.com/api/baiviet/update';
+        this.url = 'http://takecareofpets.somee.com/api/baiviet/update';
         return this.apiService.put(this.url, baiViet);
     }
 
     viewbaiVietVoiIdNguoiDung(idNguoiDung: number | string) {
-        this.url = 'http://takecareofthepet.somee.com/api/baiviet/getallbaiVietwithidBaiViet/' + idNguoiDung;
+        this.url = 'http://takecareofpets.somee.com/api/baiviet/getallbaiVietwithidBaiViet/' + idNguoiDung;
         return this.apiService.get(this.url).subscribe(res => {
             this.listBaiVietWithIdNguoiDung = res.data;
         });
     }
-    
+
     viewListBaiViet() {
-        this.url = 'http://takecareofthepet.somee.com/api/baiviet/getallbaiViet';
+        this.url = 'http://takecareofpets.somee.com/api/baiviet/getallbaiViet';
         return this.apiService.get(this.url).subscribe(res => {
             this.listBaiViet = res.data;
         });
