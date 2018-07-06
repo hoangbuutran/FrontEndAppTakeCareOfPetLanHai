@@ -42,7 +42,7 @@ export class UploadFileService {
                     this.imageUrl = downloadURL;
                     formData.HinhAnh = this.imageUrl;
                     this.url = 'http://localhost:1650/api/baiviet/create';
-                    //this.http.post(this.url, formData);
+                    this.http.post(this.url, formData);
                 });
             }
         );
