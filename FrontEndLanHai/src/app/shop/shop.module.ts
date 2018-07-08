@@ -18,6 +18,6 @@ import { ThongKeDoanhSoShopComponent } from './thong-ke-doanh-so-shop/thong-ke-d
     ReactiveFormsModule,
     NgxPaginationModule,
   ],
-  declarations: [ShopComponent, HomeShopComponent, ChangePassShopComponent, ChangeProfileShopComponent, ThongKeDoanhSoShopComponent]
+  declarations: [ShopComponent, HomeShopComponent, ChangePassShopComponent, ChangeProfileShopComponent]
 })
 export class ShopModule { }

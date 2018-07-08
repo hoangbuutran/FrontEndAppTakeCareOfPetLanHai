@@ -17,7 +17,7 @@ const routes: Routes = [
       { path: 'sanpham', loadChildren: './san-pham/san-pham.module#SanPhamModule' },
       { path: 'hoadon', loadChildren: './hoa-don/hoa-don.module#HoaDonModule' },
       { path: 'changepass', component: ChangePassShopComponent },
-      { path: 'thongke', component: ThongKeDoanhSoShopComponent },
+      { path: 'thongkebaocao', loadChildren: './thong-ke-doanh-so-shop/thong-ke-doanh-so-shop.module#ThongKeDoanhSoShopModule' },
       { path: 'changeprofile/:IdShop', component: ChangeProfileShopComponent },
     ]
   }

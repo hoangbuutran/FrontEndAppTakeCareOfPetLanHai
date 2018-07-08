@@ -9,11 +9,15 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { SessionService } from './session.service';
 import { ShopService } from './Shop.service';
+import { database } from 'firebase';
 
 @Injectable()
 
 export class ThongKeService {
-    thongKeListProperty;
+    thongKe5SanPhamMaxDayProperty: any;
+    thongKe10SanPhamMaxMonProperty: any;
+    listHoaDonTheoThang: any;
+    listHoaDonTrongKhoangThang: any;
     sessionuser: any;
     idTaiKhoan: number;
     constructor(
@@ -26,16 +30,58 @@ export class ThongKeService {
 
     url: string;
 
-    viewThongKeVoiIdShop(idShop: number) {
-        this.url = 'http://takecareofpets.somee.com/api/thongke/getbyidshop/' + idShop;
+    // thống kê 5 sản phẩm bán chạy nhất trong ngày
+    viewThongKe5SanPhamMaxDayVoiIdShop(idShop: number) {
+        this.url = 'http://takecareofpets.somee.com/api/thongkebaocao/Lay_Ra_5_San_Pham_Max_Trong_Ngay/' + idShop;
         return this.apiService.get(this.url);
     }
 
-    thongKeListWithIdShop() {
+    thongKeView5SanPhamMaxDayVoiIdShopWithIdShop() {
         this.sessionuser = this.sessionService.getToken();
         this.shopService.viewShopVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
-            this.viewThongKeVoiIdShop(res.data.IdShop).subscribe(res1 => {
-                this.thongKeListProperty = res1.data;
+            this.viewThongKe5SanPhamMaxDayVoiIdShop(res.data.IdShop).subscribe(res1 => {
+                this.thongKe5SanPhamMaxDayProperty = res1.data;
+            });
+        });
+    }
+
+    // thống kê 10 sản phẩm bán chạy nhất trong tháng
+    viewThongKe10SanPhamMaxMonVoiIdShop(idShop: number, fromNgayThang: any) {
+        this.url = 'http://takecareofpets.somee.com/api/thongkebaocao/Lay_Ra_10_San_Pham_Max_Trong_Thang/' + idShop;
+        return this.apiService.post(this.url, fromNgayThang);
+    }
+    thongKeView10SanPhamMaxMonVoiIdShopWithIdShop(fromNgayThang: any) {
+        this.sessionuser = this.sessionService.getToken();
+        this.shopService.viewShopVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
+            this.viewThongKe10SanPhamMaxMonVoiIdShop(res.data.IdShop, fromNgayThang).subscribe(res1 => {
+                this.thongKe10SanPhamMaxMonProperty = res1.data;
+            });
+        });
+    }
+    // thống kê hóa đơn theo tháng được chọn
+    viewThongKeHoaDonTheoThangVoiIdShop(idShop: number,  fromNgayThang: any) {
+        this.url = 'http://takecareofpets.somee.com/api/thongkebaocao/Hoa_Don_Theo_Thang/' + idShop;
+        return this.apiService.post(this.url, fromNgayThang);
+    }
+    thongKeViewHoaDonTheoThangVoiIdShopWithIdShop(fromNgayThang: any) {
+        this.sessionuser = this.sessionService.getToken();
+        this.shopService.viewShopVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
+            this.viewThongKeHoaDonTheoThangVoiIdShop(res.data.IdShop, fromNgayThang).subscribe(res1 => {
+                this.listHoaDonTheoThang = res1.data;
+            });
+        });
+    }
+
+    // thống kê hóa đơn theo khoảng tháng được chọn
+    viewThongKeHoaDonTheoKhoangThangVoiIdShop(idShop: number, fromNgayThang: any) {
+        this.url = 'http://takecareofpets.somee.com/api/thongkebaocao/Hoa_Don_Trong_Thang/' + idShop;
+        return this.apiService.post(this.url, fromNgayThang);
+    }
+    thongKeViewHoaDonTheoKhoangThangVoiIdShopWithIdShop(fromNgayThang: any) {
+        this.sessionuser = this.sessionService.getToken();
+        this.shopService.viewShopVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
+            this.viewThongKeHoaDonTheoKhoangThangVoiIdShop(res.data.IdShop, fromNgayThang).subscribe(res1 => {
+                this.listHoaDonTrongKhoangThang = res1.data;
             });
         });
     }

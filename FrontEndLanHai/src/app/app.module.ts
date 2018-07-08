@@ -39,12 +39,16 @@ import { UploadFileService } from './shared/Service/UploadFile.service';
 import { BinhLuanService } from './shared/Service/BinhLuan.service';
 import { ThongKeService } from './shared/Service/ThongKe.service';
 import { BaiVietService } from './shared/Service/BaiViet.service';
+import { RegisterComponent } from './register/register.component';
+import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PageNotFoundComponent,
+    RegisterComponent,
+    ForgotPassComponent,
   ],
   imports: [
     BrowserModule,
