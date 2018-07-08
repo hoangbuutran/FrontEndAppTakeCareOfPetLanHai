@@ -36,6 +36,9 @@ export class ThongKeService {
         return this.apiService.get(this.url);
     }
 
+
+
+
     thongKeView5SanPhamMaxDayVoiIdShopWithIdShop() {
         this.sessionuser = this.sessionService.getToken();
         this.shopService.viewShopVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
@@ -58,6 +61,7 @@ export class ThongKeService {
             });
         });
     }
+    
     // thống kê hóa đơn theo tháng được chọn
     viewThongKeHoaDonTheoThangVoiIdShop(idShop: number,  fromNgayThang: any) {
         this.url = 'http://takecareofpets.somee.com/api/thongkebaocao/Hoa_Don_Theo_Thang/' + idShop;
