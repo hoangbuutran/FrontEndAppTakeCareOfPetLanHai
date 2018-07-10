@@ -40,7 +40,7 @@ export class KhachHangDetailComponent implements OnInit {
       this.NgaySinhDetail = res.data.NgaySinh;
       this.SDTDetail = res.data.SDT;
       this.EmailDetail = res.data.Email;
-      this.HinhAnhDetail = 'http://takecareofthepet.somee.com/Images/' + res.data.HinhAnh;
+      this.HinhAnhDetail = 'http://takecareofpets.somee.com/Images/' + res.data.HinhAnh;
     });
     this.thuCungService.viewthuCungVoiIdNguoiDung(this.id);
   }

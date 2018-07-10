@@ -3108,6 +3108,8 @@ table.text-center th {
 /* ADD THIS CLASS TO THE <BODY> TAG */
 .lockscreen {
   background: #d2d6de;
+  padding-top: 1%;
+  padding-bottom: 25%;
 }
 .lockscreen-logo {
   font-size: 35px;

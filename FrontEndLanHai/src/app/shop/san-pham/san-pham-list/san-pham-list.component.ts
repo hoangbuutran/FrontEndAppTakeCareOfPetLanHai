@@ -58,7 +58,7 @@ export class SanPhamListComponent implements OnInit {
   getLink(){
     this.listLinkHinhAnh = [];
     this.hinhAnhDetails.forEach(element => {
-      this.listLinkHinhAnh.push('http://takecareofthepet.somee.com/Images/' + element.LinkHinhAnh);
+      this.listLinkHinhAnh.push('http://takecareofpets.somee.com/Images/' + element.LinkHinhAnh);
     });
   }
 

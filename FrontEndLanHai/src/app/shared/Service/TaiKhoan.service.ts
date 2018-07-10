@@ -22,6 +22,16 @@ export class TaiKhoanService {
         return this.apiService.post(this.url, loginModel);
     }
 
+    Register(RegisterModel: any) {
+        this.url = 'http://takecareofpets.somee.com/api/createnguoidung';
+        return this.apiService.post(this.url, RegisterModel);
+    }
+
+    ForgotPass(EmailForm: any) {
+        this.url = 'http://takecareofpets.somee.com/api/sendmailforgotpasss';
+        return this.apiService.post(this.url, EmailForm);
+    }
+
     view(taiKhoanId: number | string) {
         this.url = 'http://takecareofpets.somee.com/api/taikhoan/getbyid/' + taiKhoanId;
         return this.apiService.get(this.url);
