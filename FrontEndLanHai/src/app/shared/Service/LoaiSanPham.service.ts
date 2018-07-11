@@ -52,7 +52,7 @@ export class LoaiSanPhamService {
     }
 
     viewForTrue(idShop: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/loaisanpham/getallbyidshopfortrue/' + idShop;
+        this.url = 'http://takecareofpets.somee.com/api/loaisanpham/getallbyidshopfortrue/' + idShop;
         return this.apiService.get(this.url);
     }
 

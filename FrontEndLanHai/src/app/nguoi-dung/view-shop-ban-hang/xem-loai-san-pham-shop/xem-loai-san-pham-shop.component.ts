@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { SanPhamService } from '../../../shared/Service/SanPham.service';
+import { SanPhamModel } from '../../../shared/Model/SanPham.model';
+import { ShoppingCartService } from '../../../shared/Service/ShoppingCart.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-xem-loai-san-pham-shop',
@@ -15,20 +18,26 @@ export class XemLoaiSanPhamShopComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private sanPhamService: SanPhamService
+    private sanPhamService: SanPhamService,
+    private shoppingCartService: ShoppingCartService,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.idShop = params.get('IdShop');
       this.idLoaiSanPham = params.get('IdLoaiSanPham');
-      console.log('co load ngoninit');
       this.loadLaiTrang(this.idLoaiSanPham);
     });
   }
 
+  public addProductToCart(product: SanPhamModel): void {
+    this.toastr.success('sản phẩm đã được thêm vào giỏ', 'Thông báo');
+    this.shoppingCartService.addItem(product, 1);
+  }
+
+
   loadLaiTrang(idLoaiSanPham: any) {
-    console.log('co load trang');
     this.sanPhamService.viewSanPhamVoiIdLoaiSanPham(idLoaiSanPham).subscribe(res => {
       this.listSanPhamVoiIdLoaiSanPham = res.data;
     });

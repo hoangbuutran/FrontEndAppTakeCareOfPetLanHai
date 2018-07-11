@@ -1,5 +1,5 @@
 export class SanPhamModel {
-    IdSanPham: number;
+    IdSanPham: string;
     TenSanPham: string;
     IdLoaiSanPham: number;
     IdShop: number;

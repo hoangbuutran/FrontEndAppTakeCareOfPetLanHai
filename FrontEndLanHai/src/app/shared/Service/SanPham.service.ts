@@ -69,7 +69,7 @@ export class SanPhamService {
     }
 
     view(sanPhamId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/sanpham/getbyid/' + sanPhamId;
+        this.url = 'http://takecareofpets.somee.com/api/sanpham/getbyid/' + sanPhamId;
         return this.apiService.get(this.url);
     }
 
@@ -84,12 +84,12 @@ export class SanPhamService {
     }
 
     viewSanPhamVoiIdShop(idShop: number) {
-        this.url = 'http://localhost:1650/api/sanpham/getallbyidshop/' + idShop;
+        this.url = 'http://takecareofpets.somee.com/api/sanpham/getallbyidshop/' + idShop;
         return this.apiService.get(this.url);
     }
 
     viewSanPhamVoiIdLoaiSanPham(idLoaiSanPham: number) {
-        this.url = 'http://localhost:1650/api/sanpham/getallbyidloaisanpham/' + idLoaiSanPham;
+        this.url = 'http://takecareofpets.somee.com/api/sanpham/getallbyidloaisanpham/' + idLoaiSanPham;
         return this.apiService.get(this.url);
     }
 
@@ -104,7 +104,7 @@ export class SanPhamService {
     }
 
     viewLoaiSanPhamVoiSanPham() {
-        this.url = 'http://localhost:1650/api/loaisanpham/getallloaisanphamwithsanpham';
+        this.url = 'http://takecareofpets.somee.com/api/loaisanpham/getallloaisanphamwithsanpham';
         return this.apiService.get(this.url);
     }
 }

@@ -41,6 +41,8 @@ import { ThongKeService } from './shared/Service/ThongKe.service';
 import { BaiVietService } from './shared/Service/BaiViet.service';
 import { RegisterComponent } from './register/register.component';
 import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
+import { ShoppingCartService } from './shared/Service/ShoppingCart.service';
+import { LocalStorageServie, Storage123Service } from './shared/Service/LocalStorage.service';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,14 @@ import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
     ThuCungService,
     CoSoThuYService,
     UploadFileService,
+    ShoppingCartService,
+    LocalStorageServie,
+    { provide: Storage123Service, useClass: LocalStorageServie },
+    {
+      deps: [Storage123Service],
+      provide: ShoppingCartService,
+      useClass: ShoppingCartService
+    },
     TaiKhoanService,
     BinhLuanService,
     BaiVietService,
