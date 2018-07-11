@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SanPhamService } from '../../../shared/Service/SanPham.service';
 
 @Component({
   selector: 'app-home-kenh-nguoi-ban',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-kenh-nguoi-ban.component.css']
 })
 export class HomeKenhNguoiBanComponent implements OnInit {
-
-  constructor() { }
+  listLoaiSanPhamVoiSanPham: any;
+  constructor(
+    private sanPhamService: SanPhamService,
+  ) { }
 
   ngOnInit() {
+    this.sanPhamService.viewLoaiSanPhamVoiSanPham().subscribe(res => {
+      this.listLoaiSanPhamVoiSanPham = res.data;
+    });
+    
   }
 
 }

@@ -24,6 +24,7 @@ export class LoaiSanPhamService {
         private shopService: ShopService
     ) { }
     loaiSanPhamListProperty: LoaiSanPhamModel[];
+
     url: string;
     idShop;
     create(loaiSanPham: any): Observable<any> {
@@ -47,6 +48,11 @@ export class LoaiSanPhamService {
 
     view(loaiSanPhamId: number | string): Observable<any> {
         this.url = 'http://takecareofpets.somee.com/api/loaisanpham/getbyid/' + loaiSanPhamId;
+        return this.apiService.get(this.url);
+    }
+
+    viewForTrue(idShop: number | string): Observable<any> {
+        this.url = 'http://localhost:1650/api/loaisanpham/getallbyidshopfortrue/' + idShop;
         return this.apiService.get(this.url);
     }
 

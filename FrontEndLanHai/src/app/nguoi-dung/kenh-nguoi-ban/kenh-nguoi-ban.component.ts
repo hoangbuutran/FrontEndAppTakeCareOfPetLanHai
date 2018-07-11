@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShopService } from '../../shared/Service/Shop.service';
 
 @Component({
   selector: 'app-kenh-nguoi-ban',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./kenh-nguoi-ban.component.css']
 })
 export class KenhNguoiBanComponent implements OnInit {
-
-  constructor() { }
+  constructor(
+    private shopService: ShopService,
+  ) { }
 
   ngOnInit() {
+    this.shopService.viewListShopForTrue();
   }
 
 }

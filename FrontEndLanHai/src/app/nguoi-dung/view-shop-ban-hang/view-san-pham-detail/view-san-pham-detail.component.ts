@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { SanPhamService } from '../../../shared/Service/SanPham.service';
-import { LoaiSanPhamService } from '../../../shared/Service/LoaiSanPham.service';
+import { ParamMap, ActivatedRoute } from '@angular/router';
 import { ShopService } from '../../../shared/Service/Shop.service';
+import { LoaiSanPhamService } from '../../../shared/Service/LoaiSanPham.service';
+import { SanPhamService } from '../../../shared/Service/SanPham.service';
 
 @Component({
-  selector: 'app-view-detail-product',
-  templateUrl: './view-detail-product.component.html',
-  styleUrls: ['./view-detail-product.component.css']
+  selector: 'app-view-san-pham-detail',
+  templateUrl: './view-san-pham-detail.component.html',
+  styleUrls: ['./view-san-pham-detail.component.css']
 })
-export class ViewDetailProductComponent implements OnInit {
+export class ViewSanPhamDetailComponent implements OnInit {
 
   id = '';
   GiaDetail: any;
@@ -48,9 +48,5 @@ export class ViewDetailProductComponent implements OnInit {
         this.TenShop = res.data.TenShop;
       });
     });
-    
   }
-
-
-
 }

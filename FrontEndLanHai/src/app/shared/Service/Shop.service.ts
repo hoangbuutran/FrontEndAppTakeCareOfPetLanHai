@@ -22,7 +22,7 @@ export class ShopService {
         private sessionService: SessionService,
     ) { }
     shopListProperty: ShopModel[];
-
+    shopListForTrueProperty: ShopModel[];
     url: string;
 
     create(shop: any): Observable<any> {
@@ -53,6 +53,13 @@ export class ShopService {
         this.url = 'http://takecareofpets.somee.com/api/shop/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.shopListProperty = res.data;
+        });
+    }
+
+    viewListShopForTrue() {
+        this.url = 'http://takecareofpets.somee.com/api/shop/getall';
+        this.apiService.get(this.url).subscribe(res => {
+            this.shopListForTrueProperty = res.data;
         });
     }
 

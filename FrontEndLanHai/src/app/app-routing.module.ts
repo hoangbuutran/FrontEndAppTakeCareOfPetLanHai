@@ -19,7 +19,8 @@ const routesConfig: Routes = [
     { path: 'admin', loadChildren: './admin/admin.module#AdminModule', canActivate: [AuthGuard] },
     { path: 'cosoyteql', loadChildren: './co-so-yte-ql/co-so-yte-ql.module#CoSoYteQlModule', canActivate: [AuthGuard] },
     { path: 'shop', loadChildren: './shop/shop.module#ShopModule', canActivate: [AuthGuard] },
-    { path: 'nguoidung', loadChildren: './nguoi-dung/nguoi-dung.module#NguoiDungModule', canActivate: [AuthGuard] },
+    // { path: 'nguoidung', loadChildren: './nguoi-dung/nguoi-dung.module#NguoiDungModule', canActivate: [AuthGuard] },
+    { path: 'nguoidung', loadChildren: './nguoi-dung/nguoi-dung.module#NguoiDungModule'},
     { path: '**', component: PageNotFoundComponent },
 ];
 

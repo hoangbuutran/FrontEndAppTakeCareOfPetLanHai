@@ -24,6 +24,7 @@ export class SanPhamService {
         private shopService: ShopService
     ) { }
     sanPhamListProperty: SanPhamModel[];
+    sanPhamListWithLoaiSanPhamProperty: SanPhamModel[];
     toTal: number;
     url: string;
 
@@ -68,7 +69,7 @@ export class SanPhamService {
     }
 
     view(sanPhamId: number | string): Observable<any> {
-        this.url = 'http://takecareofpets.somee.com/api/sanpham/getbyid/' + sanPhamId;
+        this.url = 'http://localhost:1650/api/sanpham/getbyid/' + sanPhamId;
         return this.apiService.get(this.url);
     }
 
@@ -83,7 +84,12 @@ export class SanPhamService {
     }
 
     viewSanPhamVoiIdShop(idShop: number) {
-        this.url = 'http://takecareofpets.somee.com/api/sanpham/getallbyidshop/' + idShop;
+        this.url = 'http://localhost:1650/api/sanpham/getallbyidshop/' + idShop;
+        return this.apiService.get(this.url);
+    }
+
+    viewSanPhamVoiIdLoaiSanPham(idLoaiSanPham: number) {
+        this.url = 'http://localhost:1650/api/sanpham/getallbyidloaisanpham/' + idLoaiSanPham;
         return this.apiService.get(this.url);
     }
 
@@ -95,5 +101,10 @@ export class SanPhamService {
                 this.toTal = res1.toTal;
             });
         });
+    }
+
+    viewLoaiSanPhamVoiSanPham() {
+        this.url = 'http://localhost:1650/api/loaisanpham/getallloaisanphamwithsanpham';
+        return this.apiService.get(this.url);
     }
 }

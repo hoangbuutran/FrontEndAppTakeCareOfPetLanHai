@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewMoreComponent } from './view-more.component';
+import { ViewShopBanHangComponent } from './view-shop-ban-hang.component';
 
-describe('ViewMoreComponent', () => {
-  let component: ViewMoreComponent;
-  let fixture: ComponentFixture<ViewMoreComponent>;
+describe('ViewShopBanHangComponent', () => {
+  let component: ViewShopBanHangComponent;
+  let fixture: ComponentFixture<ViewShopBanHangComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewMoreComponent ]
+      declarations: [ ViewShopBanHangComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewMoreComponent);
+    fixture = TestBed.createComponent(ViewShopBanHangComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
