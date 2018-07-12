@@ -38,41 +38,33 @@
           </tr>
         </thead>
         <tbody>
-          <div *ngFor="let itemsanPham of products">
-            <div *ngFor="let itemcthd of listCthd">
-              <div *ngIf="itemcthd.IdSanPham === itemsanPham.IdSanPham">
-                <tr>
-                  <td data-th="Product">
-                    <div class="row">
-                      <div class="col-sm-2 hidden-xs">
-                        <img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" alt="Sản phẩm 1" class="img-responsive"
-                          width="100%">
-                      </div>
-                      <div class="col-sm-10">
-                        <h4 class="nomargin">{{ itemsanPham.TenSanPham }}</h4>
-                        <p>Mô tả của sản phẩm 1</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td data-th="Price"> {{itemsanPham.Gia}} đ</td>
-                  <td data-th="Quantity">
-                    <input class="form-control text-center" value="{{ itemcthd.SoLuong }}" type="number">
-                  </td>
-                  <td data-th="Subtotal" class="text-center">{{ itemcthd.tongTien }} đ</td>
-                  <td class="actions" data-th="">
-                    <button class="btn btn-info btn-sm">
-                      <i class="fa fa-edit"></i>
-                    </button>
-                    <button class="btn btn-danger btn-sm">
-                      <i class="fa fa-trash-o"></i>
-                    </button>
-                  </td>
-                </tr>
+          <tr *ngFor="let itemsanPham of listViewCart">
+            <td data-th="Product">
+              <div class="row">
+                <div class="col-sm-2 hidden-xs">
+                  <img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" alt="Sản phẩm 1" class="img-responsive"
+                    width="100%">
+                </div>
+                <div class="col-sm-10">
+                  <h4 class="nomargin">{{ itemsanPham.TenSanPham }}</h4>
+                  <p>....................</p>
+                </div>
               </div>
-
-            </div>
-          </div>
-
+            </td>
+            <td data-th="Price"> {{itemsanPham.Gia}} đ</td>
+            <td data-th="Quantity">
+              <input class="form-control text-center" value="{{ itemsanPham.SoLuong }}" type="number">
+            </td>
+            <td data-th="Subtotal" class="text-center">{{ itemsanPham.tongTien }} đ</td>
+            <td class="actions" data-th="">
+              <button (click)="xemSanPham(itemsanPham.IdSanPham)" data-toggle="modal" data-target="#sanPhamDetalModal" class="btn btn-info btn-sm">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button (click)="removeSanPham(itemsanPham.IdSanPham)" class="btn btn-danger btn-sm">
+                <i class="fa fa-trash-o"></i>
+              </button>
+            </td>
+          </tr>
         </tbody>
         <tfoot>
           <tr class="visible-xs">
@@ -92,7 +84,7 @@
             </td>
             <td colspan="1" class="hidden-xs"> </td>
             <td class="hidden-xs text-center">
-              <strong>Tổng tiền xxx.xxx đ</strong>
+              <strong>Tổng tiền {{ tongTienGioHang }} đ</strong>
             </td>
             <td>
               <a (click)="thanhToan(4)" class="btn btn-success btn-block">Thanh toán
@@ -181,6 +173,34 @@
         </ul>
       </div>
       <!-- /.box-body -->
+    </div>
+  </div>
+</div>
+
+
+<!-- modal dùng để hiển thị thông tin tài khoản -->
+<div class="modal fade" id="sanPhamDetalModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          <label id="title">Thông tin chi tiết sản phẩm trong giỏ hàng</label>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-horizontal">
+          <div class="form-group">
+            <div class="col-md-12">
+              <label>Tên sản phẩm: </label>
+              -------
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
 </div>

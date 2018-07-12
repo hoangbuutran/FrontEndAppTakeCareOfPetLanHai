@@ -23,7 +23,7 @@ export class GiongThuCungService {
     url: string;
 
     create(giongThuCung: any): Observable<any> {
-        this.url = 'http://takecareofpets.somee.com/api/giongthucung/create';
+        this.url = 'http://petslike.somee.com/api/giongthucung/create';
         return this.apiService.post(this.url, giongThuCung);
     }
 
@@ -31,34 +31,34 @@ export class GiongThuCungService {
         const formData: FormData = new FormData();
         formData.append('Image', fileToUpload, fileToUpload.name);
         formData.append('Id', idgiong);
-        this.url = 'http://takecareofpets.somee.com/api/giongthucung/uploadimage';
+        this.url = 'http://petslike.somee.com/api/giongthucung/uploadimage';
         return this.http.post(this.url, formData);
     }
 
     KhoaMo(giongThuCungId: number | string): Observable<any> {
-        this.url = 'http://takecareofpets.somee.com/api/giongthucung/khoamo/' + giongThuCungId;
+        this.url = 'http://petslike.somee.com/api/giongthucung/khoamo/' + giongThuCungId;
         return this.apiService.get(this.url);
     }
 
     delete(giongThuCungId: number | string): Observable<any> {
-        this.url = 'http://takecareofpets.somee.com/api/giongthucung/delete/' + giongThuCungId;
+        this.url = 'http://petslike.somee.com/api/giongthucung/delete/' + giongThuCungId;
         return this.apiService.get(this.url);
     }
     Update(giongThuCung: GiongThuCungModel) {
-        this.url = 'http://takecareofpets.somee.com/api/giongthucung/update';
+        this.url = 'http://petslike.somee.com/api/giongthucung/update';
         return this.apiService.put(this.url, giongThuCung);
     }
 
     view(giongThuCungId: number | string): Observable<any> {
-        this.url = 'http://takecareofpets.somee.com/api/giongthucung/getbyid/' + giongThuCungId;
+        this.url = 'http://petslike.somee.com/api/giongthucung/getbyid/' + giongThuCungId;
         return this.apiService.get(this.url);
     }
     XemThongTinGiongThuCung(giongThuCungId: number | string): Observable<any> {
-        this.url = 'http://takecareofpets.somee.com/api/giongthucung/getbyid/' + giongThuCungId;
+        this.url = 'http://petslike.somee.com/api/giongthucung/getbyid/' + giongThuCungId;
         return this.apiService.get(this.url);
     }
     countgiongthucung(): Observable<any> {
-        this.url = 'http://takecareofpets.somee.com/api/giongthucung/listcountgiongthucung';
+        this.url = 'http://petslike.somee.com/api/giongthucung/listcountgiongthucung';
         return this.apiService.get(this.url);
     }
     search(searchString: string): Observable<any[]> {
@@ -67,7 +67,7 @@ export class GiongThuCungService {
     }
 
     giongThuCungList() {
-        this.url = 'http://takecareofpets.somee.com/api/giongthucung/getall';
+        this.url = 'http://petslike.somee.com/api/giongthucung/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.giongThuCungListProperty = res.data;
         });

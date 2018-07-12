@@ -53,8 +53,8 @@ export class GiongThuCungListComponent implements OnInit {
     this.giongThuCungService.XemThongTinGiongThuCung(id).subscribe(x => {
       this.TenGiongThuCungDetail = x.data.TenGiongThuCung;
       this.GioiThieuDetail = x.data.GioiThieu;
-      this.HinhAnhDetail = 'http://takecareofpets.somee.com/Images/' + x.data.HinhAnh;
-      this.imageUrl = 'http://takecareofpets.somee.com/Images/' + x.data.HinhAnh;
+      this.HinhAnhDetail = 'http://petslike.somee.com/Images/' + x.data.HinhAnh;
+      this.imageUrl = 'http://petslike.somee.com/Images/' + x.data.HinhAnh;
       this.DacDiemDetail = x.data.DacDiem;
       this.TinhCachDetail = x.data.TinhCach;
       this.CachChamSocDetail = x.data.CachChamSoc;
