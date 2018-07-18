@@ -29,9 +29,8 @@
           <div class="box-header">
             <h3 class="box-title">Danh sách cơ sở thú y</h3>
           </div>
-          <div class="box-body">
-            <button class="btn btn-default btn-block">Tên cơ sở thú y số 1</button>
-            <button class="btn btn-default btn-block">Tên cơ sở thú y số 1</button>
+          <div class="box-body" *ngFor="let item of listCoSoThuY">
+            <button routerLink="/nguoidung/inforcosothuy/{{ item.IdCoSoThuY }}/home" class="btn btn-default btn-block"> {{ item.TenCoSoThuY }} </button>
             <button class="btn btn-default btn-block">Tên cơ sở thú y số 1</button>
             <button class="btn btn-default btn-block">Tên cơ sở thú y số 1</button>
             <button class="btn btn-default btn-block">Tên cơ sở thú y số 1</button>

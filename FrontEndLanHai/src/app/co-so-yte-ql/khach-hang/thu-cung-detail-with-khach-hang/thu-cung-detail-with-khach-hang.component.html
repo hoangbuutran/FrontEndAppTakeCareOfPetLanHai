@@ -11,7 +11,7 @@
             <h3>Thông tin thú cưng</h3>
             <div class="form-horizontal">
               <div class="form-group">
-                <div class="col-md-10">
+                <div class="col-md-12">
                   <label>Tên thú cưng: </label>
                   {{ TenThuongGoiDetail }}
                 </div>
@@ -19,7 +19,7 @@
             </div>
             <div class="form-horizontal">
               <div class="form-group">
-                <div class="col-md-10">
+                <div class="col-md-12">
                   <label>Loại giống: </label>
                   {{ TenGiongThuCungDetail }}
                 </div>
@@ -27,7 +27,7 @@
             </div>
             <div class="form-horizontal">
               <div class="form-group">
-                <div class="col-md-10">
+                <div class="col-md-12">
                   <label>Ngày nuôi: </label>
                   {{ NgayNuoiDetail | date: "yyyy-MM-dd"}}
                 </div>
@@ -75,8 +75,8 @@
                       {{ item.NgayCapNhat | date: "dd-MM-yyyy"}}
                     </td>
                     <td>
-                      <button class="btn btn-warning btn-rounded m-b-10 m-l-5" (click)="XemThongTinTinhTrang(item.IdTinhTrang)" data-toggle="modal"
-                        data-target="#TinhTrangDetalModal">Xem chi tiết</button>
+                      <button class="btn btn-warning btn-rounded m-b-12 m-l-5" (click)="XemThongTinTinhTrang(item.IdTinhTrang)" data-toggle="modal"
+                        data-target="#TinhTrangDetalModal">Xem</button>
                     </td>
                   </tr>
                 </tbody>
@@ -104,17 +104,17 @@
 
         <div class="form-horizontal">
           <div class="form-group">
-            <div class="col-md-10">
+            <div class="col-md-12">
               <label>Hình ảnh: </label>
               <br>
-              <img [src]="hinhAnhDetail" style="width:350px;height:250px; border-radius: 10px; margin-left: 100px">
+              <img [src]="hinhAnhDetail" style="width:350px;height:250px; border-radius: 12px; margin-left: 120px">
             </div>
           </div>
         </div>
 
         <div class="form-horizontal">
           <div class="form-group">
-            <div class="col-md-10">
+            <div class="col-md-12">
               <label>Nội dung tình trạng: </label>
               {{noiDungTinhTrangDetail}}
             </div>

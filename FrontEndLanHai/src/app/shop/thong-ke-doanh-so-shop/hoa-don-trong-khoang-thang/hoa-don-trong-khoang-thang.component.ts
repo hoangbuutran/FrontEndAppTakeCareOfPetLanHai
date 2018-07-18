@@ -24,6 +24,6 @@ export class HoaDonTrongKhoangThangComponent implements OnInit {
   }
 
   ThongKeHoaDonTrongKhoangThangFormSubmitForm(){
-    
+    this.thongKeService.thongKeViewHoaDonTheoKhoangThangVoiIdShop(this.ThongKeHoaDonTrongKhoangThangForm.value);
   }
 }

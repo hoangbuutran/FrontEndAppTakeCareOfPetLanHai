@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CoSoThuYService } from '../../shared/Service/CoSoThuY.service';
 
 @Component({
   selector: 'app-thu-cung-nguoi-dung',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThuCungNguoiDungComponent implements OnInit {
 
-  constructor() { }
+  listCoSoThuY: any[];
+
+  constructor(
+    private coSoThuYService: CoSoThuYService,
+  ) { }
 
   ngOnInit() {
+    this.coSoThuYService.coSoThuYListForNguoiDung().subscribe(res => {
+      this.listCoSoThuY = res.data;
+    });
   }
 
 }

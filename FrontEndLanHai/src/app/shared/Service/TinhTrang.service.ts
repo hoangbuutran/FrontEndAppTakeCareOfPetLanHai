@@ -26,38 +26,38 @@ export class TinhTrangService {
     url: string;
 
     create(tinhTrang: any): Observable<any> {
-        this.url = 'http://petslike.somee.com/api/tinhtrang/create';
+        this.url = 'http://localhost:1650/api/tinhtrang/create';
         return this.apiService.post(this.url, tinhTrang);
     }
 
     KhoaMo(tinhTrangId: number | string): Observable<any> {
-        this.url = 'http://petslike.somee.com/api/tinhtrang/khoamo/' + tinhTrangId;
+        this.url = 'http://localhost:1650/api/tinhtrang/khoamo/' + tinhTrangId;
         return this.apiService.get(this.url);
     }
 
     delete(tinhTrangId: number | string): Observable<any> {
-        this.url = 'http://petslike.somee.com/api/tinhtrang/delete/' + tinhTrangId;
+        this.url = 'http://localhost:1650/api/tinhtrang/delete/' + tinhTrangId;
         return this.apiService.get(this.url);
     }
     Update(tinhTrang: TinhTrangModel) {
-        this.url = 'http://petslike.somee.com/api/tinhtrang/update';
+        this.url = 'http://localhost:1650/api/tinhtrang/update';
         return this.apiService.put(this.url, tinhTrang);
     }
 
     view(tinhTrangId: number | string): Observable<any> {
-        this.url = 'http://petslike.somee.com/api/tinhtrang/getbyid/' + tinhTrangId;
+        this.url = 'http://localhost:1650/api/tinhtrang/getbyid/' + tinhTrangId;
         return this.apiService.get(this.url);
     }
 
     viewtinhTrangVoiIdThuCung(idThuCung: number | string) {
-        this.url = 'http://petslike.somee.com/api/tinhtrang/getalltinhtrangbyidthucung/' + idThuCung;
+        this.url = 'http://localhost:1650/api/tinhtrang/getalltinhtrangbyidthucung/' + idThuCung;
         return this.apiService.get(this.url).subscribe(res => {
             this.listtinhTrangWithIdThuCung = res.data;
         });
     }
 
     counttinhTrang(): Observable<any> {
-        this.url = 'http://petslike.somee.com/api/tinhtrang/listcounttinhTrang';
+        this.url = 'http://localhost:1650/api/tinhtrang/listcounttinhTrang';
         return this.apiService.get(this.url);
     }
 
@@ -67,7 +67,7 @@ export class TinhTrangService {
     }
 
     tinhTrangList() {
-        this.url = 'http://petslike.somee.com/api/tinhtrang/getall';
+        this.url = 'http://localhost:1650/api/tinhtrang/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.tinhTrangListProperty = res.data;
         });

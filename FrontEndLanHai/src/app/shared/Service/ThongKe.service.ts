@@ -32,14 +32,14 @@ export class ThongKeService {
 
     // thống kê 5 sản phẩm bán chạy nhất trong ngày
     viewThongKe5SanPhamMaxDayVoiIdShop(idShop: number) {
-        this.url = 'http://petslike.somee.com/api/thongkebaocao/Lay_Ra_5_San_Pham_Max_Trong_Ngay/' + idShop;
+        this.url = 'http://localhost:1650/api/thongkebaocao/Lay_Ra_5_San_Pham_Max_Trong_Ngay/' + idShop;
         return this.apiService.get(this.url);
     }
 
 
 
 
-    thongKeView5SanPhamMaxDayVoiIdShopWithIdShop() {
+    thongKeView5SanPhamMaxDayVoiIdShop() {
         this.sessionuser = this.sessionService.getToken();
         this.shopService.viewShopVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
             this.viewThongKe5SanPhamMaxDayVoiIdShop(res.data.IdShop).subscribe(res1 => {
@@ -50,10 +50,10 @@ export class ThongKeService {
 
     // thống kê 10 sản phẩm bán chạy nhất trong tháng
     viewThongKe10SanPhamMaxMonVoiIdShop(idShop: number, fromNgayThang: any) {
-        this.url = 'http://petslike.somee.com/api/thongkebaocao/Lay_Ra_10_San_Pham_Max_Trong_Thang/' + idShop;
+        this.url = 'http://localhost:1650/api/thongkebaocao/Lay_Ra_10_San_Pham_Max_Trong_Thang/' + idShop;
         return this.apiService.post(this.url, fromNgayThang);
     }
-    thongKeView10SanPhamMaxMonVoiIdShopWithIdShop(fromNgayThang: any) {
+    thongKeView10SanPhamMaxMonVoiIdShop(fromNgayThang: any) {
         this.sessionuser = this.sessionService.getToken();
         this.shopService.viewShopVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
             this.viewThongKe10SanPhamMaxMonVoiIdShop(res.data.IdShop, fromNgayThang).subscribe(res1 => {
@@ -64,10 +64,10 @@ export class ThongKeService {
     
     // thống kê hóa đơn theo tháng được chọn
     viewThongKeHoaDonTheoThangVoiIdShop(idShop: number,  fromNgayThang: any) {
-        this.url = 'http://petslike.somee.com/api/thongkebaocao/Hoa_Don_Theo_Thang/' + idShop;
+        this.url = 'http://localhost:1650/api/thongkebaocao/Hoa_Don_Theo_Thang/' + idShop;
         return this.apiService.post(this.url, fromNgayThang);
     }
-    thongKeViewHoaDonTheoThangVoiIdShopWithIdShop(fromNgayThang: any) {
+    thongKeViewHoaDonTheoThangVoiIdShop(fromNgayThang: any) {
         this.sessionuser = this.sessionService.getToken();
         this.shopService.viewShopVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
             this.viewThongKeHoaDonTheoThangVoiIdShop(res.data.IdShop, fromNgayThang).subscribe(res1 => {
@@ -78,10 +78,10 @@ export class ThongKeService {
 
     // thống kê hóa đơn theo khoảng tháng được chọn
     viewThongKeHoaDonTheoKhoangThangVoiIdShop(idShop: number, fromNgayThang: any) {
-        this.url = 'http://petslike.somee.com/api/thongkebaocao/Hoa_Don_Trong_Thang/' + idShop;
+        this.url = 'http://localhost:1650/api/thongkebaocao/Hoa_Don_Trong_Thang/' + idShop;
         return this.apiService.post(this.url, fromNgayThang);
     }
-    thongKeViewHoaDonTheoKhoangThangVoiIdShopWithIdShop(fromNgayThang: any) {
+    thongKeViewHoaDonTheoKhoangThangVoiIdShop(fromNgayThang: any) {
         this.sessionuser = this.sessionService.getToken();
         this.shopService.viewShopVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
             this.viewThongKeHoaDonTheoKhoangThangVoiIdShop(res.data.IdShop, fromNgayThang).subscribe(res1 => {

@@ -8,6 +8,7 @@ import { ChangePassCstyComponent } from './change-pass-csty/change-pass-csty.com
 import { ChangeProfileCstyComponent } from './change-profile-csty/change-profile-csty.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QlgioiThieuComponent } from './qlgioi-thieu/qlgioi-thieu.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
   ],
-  declarations: [CoSoYteQlComponent, HomeYteComponent, ChangePassCstyComponent, ChangeProfileCstyComponent]
+  declarations: [CoSoYteQlComponent, HomeYteComponent, ChangePassCstyComponent, ChangeProfileCstyComponent, QlgioiThieuComponent]
 })
 export class CoSoYteQlModule { }

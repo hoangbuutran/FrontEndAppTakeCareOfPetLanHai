@@ -13,7 +13,7 @@ export class SanPham5MaxNgayComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.thongKeService.thongKeView5SanPhamMaxDayVoiIdShopWithIdShop();
+    this.thongKeService.thongKeView5SanPhamMaxDayVoiIdShop();
   }
 
 }

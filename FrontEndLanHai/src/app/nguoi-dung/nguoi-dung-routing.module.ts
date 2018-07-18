@@ -16,6 +16,7 @@ const routes: Routes = [
       { path: 'kenhcuashop/:IdShop', loadChildren: './view-shop-ban-hang/view-shop-ban-hang.module#ViewShopBanHangModule' },
       { path: 'nguoidungprofile', loadChildren: './nguoi-dung-profile/nguoi-dung-profile.module#NguoiDungProfileModule' },
       { path: 'thucungnguoidung', loadChildren: './thu-cung-nguoi-dung/thu-cung-nguoi-dung.module#ThuCungNguoiDungModule' },
+      { path: 'inforcosothuy/:IdCoSoThuY', loadChildren: './co-so-thu-yfor-nguoi-dung/co-so-thu-yfor-nguoi-dung.module#CoSoThuYforNguoiDungModule' },
     ]
   }
 ];

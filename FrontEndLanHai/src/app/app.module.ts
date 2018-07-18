@@ -43,6 +43,11 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
 import { ShoppingCartService } from './shared/Service/ShoppingCart.service';
 import { LocalStorageServie, Storage123Service } from './shared/Service/LocalStorage.service';
+import { DichVuService } from './shared/Service/DichVu.service';
+import { HoatDongService } from './shared/Service/HoatDong.service';
+import { GioiThieuService } from './shared/Service/GioiThieu.service';
+import { SucKhoeThuCungService } from './shared/Service/SucKhoeThuCung.service';
+import { PhieuHenKhamService } from './shared/Service/PhieuHenKham.service';
 
 @NgModule({
   declarations: [
@@ -92,6 +97,11 @@ import { LocalStorageServie, Storage123Service } from './shared/Service/LocalSto
     BaiVietService,
     HoaDonService,
     ErrorService,
+    DichVuService,
+    HoatDongService,
+    GioiThieuService,
+    SucKhoeThuCungService,
+    PhieuHenKhamService,
     LoaiSanPhamService,
     SanPhamService,
     CanNangService,

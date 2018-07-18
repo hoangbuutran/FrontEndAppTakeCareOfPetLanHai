@@ -4,6 +4,8 @@ import { ChiTietHoaDonModel } from '../../../shared/Model/ChiTietHoaDon.model';
 import { HoaDonService } from '../../../shared/Service/HoaDon.service';
 import { SanPhamService } from '../../../shared/Service/SanPham.service';
 import { ToastrService } from 'ngx-toastr';
+import { NguoiDungService } from '../../../shared/Service/NguoiDungService';
+import { NguoiDungModel } from '../../../shared/Model/NguoiDung.model';
 
 @Component({
   selector: 'app-hoa-don-detail',
@@ -15,13 +17,21 @@ export class HoaDonDetailComponent implements OnInit {
   listCTHD: any;
   listSanPham: any[] = [];
   trangThai: any;
+  tongGiaTriHoaDon: any;
+  idNguoiDung: any;
+  tenNguoiDungDetail: any;
+  diaChiDetail: any;
+  emailDetail: any;
+  sDTDetail: any;
+  ngaySinhDetail: any;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router, 
+    private router: Router,
     private toastr: ToastrService,
     private hoaDonService: HoaDonService,
     private sanPhamService: SanPhamService,
+    private nguoiDungService: NguoiDungService
   ) { }
 
   ngOnInit() {
@@ -36,17 +46,30 @@ export class HoaDonDetailComponent implements OnInit {
     this.hoaDonService.view(this.id).subscribe(
       res => {
         this.trangThai = res.data.TrangThai;
-        
+        this.tongGiaTriHoaDon = res.data.TongGia;
+        this.idNguoiDung = res.data.IdNguoiDung;
+        this.nguoiDungService.view(this.idNguoiDung).subscribe(res => {
+          this.tenNguoiDungDetail = res.data.TenNguoiDung;
+          this.diaChiDetail = res.data.DiaChi;
+          this.emailDetail = res.data.Email;
+          this.sDTDetail = res.data.SDT;
+          this.ngaySinhDetail = res.data.NgaySinh;
+        });
       }
     );
   }
 
   duyetDonHang() {
-    this.hoaDonService.updateTrangThai(this.id).subscribe(
-      res => {
-        this.toastr.success('Hóa đơn đã được duyệt', 'Thông báo');
-        this.router.navigate(['/shop/hoadon/view/' + this.id]);
-      }
-    );
+    this.hoaDonService.updateTrangThai(this.id).subscribe(res => {
+      this.toastr.success('Hóa đơn đã được duyệt', 'Thông báo');
+      this.router.navigate(['/shop/hoadon/view/' + this.id]);
+    });
+  }
+  
+  huyDonHang() {
+    this.hoaDonService.huyDonHangForShop(this.id).subscribe(res => {
+      this.toastr.success('Hóa đơn đã được hủy thành công', 'Thông báo');
+      this.router.navigate(['/shop/hoadon/list/' + this.id]);
+    });
   }
 }

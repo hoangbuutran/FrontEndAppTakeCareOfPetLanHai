@@ -23,6 +23,6 @@ export class SanPham10MaxThangComponent implements OnInit {
   }
 
   ThongKe10SubmitForm(){
-    this.thongKeService.thongKeView10SanPhamMaxMonVoiIdShopWithIdShop(this.ThongKe10Form.value);
+    this.thongKeService.thongKeView10SanPhamMaxMonVoiIdShop(this.ThongKe10Form.value);
   }
 }

@@ -36,11 +36,9 @@ export class XemLoaiSanPhamShopComponent implements OnInit {
     this.shoppingCartService.addItem(product, 1);
   }
 
-
   loadLaiTrang(idLoaiSanPham: any) {
     this.sanPhamService.viewSanPhamVoiIdLoaiSanPham(idLoaiSanPham).subscribe(res => {
       this.listSanPhamVoiIdLoaiSanPham = res.data;
     });
-
   }
 }
