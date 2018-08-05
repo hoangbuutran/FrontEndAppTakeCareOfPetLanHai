@@ -20,7 +20,11 @@ export class QlhoatDongEditComponent implements OnInit {
     { id: true, name: 'Mở hoạt động' },
     { id: false, name: 'Khóa hoạt động' },
   ];
-  
+
+  imageUrl = '/assets/Image/avatar5.png';
+  fileToUpload: File = null;
+
+
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -41,6 +45,7 @@ export class QlhoatDongEditComponent implements OnInit {
       NoiDung: ['', Validators.required],
       IdCoSoThuY: ['', Validators.required],
       TinhTrang: ['', Validators.required],
+      ImageShow: ['', Validators.required],
     });
     this.loadForm();
   }
@@ -51,17 +56,41 @@ export class QlhoatDongEditComponent implements OnInit {
       this.hoatDongEditForm.get('IdCoSoThuY').patchValue(res.data.IdCoSoThuY);
       this.hoatDongEditForm.get('TenHoatDong').patchValue(res.data.TenHoatDong);
       this.hoatDongEditForm.get('MoTa').patchValue(res.data.MoTa);
+      this.hoatDongEditForm.get('ImageShow').patchValue(res.data.ImageShow);
+      this.imageUrl = 'http://localhost:1650/Images/' + res.data.ImageShow;
       this.hoatDongEditForm.get('NoiDung').patchValue(res.data.NoiDung);
       this.hoatDongEditForm.get('TinhTrang').patchValue(res.data.TinhTrang);
     });
   }
 
-  hoatDongEditSubmitForm(){
-    this.hoatDongService.Update(this.hoatDongEditForm.value)
-    .subscribe(res => {
-      this.hoatDongService.hoatDongListVoiCSYT();
-      this.toastr.success(res.message, 'Thông báo');
-    });
+  handleFileInput(file: FileList) {
+    this.fileToUpload = file.item(0);
+    const reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.imageUrl = event.target.result;
+    };
+    reader.readAsDataURL(this.fileToUpload);
+    this.hoatDongEditForm.get('ImageShow').patchValue(this.fileToUpload);
+  }
+
+  hoatDongEditSubmitForm() {
+    if (typeof this.hoatDongEditForm.value.HinhAnh === 'string') {
+      this.hoatDongService.Update(this.hoatDongEditForm.value)
+        .subscribe(res => {
+          this.hoatDongService.hoatDongListVoiCSYT();
+          this.toastr.success(res.message, 'Thông báo');
+        });
+    } else {
+      this.hoatDongService.Update(this.hoatDongEditForm.value)
+        .subscribe(res => {
+          this.hoatDongService.upFile(this.id, this.fileToUpload)
+            .subscribe(res1 => {
+              this.toastr.success(res.message, 'Thông báo');
+            });
+          this.hoatDongService.hoatDongListVoiCSYT();
+          this.toastr.success(res.message, 'Thông báo');
+        });
+    }
     this.router.navigate(['/cosoyteql/qlhoatdong/list']);
   }
 

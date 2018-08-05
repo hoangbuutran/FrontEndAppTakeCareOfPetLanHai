@@ -5,11 +5,16 @@ import { CoSoThuYforNguoiDungRoutingModule } from './co-so-thu-yfor-nguoi-dung-r
 import { CoSoThuYforNguoiDungComponent } from './co-so-thu-yfor-nguoi-dung.component';
 import { CoSoThuYhomeComponent } from './co-so-thu-yhome/co-so-thu-yhome.component';
 import { DatLichKhamComponent } from './dat-lich-kham/dat-lich-kham.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
     CommonModule,
-    CoSoThuYforNguoiDungRoutingModule
+    CoSoThuYforNguoiDungRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   declarations: [CoSoThuYforNguoiDungComponent, CoSoThuYhomeComponent, DatLichKhamComponent]
 })

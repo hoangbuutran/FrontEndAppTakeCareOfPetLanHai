@@ -23,12 +23,12 @@ export class TaiKhoanService {
     }
 
     Register(RegisterModel: any) {
-        this.url = 'http://localhost:1650/api/createnguoidung';
+        this.url = 'http://localhost:1650/api/taikhoan/createnguoidung';
         return this.apiService.post(this.url, RegisterModel);
     }
 
     ForgotPass(EmailForm: any) {
-        this.url = 'http://localhost:1650/api/sendmailforgotpasss';
+        this.url = 'http://localhost:1650/api/taikhoan/sendmailforgotpasss';
         return this.apiService.post(this.url, EmailForm);
     }
 

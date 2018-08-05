@@ -12,9 +12,14 @@ import { SessionService } from '../../../shared/Service/session.service';
   styleUrls: ['./qlhoat-dong-add.component.css']
 })
 export class QlhoatDongAddComponent implements OnInit {
-  
+
   hoatDongAddForm: FormGroup;
   sessionuser: any;
+
+  imageUrl = '/assets/Image/avatar5.png';
+  fileToUpload: File = null;
+  file;
+
   tinhTrangList = [
     { id: true, name: 'Mở hoạt động' },
     { id: false, name: 'Khóa hoạt động' },
@@ -36,6 +41,7 @@ export class QlhoatDongAddComponent implements OnInit {
       NoiDung: ['', Validators.required],
       IdCoSoThuY: ['', Validators.required],
       TinhTrang: ['', Validators.required],
+      ImageShow: ['', Validators.required],
     });
     this.loadForm();
   }
@@ -47,9 +53,24 @@ export class QlhoatDongAddComponent implements OnInit {
     });
   }
 
+  handleFileInput(file: FileList) {
+    this.fileToUpload = file.item(0);
+    const reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.imageUrl = event.target.result;
+      this.hoatDongAddForm.get('ImageShow').patchValue(file.item(0).name);
+    };
+    reader.readAsDataURL(this.fileToUpload);
+  }
+
   hoatDongAddSubmitForm() {
+    
     this.hoatDongService.create(this.hoatDongAddForm.value)
       .subscribe(data => {
+        this.hoatDongService.upFile(data.data.IdHoatDong, this.fileToUpload)
+          .subscribe(res => {
+            this.toastr.success(res.message, 'Thông báo');
+          });
         this.hoatDongService.hoatDongListVoiCSYT();
         this.toastr.success(data.message, 'Thông báo');
       });

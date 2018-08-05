@@ -27,7 +27,7 @@ export class ForgotPassComponent implements OnInit {
   }
   ForgotPassSubmitForm() {
     this.taiKhoanService.ForgotPass(this.ForgotPassForm.value).subscribe(res => {
-      this.toastr.success(res.message, 'Thông báo');
+      this.toastr.success(res.message + ' vào email của bạn', 'Thông báo');
       this.router.navigate(['/login']);
     });
   }

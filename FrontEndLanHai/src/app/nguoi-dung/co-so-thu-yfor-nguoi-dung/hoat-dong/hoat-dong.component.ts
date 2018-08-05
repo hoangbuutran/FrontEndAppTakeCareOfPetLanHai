@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ParamMap, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-hoat-dong',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HoatDongComponent implements OnInit {
 
-  constructor() { }
+  id: any;
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.id = params.get('IdCoSoThuY');
+    });
+    console.log('hoatdong'+this.id);
   }
 
 }

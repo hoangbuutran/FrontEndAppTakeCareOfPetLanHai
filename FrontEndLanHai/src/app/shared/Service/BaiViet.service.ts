@@ -27,6 +27,17 @@ export class BaiVietService {
         return this.apiService.post(this.url, baiViet);
     }
 
+    like(like: any): Observable<any> {
+        this.url = 'http://localhost:1650/api/baiviet/like';
+        return this.apiService.post(this.url, like);
+    }
+
+
+    listLike(idBaiViet: any): Observable<any> {
+        this.url = 'http://localhost:1650/api/baiviet/getalllikebyidbaiviet/' + idBaiViet;
+        return this.apiService.get(this.url);
+    }
+
     delete(baiVietId: number | string): Observable<any> {
         this.url = 'http://localhost:1650/api/baiviet/delete/' + baiVietId;
         return this.apiService.get(this.url);
@@ -49,14 +60,14 @@ export class BaiVietService {
     }
 
     viewbaiVietVoiIdNguoiDung(idNguoiDung: number | string) {
-        this.url = 'http://localhost:1650/api/baiviet/getallbaiVietwithidBaiViet/' + idNguoiDung;
+        this.url = 'http://localhost:1650/api/baiviet/getallbyidnguoidung/' + idNguoiDung;
         return this.apiService.get(this.url).subscribe(res => {
             this.listBaiVietWithIdNguoiDung = res.data;
         });
     }
 
     viewListBaiViet() {
-        this.url = 'http://localhost:1650/api/baiviet/getallbaiViet';
+        this.url = 'http://localhost:1650/api/baiviet/getallsortdate';
         return this.apiService.get(this.url).subscribe(res => {
             this.listBaiViet = res.data;
         });

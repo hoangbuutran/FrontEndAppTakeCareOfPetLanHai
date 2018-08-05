@@ -1,79 +1,42 @@
-#pg-235-0, #pg-235-1, #pg-235-2, #pg-235-3, #pg-235-4 {
-    /* margin-left: -15px;
-    margin-right: -15px; */
-}
-#pg-235-0, #pg-235-1, #pg-235-2, #pg-235-3, #pl-235 .so-panel, #pl-235 .so-panel:last-child {
-    margin-bottom: 0px;
-}
 
-.panel-grid {
-    margin-bottom: 0!important;
+
+.box.box-solid {
+    border-top: 0;
 }
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, blockquote, th, td {
+.box {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+.box-header.with-border {
+    border-bottom: 1px solid #f4f4f4;
+}
+.box-header {
+    color: #444;
+    display: block;
+    padding: 10px;
+    position: relative;
+}
+.box-header>.fa, .box-header>.glyphicon, .box-header>.ion, .box-header .box-title {
+    display: inline-block;
+    font-size: 18px;
     margin: 0;
-    padding: 0;
-    direction: ltr;
-    outline: none;
+    line-height: 1;
 }
-.row-justification-left.panel-row-style.panel-row-style-for-235-3 {
-    margin-bottom: 0;
-    padding: 45px 0 45px 0;
+.box-body {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 10px;
 }
-.panel-grid.panel-has-style>.panel-row-style, .panel-grid.panel-no-style {
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: nowrap;
-    -ms-justify-content: space-between;
-    justify-content: space-between;
-}
-#pg-235-0 .panel-grid-cell, #pg-235-1 .panel-grid-cell, #pg-235-2 .panel-grid-cell, #pg-235-3 .panel-grid-cell, #pg-235-4 .panel-grid-cell {
-    padding-left: 15px;
-    padding-right: 82px;
-}
-#pgc-235-1-0, #pgc-235-1-1, #pgc-235-1-2, #pgc-235-2-0, #pgc-235-2-1, #pgc-235-2-2, #pgc-235-3-0, #pgc-235-3-1, #pgc-235-3-2, #pgc-235-4-0, #pgc-235-4-1, #pgc-235-4-2 {
-    width: 50%;
-}
-.panel-grid-cell {
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
-#pl-235 #panel-235-0-0-0, #pl-235 #panel-235-1-0-0, #pl-235 #panel-235-1-0-1, #pl-235 #panel-235-1-1-0, #pl-235 #panel-235-1-1-1, #pl-235 #panel-235-1-2-0, #pl-235 #panel-235-1-2-1, #pl-235 #panel-235-2-0-0, #pl-235 #panel-235-2-0-1, #pl-235 #panel-235-2-1-0, #pl-235 #panel-235-2-1-1, #pl-235 #panel-235-2-2-0, #pl-235 #panel-235-2-2-1, #pl-235 #panel-235-3-0-0, #pl-235 #panel-235-3-0-1, #pl-235 #panel-235-3-1-0, #pl-235 #panel-235-3-1-1, #pl-235 #panel-235-3-2-0, #pl-235 #panel-235-3-2-1, #pl-235 #panel-235-4-0-0, #pl-235 #panel-235-4-0-1 {
-}
-#pg-235-0, #pg-235-1, #pg-235-2, #pg-235-3, #pl-235 .so-panel, #pl-235 .so-panel:last-child {
-    margin-bottom: 0px;
-}
-.panel-grid-cell .so-panel {
-    zoom: 1;
-}
-#pg-235-0, #pg-235-1, #pg-235-2, #pg-235-3, #pl-235 .so-panel, #pl-235 .so-panel:last-child {
-    margin-bottom: 0px;
-}
-.panel-grid-cell .panel-last-child {
-    margin-bottom: 0;
-}
-p, .textwidget {
-    line-height: 24px;
-}
-
-div#pgc-235-2-1 {
-    padding-right: 5%;
-    padding-left: 4%;
-    border-bottom: 1px solid #e1e1e1;
-    border-right: 1px solid #e1e1e1;
-}
-
-#pg-235-0> .panel-row-style {
-    background-color: #00aec9;
-    background-image: url(http://petcare.vn/wp-content/uploads/2016/06/sevice_banner_bg_2016092.jpg);
-}
-
-.panel-grid.panel-no-style, .panel-grid.panel-has-style > .panel-row-style {
-    display: -webkit-flex;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: nowrap;
-    -ms-justify-content: space-between;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+    border-left: 5px solid #eee;
 }

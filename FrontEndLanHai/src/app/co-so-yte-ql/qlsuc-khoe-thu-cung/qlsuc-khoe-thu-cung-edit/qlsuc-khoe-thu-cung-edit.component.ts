@@ -21,6 +21,11 @@ export class QlsucKhoeThuCungEditComponent implements OnInit {
     { id: false, name: 'Khóa suc Khoe Thu Cung' },
   ];
 
+  imageUrl = '/assets/Image/avatar5.png';
+  fileToUpload: File = null;
+
+
+
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -44,6 +49,7 @@ export class QlsucKhoeThuCungEditComponent implements OnInit {
       NoiDung: ['', Validators.required],
       IdCoSoThuY: ['', Validators.required],
       TinhTrang: ['', Validators.required],
+      ImageShow: ['', Validators.required],
     });
 
     this.loadForm();
@@ -58,16 +64,42 @@ export class QlsucKhoeThuCungEditComponent implements OnInit {
       this.sucKhoeThuCungEditForm.get('TenSKTC').patchValue(res.data.TenSKTC);
       this.sucKhoeThuCungEditForm.get('MoTa').patchValue(res.data.MoTa);
       this.sucKhoeThuCungEditForm.get('NoiDung').patchValue(res.data.NoiDung);
+      this.sucKhoeThuCungEditForm.get('ImageShow').patchValue(res.data.ImageShow);
+      this.imageUrl = 'http://localhost:1650/Images/' + res.data.ImageShow;
       this.sucKhoeThuCungEditForm.get('TinhTrang').patchValue(res.data.TinhTrang);
     });
   }
 
+
+  handleFileInput(file: FileList) {
+    this.fileToUpload = file.item(0);
+    const reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.imageUrl = event.target.result;
+    };
+    reader.readAsDataURL(this.fileToUpload);
+    this.sucKhoeThuCungEditForm.get('ImageShow').patchValue(this.fileToUpload);
+  }
+
+
   sucKhoeThuCungEditSubmitForm() {
-    this.sucKhoeThuCungService.Update(this.sucKhoeThuCungEditForm.value)
-      .subscribe(res => {
-        this.sucKhoeThuCungService.sucKhoeThuCungListVoiCSYT();
-        this.toastr.success(res.message, 'Thông báo');
-      });
+    if (typeof this.sucKhoeThuCungEditForm.value.HinhAnh === 'string') {
+      this.sucKhoeThuCungService.Update(this.sucKhoeThuCungEditForm.value)
+        .subscribe(res => {
+          this.sucKhoeThuCungService.sucKhoeThuCungListVoiCSYT();
+          this.toastr.success(res.message, 'Thông báo');
+        });
+    } else {
+      this.sucKhoeThuCungService.Update(this.sucKhoeThuCungEditForm.value)
+        .subscribe(res => {
+          this.sucKhoeThuCungService.upFile(this.id, this.fileToUpload)
+            .subscribe(res1 => {
+              this.toastr.success(res.message, 'Thông báo');
+            });
+          this.sucKhoeThuCungService.sucKhoeThuCungListVoiCSYT();
+          this.toastr.success(res.message, 'Thông báo');
+        });
+    }
     this.router.navigate(['/cosoyteql/qlsuckhoethucung/list']);
   }
 

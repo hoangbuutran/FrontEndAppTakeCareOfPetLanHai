@@ -79,12 +79,9 @@ export class DichVuService {
         return this.apiService.get(this.url);
     }
 
-    dichVuForTrueListVoiCSYT() {
-        this.sessionuser = this.sessionService.getToken();
-        this.coSoThuYService.viewWithIdTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
-            this.viewDichVuForTrueVoiCSYT(res.data.IdCoSoThuY).subscribe(res1 => {
-                this.dichVuForTrueListProperty = res1.data;
-            });
+    dichVuForTrueListVoiCSYT(IdCoSoThuY: number | string) {
+        this.viewDichVuForTrueVoiCSYT(IdCoSoThuY).subscribe(res1 => {
+            this.dichVuForTrueListProperty = res1.data;
         });
     }
 }

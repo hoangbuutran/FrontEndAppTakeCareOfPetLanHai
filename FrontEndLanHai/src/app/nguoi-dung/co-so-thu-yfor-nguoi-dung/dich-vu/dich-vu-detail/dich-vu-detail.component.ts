@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { DichVuService } from '../../../../shared/Service/DichVu.service';
 
 @Component({
   selector: 'app-dich-vu-detail',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DichVuDetailComponent implements OnInit {
 
-  constructor() { }
+  idDichVu: any;
+
+  TenDichVuDetail: any;
+  MoTaDichVuDetail: any;
+  NoiDungDetail: any;
+  IdCoSoThuYDetail: any;
+  constructor(
+    private route: ActivatedRoute,
+    private dichVuService: DichVuService,
+  ) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.idDichVu = params.get('IdDichVu');
+    });
+    this.dichVuService.view(this.idDichVu).subscribe(res => {
+      this.TenDichVuDetail = res.data.TenDichVu;
+      this.MoTaDichVuDetail = res.data.MoTaDichVu;
+      this.NoiDungDetail = res.data.NoiDung;
+      this.IdCoSoThuYDetail = res.data.IdCoSoThuY;
+    });
   }
-
 }

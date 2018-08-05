@@ -5,6 +5,7 @@ import { NguoiDungProfileHomeComponent } from './nguoi-dung-profile-home/nguoi-d
 import { NguoiDungProfileEditComponent } from './nguoi-dung-profile-edit/nguoi-dung-profile-edit.component';
 import { ChangePassNguoiDungComponent } from './change-pass-nguoi-dung/change-pass-nguoi-dung.component';
 import { TaoMoiBaiDangComponent } from './tao-moi-bai-dang/tao-moi-bai-dang.component';
+import { BaiVietDetailProfileComponent } from './bai-viet-detail-profile/bai-viet-detail-profile.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'edit/:IdNguoiDung', component: NguoiDungProfileEditComponent },
       { path: 'changepass', component: ChangePassNguoiDungComponent },
       { path: 'taobaidang', component: TaoMoiBaiDangComponent },
+      { path: 'baivietdetail/:IdBaiViet', component: BaiVietDetailProfileComponent },
     ]
   }
 ];

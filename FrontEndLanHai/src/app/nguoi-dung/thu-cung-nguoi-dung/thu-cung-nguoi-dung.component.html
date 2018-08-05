@@ -1,43 +1,47 @@
 <!-- Main content -->
 <section class="content">
 
-    <div class="row">
-      <div class="col-lg-3 col-xs-3">
-        <ul class="sidebar-menu">
-          <li class="">
+  <div class="row">
+    <div class="col-lg-2 col-xs-3">
+      <div class="box">
+        <div id="menu" class="box-header with-border">
+          <h4 class="box-title">
             <a routerLink="/nguoidung/home">
               <i class="fa fa-link"></i>
               <span>Trang Chủ</span>
             </a>
-          </li>
-          <li class="">
-            <a routerLink="/nguoidung/home">
-              <i class="fa fa-link"></i>
-              <span>Thú cưng của bạn</span>
-            </a>
-          </li>          
-        </ul>
-      </div>
-  
-      <div class="col-lg-7 col-xs-6" style="overflow:auto; height:624px;">
-        <router-outlet></router-outlet>
-      </div>
-  
-      <div class="col-lg-2 col-xs-3" style="overflow:auto; height:624px;">
-
-        <div class="box">
-          <div class="box-header">
-            <h3 class="box-title">Danh sách cơ sở thú y</h3>
-          </div>
-          <div class="box-body" *ngFor="let item of listCoSoThuY">
-            <button routerLink="/nguoidung/inforcosothuy/{{ item.IdCoSoThuY }}/home" class="btn btn-default btn-block"> {{ item.TenCoSoThuY }} </button>
-            <button class="btn btn-default btn-block">Tên cơ sở thú y số 1</button>
-            <button class="btn btn-default btn-block">Tên cơ sở thú y số 1</button>
-            <button class="btn btn-default btn-block">Tên cơ sở thú y số 1</button>
-          </div>
+          </h4>
         </div>
-  
+        <div id="menu" class="box-header with-border">
+          <h4 class="box-title">
+              <a routerLink="/nguoidung/thucungnguoidung/home/1">
+                <i class="fa fa-link"></i>
+                <span>Thú cưng của bạn</span>
+            </a>
+          </h4>
+        </div>
       </div>
     </div>
 
-  </section>
+    <div class="col-lg-8 col-xs-6" style="overflow:auto; height:624px;">
+      <router-outlet></router-outlet>
+    </div>
+
+    <div class="col-lg-2 col-xs-3" style="overflow:auto; height:624px;">
+
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Danh sách cơ sở thú y</h3>
+        </div>
+        <div class="box-body" *ngFor="let item of listCoSoThuY">
+          <button routerLink="/nguoidung/inforcosothuy/{{ item.IdCoSoThuY }}/home/{{ item.IdCoSoThuY }}" class="btn btn-default btn-block"> {{ item.TenCoSoThuY }} </button>
+          <button class="btn btn-default btn-block">Tên cơ sở thú y số 1</button>
+          <button class="btn btn-default btn-block">Tên cơ sở thú y số 1</button>
+          <button class="btn btn-default btn-block">Tên cơ sở thú y số 1</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>

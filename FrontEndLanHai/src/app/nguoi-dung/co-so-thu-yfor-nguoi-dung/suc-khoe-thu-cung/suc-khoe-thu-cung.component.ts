@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-suc-khoe-thu-cung',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./suc-khoe-thu-cung.component.css']
 })
 export class SucKhoeThuCungComponent implements OnInit {
-
-  constructor() { }
+  
+  id: any;
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.id = params.get('IdCoSoThuY');
+    });
+    console.log('sktc'+this.id);
   }
 
 }

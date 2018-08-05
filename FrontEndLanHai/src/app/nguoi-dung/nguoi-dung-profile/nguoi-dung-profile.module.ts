@@ -9,6 +9,7 @@ import { ChangePassNguoiDungComponent } from './change-pass-nguoi-dung/change-pa
 import { TaoMoiBaiDangComponent } from './tao-moi-bai-dang/tao-moi-bai-dang.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BaiVietDetailProfileComponent } from './bai-viet-detail-profile/bai-viet-detail-profile.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     NgxPaginationModule
   ],
-  declarations: [NguoiDungProfileComponent, NguoiDungProfileHomeComponent, NguoiDungProfileEditComponent, ChangePassNguoiDungComponent, TaoMoiBaiDangComponent]
+  declarations: [NguoiDungProfileComponent, NguoiDungProfileHomeComponent, NguoiDungProfileEditComponent, ChangePassNguoiDungComponent, TaoMoiBaiDangComponent, BaiVietDetailProfileComponent]
 })
 export class NguoiDungProfileModule { }

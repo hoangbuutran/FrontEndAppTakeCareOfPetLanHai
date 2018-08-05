@@ -9,9 +9,9 @@ const routes: Routes = [
     path: '',
     component: HoatDongComponent,
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HoatDongHomeComponent },
-      { path: 'detail', component: HoatDongDetailComponent },
+      { path: '', redirectTo: 'home/:IdCoSoThuY', pathMatch: 'full' },
+      { path: 'home/:IdCoSoThuY', component: HoatDongHomeComponent },
+      { path: 'detail/:IdHoatDong', component: HoatDongDetailComponent },
     ]
   }
 ];

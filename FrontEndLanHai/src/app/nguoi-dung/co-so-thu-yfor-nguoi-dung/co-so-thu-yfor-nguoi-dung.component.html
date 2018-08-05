@@ -2,49 +2,57 @@
 <section class="content">
     <div class="row">
         <div class="row col-md-12">
-            <!-- <div class="col-lg-1 col-xs-0">
 
-            </div> -->
             <div class="col-lg-2 col-xs-3">
-                <ul class="sidebar-menu">
-                    <li class="">
-                        <a routerLink="/nguoidung/inforcosothuy/{{ IdCoSoThuY }}/home">
-                            <i class="fa fa-link"></i>
-                            <span>Trang Chủ</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a routerLink="/nguoidung/inforcosothuy/{{ IdCoSoThuY }}/dichvu/home">
-                            <i class="fa fa-link"></i>
-                            <span>Dịch vụ</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a routerLink="/nguoidung/inforcosothuy/{{ IdCoSoThuY }}/suckhoethucung/home">
-                            <i class="fa fa-link"></i>
-                            <span>Sức khỏe thú cưng</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a routerLink="/nguoidung/inforcosothuy/{{ IdCoSoThuY }}/hoatdong/home">
-                            <i class="fa fa-link"></i>
-                            <span>Hoạt động</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a routerLink="/nguoidung/inforcosothuy/{{ IdCoSoThuY }}/datlichkham">
-                            <i class="fa fa-link"></i>
-                            <span>Đặt lịch khám</span>
-                        </a>
-                    </li>
-                </ul>
+                <div class="box">
+                    <div id="menu" class="box-header with-border">
+                        <h4 class="box-title">
+                            <a routerLink="/nguoidung/inforcosothuy/{{id}}/home/{{id}}">
+                                <i class="fa fa-link"></i>
+                                <span>Trang Chủ</span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="menu" class="box-header with-border">
+                        <h4 class="box-title">
+                            <a routerLink="/nguoidung/inforcosothuy/{{id}}/dichvu/home/{{id}}">
+                                <i class="fa fa-link"></i>
+                                <span>Dịch vụ</span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="menu" class="box-header with-border">
+                        <h4 class="box-title">
+                            <a routerLink="/nguoidung/inforcosothuy/{{id}}/hoatdong/home/{{id}}">
+                                <i class="fa fa-link"></i>
+                                <span>Hoạt động</span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="menu" class="box-header with-border">
+                        <h4 class="box-title">
+                            <a routerLink="/nguoidung/inforcosothuy/{{id}}/datlichkham/{{id}}">
+                                <i class="fa fa-link"></i>
+                                <span>Đặt lịch khám</span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="menu" class="box-header with-border">
+                        <h4 class="box-title">
+                            <a routerLink="/nguoidung/inforcosothuy/{{id}}/suckhoethucung/home/{{id}}">
+                                <i class="fa fa-link"></i>
+                                <span>Sức khỏe thú cưng</span>
+                            </a>
+                        </h4>
+                    </div>
+                </div>
             </div>
 
             <div class="col-lg-7 col-xs-6">
                 <router-outlet></router-outlet>
             </div>
 
-            <div class="col-sm-3 col-md-3">
+            <div class="col-lg-3 col-xs-3">
                 <div id="sidebar" class="col-4" role="complementary">
                     <div id="search-3" class="widget-1 first widget widget_search">
                         <h3 class="widget-title">Tìm kiếm</h3>
@@ -64,8 +72,7 @@
                         <h3 class="widget-title">Mới đăng</h3>
                         <ul>
                             <li class="format-default">
-                                <a href="http://petcare.vn/hoi-nhanh-dap-gon-ve-bravecto/" title="Hỏi nhanh – Đáp gọn về Bravecto"
-                                    rel="bookmark">
+                                <a href="http://petcare.vn/hoi-nhanh-dap-gon-ve-bravecto/" title="Hỏi nhanh – Đáp gọn về Bravecto" rel="bookmark">
                                     <img src="http://petcare.vn/wp-content/uploads/2018/07/Bravecto-120x120.jpg" class="attachment-ots-post-thumbnail-small size-ots-post-thumbnail-small wp-post-image"
                                         alt="" srcset="http://petcare.vn/wp-content/uploads/2018/07/Bravecto-120x120.jpg 120w, http://petcare.vn/wp-content/uploads/2018/07/Bravecto-150x150.jpg 150w, http://petcare.vn/wp-content/uploads/2018/07/Bravecto-45x45.jpg 45w, http://petcare.vn/wp-content/uploads/2018/07/Bravecto-300x300.jpg 300w, http://petcare.vn/wp-content/uploads/2018/07/Bravecto-100x100.jpg 100w"
                                         sizes="(max-width: 120px) 100vw, 120px">
@@ -76,8 +83,7 @@
                             </li>
                             <li class="format-default">
                                 <a href="http://petcare.vn/nhap-mon-nuoi-boss/" title="Nhập môn nuôi “BOSS”" rel="bookmark">
-                                    <img src="http://petcare.vn/wp-content/uploads/2018/07/nhap-mon-nuoi-boss_cham-cho-meo-con-120x120.jpg"
-                                        class="attachment-ots-post-thumbnail-small size-ots-post-thumbnail-small wp-post-image"
+                                    <img src="http://petcare.vn/wp-content/uploads/2018/07/nhap-mon-nuoi-boss_cham-cho-meo-con-120x120.jpg" class="attachment-ots-post-thumbnail-small size-ots-post-thumbnail-small wp-post-image"
                                         alt="" srcset="http://petcare.vn/wp-content/uploads/2018/07/nhap-mon-nuoi-boss_cham-cho-meo-con-120x120.jpg 120w, http://petcare.vn/wp-content/uploads/2018/07/nhap-mon-nuoi-boss_cham-cho-meo-con-150x150.jpg 150w, http://petcare.vn/wp-content/uploads/2018/07/nhap-mon-nuoi-boss_cham-cho-meo-con-45x45.jpg 45w, http://petcare.vn/wp-content/uploads/2018/07/nhap-mon-nuoi-boss_cham-cho-meo-con-300x300.jpg 300w, http://petcare.vn/wp-content/uploads/2018/07/nhap-mon-nuoi-boss_cham-cho-meo-con-100x100.jpg 100w"
                                         sizes="(max-width: 120px) 100vw, 120px">
                                     <p>Nhập môn nuôi “BOSS”
@@ -96,8 +102,7 @@
                                 </a>
                             </li>
                             <li class="format-default">
-                                <a href="http://petcare.vn/nao-minh-cung-rua-tay-rua-tay-dung-cach/" title="Nào mình cùng rửa tay – Rửa tay đúng cách"
-                                    rel="bookmark">
+                                <a href="http://petcare.vn/nao-minh-cung-rua-tay-rua-tay-dung-cach/" title="Nào mình cùng rửa tay – Rửa tay đúng cách" rel="bookmark">
                                     <img src="http://petcare.vn/wp-content/uploads/2018/07/quy-trinh-rua-tay-120x120.jpg" class="attachment-ots-post-thumbnail-small size-ots-post-thumbnail-small wp-post-image"
                                         alt="" srcset="http://petcare.vn/wp-content/uploads/2018/07/quy-trinh-rua-tay-120x120.jpg 120w, http://petcare.vn/wp-content/uploads/2018/07/quy-trinh-rua-tay-150x150.jpg 150w, http://petcare.vn/wp-content/uploads/2018/07/quy-trinh-rua-tay-45x45.jpg 45w, http://petcare.vn/wp-content/uploads/2018/07/quy-trinh-rua-tay-300x300.jpg 300w, http://petcare.vn/wp-content/uploads/2018/07/quy-trinh-rua-tay-100x100.jpg 100w"
                                         sizes="(max-width: 120px) 100vw, 120px">

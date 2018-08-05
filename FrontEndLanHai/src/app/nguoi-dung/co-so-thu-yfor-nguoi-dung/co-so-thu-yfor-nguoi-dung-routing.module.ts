@@ -9,9 +9,9 @@ const routes: Routes = [
     path: '',
     component: CoSoThuYforNguoiDungComponent,
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: CoSoThuYhomeComponent },
-      { path: 'datlichkham', component: DatLichKhamComponent },
+      { path: '', redirectTo: 'home/:IdCoSoThuY', pathMatch: 'full' },
+      { path: 'home/:IdCoSoThuY', component: CoSoThuYhomeComponent },
+      { path: 'datlichkham/:IdCoSoThuY', component: DatLichKhamComponent },
       { path: 'dichvu', loadChildren: './dich-vu/dich-vu.module#DichVuModule'},
       { path: 'hoatdong', loadChildren: './hoat-dong/hoat-dong.module#HoatDongModule'},
       { path: 'suckhoethucung', loadChildren: './suc-khoe-thu-cung/suc-khoe-thu-cung.module#SucKhoeThuCungModule'},

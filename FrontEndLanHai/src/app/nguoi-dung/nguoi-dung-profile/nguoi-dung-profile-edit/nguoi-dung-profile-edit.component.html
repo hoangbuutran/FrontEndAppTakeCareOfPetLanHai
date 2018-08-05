@@ -53,37 +53,66 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">Thay đổi Profile</h3>
                 </div>
-                <form class="form-horizontal">
+                <form class="form-horizontal" [formGroup]="NguoiDungEditProfileForm" (ngSubmit)="NguoiDungEditProfileSubmitForm()">
+                    <input type="hidden" formControlName="IdNguoiDung" name="IdNguoiDung">
+                    <input type="hidden" formControlName="IdTaiKhoan" name="IdTaiKhoan">
+                    <input type="hidden" formControlName="HinhAnh" name="HinhAnh">
+                    
                     <div class="box-body">
                         <div class="form-group">
-                            <label class="col-lg-3 control-label">Tên người dùng :</label>
-                            <div class="col-lg-7">
-                                <input class="form-control" type="text" >
+                            <label for="inputEmail3" class="col-sm-2 control-label">Tên người dùng</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="TenNguoiDung" placeholder="Tên người dùng">
+                                <p *ngIf="NguoiDungEditProfileForm.get('TenNguoiDung').invalid && NguoiDungEditProfileForm.get('TenNguoiDung').touched">Required</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-lg-3 control-label">Địa chỉ :</label>
-                            <div class="col-lg-7">
-                                <input class="form-control" type="text" >
+                            <label for="inputEmail3" class="col-sm-2 control-label">Địa điểm</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="DiaChi" placeholder="Địa điểm">
+                                <p *ngIf="NguoiDungEditProfileForm.get('DiaChi').invalid && NguoiDungEditProfileForm.get('DiaChi').touched">Required</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-lg-3 control-label">Số điện thoại :</label>
-                            <div class="col-lg-7">
-                                <input class="form-control" type="text" >
+                            <label for="inputEmail3" class="col-sm-2 control-label">Số điện thoại</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="SDT" placeholder="Số điện thoại">
+                                <p *ngIf="NguoiDungEditProfileForm.get('SDT').invalid && NguoiDungEditProfileForm.get('SDT').touched">Required</p>
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label class="col-lg-3 control-label">Email :</label>
-                            <div class="col-lg-7">
-                                <input class="form-control" type="text" >
+                            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="Email" placeholder="Email">
+                                <p *ngIf="NguoiDungEditProfileForm.get('Email').invalid && NguoiDungEditProfileForm.get('Email').touched">Required</p>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="datetime" class="form-control" formControlName="NgaySinh" placeholder="Email">
+                                <p *ngIf="NguoiDungEditProfileForm.get('NgaySinh').invalid && NguoiDungEditProfileForm.get('NgaySinh').touched">Required</p>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Cơ sở thú y đăng ký</label>
+                            <div class="col-sm-3">
+                              <select class="form-control select2" formControlName="IdCoSoThuY">
+                                <option value="" disabled selected>Select your option</option>
+                                <option *ngFor="let c of listCSTY" [value]="c.IdCoSoThuY">{{c.TenCoSoThuY}}</option>
+                              </select>
+                            </div>
+                          </div>
+
                     </div>
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-info pull-right">Cập nhật</button>
+                        <button type="submit" [disabled]="NguoiDungEditProfileForm.invalid" class="btn btn-info pull-right">Submit</button>
                     </div>
                 </form>
             </div>

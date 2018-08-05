@@ -34,6 +34,14 @@ export class HoatDongService {
         return this.apiService.post(this.url, hoatDong);
     }
 
+    upFile(idHoatDong: string, fileToUpload: any): Observable<any> {
+        const formData: FormData = new FormData();
+        formData.append('ImageShow', fileToUpload, fileToUpload.name);
+        formData.append('Id', idHoatDong);
+        this.url = 'http://localhost:1650/api/hoat-dong/uploadimage';
+        return this.http.post(this.url, formData);
+    }
+
     KhoaMo(hoatDongId: number | string): Observable<any> {
         this.url = 'http://localhost:1650/api/hoat-dong/khoamo/' + hoatDongId;
         return this.apiService.get(this.url);
@@ -74,17 +82,14 @@ export class HoatDongService {
         });
     }
 
-    viewhoatDongForTrueVoiCSYT(cSYTId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/hoat-dong/get-all-with-id-cosothuy-for-true/' + cSYTId;
+    viewhoatDongForTrueVoiCSYT(IdCoSoThuY: number | string): Observable<any> {
+        this.url = 'http://localhost:1650/api/hoat-dong/get-all-with-id-cosothuy-for-true/' + IdCoSoThuY;
         return this.apiService.get(this.url);
     }
 
-    hoatDongForTrueListVoiCSYT() {
-        this.sessionuser = this.sessionService.getToken();
-        this.coSoThuYService.viewWithIdTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
-            this.viewhoatDongForTrueVoiCSYT(res.data.IdCoSoThuY).subscribe(res1 => {
-                this.hoatDongForTrueListProperty = res1.data;
-            });
+    hoatDongForTrueListVoiCSYT(IdCoSoThuY: number | string) {
+        this.viewhoatDongForTrueVoiCSYT(IdCoSoThuY).subscribe(res => {
+            this.hoatDongForTrueListProperty = res.data;
         });
     }
 }

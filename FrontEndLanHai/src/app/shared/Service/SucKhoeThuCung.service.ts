@@ -40,6 +40,14 @@ export class SucKhoeThuCungService {
         return this.apiService.get(this.url);
     }
 
+    upFile(idSucKhoeThuCung: string, fileToUpload: any): Observable<any> {
+        const formData: FormData = new FormData();
+        formData.append('ImageShow', fileToUpload, fileToUpload.name);
+        formData.append('Id', idSucKhoeThuCung);
+        this.url = 'http://localhost:1650/api/suc-khoe-thu-cung/uploadimage';
+        return this.http.post(this.url, formData);
+    }
+
     delete(sucKhoeThuCungId: number | string): Observable<any> {
         this.url = 'http://localhost:1650/api/suc-khoe-thu-cung/delete/' + sucKhoeThuCungId;
         return this.apiService.get(this.url);
@@ -80,14 +88,12 @@ export class SucKhoeThuCungService {
         return this.apiService.get(this.url);
     }
 
-    sucKhoeThuCungForTrueListVoiCSYT() {
-        this.sessionuser = this.sessionService.getToken();
-        this.coSoThuYService.viewWithIdTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
-            this.viewsucKhoeThuCungForTrueVoiCSYT(res.data.IdCoSoThuY).subscribe(res1 => {
-                this.sucKhoeThuCungForTrueListProperty = res1.data;
-            });
+    sucKhoeThuCungForTrueListVoiCSYT(IdCoSoThuY: number | string) {
+        this.viewsucKhoeThuCungForTrueVoiCSYT(IdCoSoThuY).subscribe(res => {
+            this.sucKhoeThuCungForTrueListProperty = res.data;
         });
     }
+    
     viewsucKhoeThuCungGetAll(): Observable<any> {
         this.url = 'http://localhost:1650/api/suc-khoe-thu-cung/get-all-for-true/';
         return this.apiService.get(this.url);

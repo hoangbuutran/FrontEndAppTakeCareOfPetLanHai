@@ -6,33 +6,37 @@
               <div class="box-header with-border">
                   <h3 class="box-title">Thay đổi mật khẩu</h3>
               </div>
-              <form class="form-horizontal">
-                  <div class="box-body">
-                      <div class="form-group">
-                          <label class="col-lg-3 control-label">Mật khẩu cũ:</label>
-                          <div class="col-lg-7">
-                              <input class="form-control" type="text" >
-                          </div>
-                      </div>
-
-                      <div class="form-group">
-                          <label class="col-lg-3 control-label">Mật khẩu mới:</label>
-                          <div class="col-lg-7">
-                              <input class="form-control" type="text">
-                          </div>
-                      </div>
-
-                      <div class="form-group">
-                          <label class="col-lg-3 control-label">Xác nhận mật khẩu mới:</label>
-                          <div class="col-lg-7">
-                              <input class="form-control" type="text" >
-                          </div>
-                      </div>
+              <form [formGroup]="ChangePassForm" (ngSubmit)="ChangePassSubmitForm()" class="form-horizontal" role="form">
+  
+                <div class="form-group">
+                  <label class="col-lg-3 control-label">Tên đăng nhập:</label>
+                  <div class="col-lg-7">
+                    <input class="form-control" type="text" formControlName="UserName">
                   </div>
-                  <div class="box-footer">
-                      <button type="submit" class="btn btn-info pull-right">Cập nhật</button>
+                </div>
+  
+                <div class="form-group">
+                  <label class="col-lg-3 control-label">Mật khẩu củ:</label>
+                  <div class="col-lg-7">
+                    <input class="form-control" type="text" formControlName="PassOld">
                   </div>
+                </div>
+  
+                <div class="form-group">
+                  <label class="col-lg-3 control-label">Mật khẩu mới:</label>
+                  <div class="col-lg-7">
+                    <input class="form-control" type="text" formControlName="PassNew">
+                  </div>
+                </div>
+  
+                <div class="form-group">
+                  <label class="col-md-3 control-label"></label>
+                  <div class="col-md-7">
+                    <input type="submit" [disabled]="ChangePassForm.invalid" class="btn btn-primary" value="Save Changes">
+                  </div>
+                </div>
               </form>
+              <br>
           </div>
       </div>
   </div>

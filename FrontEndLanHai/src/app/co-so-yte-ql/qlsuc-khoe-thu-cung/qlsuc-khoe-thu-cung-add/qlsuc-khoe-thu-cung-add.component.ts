@@ -15,6 +15,11 @@ export class QlsucKhoeThuCungAddComponent implements OnInit {
 
   sucKhoeThuCungAddForm: FormGroup;
   sessionuser: any;
+
+  imageUrl = '/assets/Image/avatar5.png';
+  fileToUpload: File = null;
+  file;
+
   tinhTrangList = [
     { id: true, name: 'Mở sức khỏe thú cưng' },
     { id: false, name: 'Khóa sức khỏe thú cưng' },
@@ -36,6 +41,7 @@ export class QlsucKhoeThuCungAddComponent implements OnInit {
       NoiDung: ['', Validators.required],
       IdCoSoThuY: ['', Validators.required],
       TinhTrang: ['', Validators.required],
+      ImageShow: ['', Validators.required],
     });
     this.loadForm();
   }
@@ -47,14 +53,30 @@ export class QlsucKhoeThuCungAddComponent implements OnInit {
     });
   }
 
+
+  handleFileInput(file: FileList) {
+    this.fileToUpload = file.item(0);
+    const reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.imageUrl = event.target.result;
+      this.sucKhoeThuCungAddForm.get('ImageShow').patchValue(file.item(0).name);
+    };
+    reader.readAsDataURL(this.fileToUpload);
+  }
+
   sucKhoeThuCungAddSubmitForm() {
+
     this.sucKhoeThuCungService.create(this.sucKhoeThuCungAddForm.value)
       .subscribe(data => {
+        this.sucKhoeThuCungService.upFile(data.data.IdSKTC, this.fileToUpload)
+          .subscribe(res => {
+            this.toastr.success(res.message, 'Thông báo');
+          });
         this.sucKhoeThuCungService.sucKhoeThuCungListVoiCSYT();
         this.toastr.success(data.message, 'Thông báo');
       });
+
     this.router.navigate(['/cosoyteql/qlsuckhoethucung/list']);
+
   }
-
-
 }

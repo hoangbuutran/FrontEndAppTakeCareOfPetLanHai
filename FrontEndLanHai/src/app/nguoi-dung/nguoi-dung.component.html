@@ -79,18 +79,18 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="assets/Image/avatar5.png" class="user-image" alt="User Image">
-                            <span class="hidden-xs">{{ tenCSYT }}</span>
+                            <span class="hidden-xs">{{ tenNguoiDung }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="user-header">
                                 <img src="assets/Image/avatar5.png" class="img-circle" alt="User Image">
                                 <p>
-                                    {{ tenShop }} - shop
+                                    {{ tenNguoiDung }} - vai trò người dùng
                                 </p>
                             </li>
                             <li class="user-footer col-md-12">
                                 <div class="col-md-3 col-lg-3 col-xs-3 center-block">
-                                    <a routerLink="/nguoidung/nguoidungprofile/home/1" class="btn btn-default btn-flat">Profile</a>
+                                    <a routerLink="/nguoidung/nguoidungprofile/home/{{ idNguoiDung }}" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="col-md-5 col-lg-5 col-xs-5 center-block">
                                     <a routerLink="/nguoidung/nguoidungprofile/changepass" class="btn btn-default btn-flat">Change Pass</a>

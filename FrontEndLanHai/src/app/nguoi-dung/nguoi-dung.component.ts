@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { SessionService } from '../shared/Service/session.service';
+import { NguoiDungService } from '../shared/Service/NguoiDungService';
 
 @Component({
   selector: 'app-nguoi-dung',
@@ -8,14 +10,26 @@ import { Router } from '@angular/router';
 })
 export class NguoiDungComponent implements OnInit {
 
+  idNguoiDung: any;
+  tenNguoiDung: any;
+  sessionuser: any;
   constructor(
-    private route: Router,
+    private route: ActivatedRoute,
+    private router: Router,
+    private sessionService: SessionService,
+    private nguoiDungService: NguoiDungService,
   ) { }
 
   ngOnInit() {
+    this.sessionuser = this.sessionService.getToken();
+    this.nguoiDungService.viewNguoiDungVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
+      this.idNguoiDung = res.data.IdNguoiDung;
+      this.tenNguoiDung = res.data.TenNguoiDung;
+    });
   }
+  
   LogOut() {
     sessionStorage.removeItem('session');
-    this.route.navigate(['/login']);
+    this.router.navigate(['/login']);
   }
 }

@@ -9,9 +9,9 @@ const routes: Routes = [
     path: '',
     component: SucKhoeThuCungComponent,
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: SucKhoeThuCungHomeComponent },
-      { path: 'detail', component: SucKhoeThuCungListComponent },
+      { path: '', redirectTo: 'home/:IdCoSoThuY', pathMatch: 'full' },
+      { path: 'home/:IdCoSoThuY', component: SucKhoeThuCungHomeComponent },
+      { path: 'detail/:IdSKTC', component: SucKhoeThuCungListComponent },
     ]
   }
 ];

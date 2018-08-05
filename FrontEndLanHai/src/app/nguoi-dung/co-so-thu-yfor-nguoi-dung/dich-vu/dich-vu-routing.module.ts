@@ -9,9 +9,9 @@ const routes: Routes = [
     path: '',
     component: DichVuComponent,
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: DichVuHomeComponent },
-      { path: 'detail', component: DichVuDetailComponent },
+      { path: '', redirectTo: 'home/:IdCoSoThuY', pathMatch: 'full' },
+      { path: 'home/:IdCoSoThuY', component: DichVuHomeComponent },
+      { path: 'detail/:IdDichVu', component: DichVuDetailComponent },
     ]
   }
 ];

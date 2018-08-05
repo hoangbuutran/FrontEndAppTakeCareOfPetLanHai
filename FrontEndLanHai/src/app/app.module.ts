@@ -48,6 +48,7 @@ import { HoatDongService } from './shared/Service/HoatDong.service';
 import { GioiThieuService } from './shared/Service/GioiThieu.service';
 import { SucKhoeThuCungService } from './shared/Service/SucKhoeThuCung.service';
 import { PhieuHenKhamService } from './shared/Service/PhieuHenKham.service';
+import { LichSuKhamService } from './shared/Service/LichSuKham.service';
 
 @NgModule({
   declarations: [
@@ -108,6 +109,7 @@ import { PhieuHenKhamService } from './shared/Service/PhieuHenKham.service';
     TinhTrangService,
     GiongThuCungService,
     ThongKeService,
+    LichSuKhamService,
     ChuyenMucService,
     HinhAnhSanPhamService,
     AuthGuard,

@@ -55,7 +55,7 @@ export class GiongThuCungEditComponent implements OnInit {
       this.GiongThuCungEditForm.get('TenGiongThuCung').patchValue(res.data.TenGiongThuCung);
       this.GiongThuCungEditForm.get('GioiThieu').patchValue(res.data.GioiThieu);
       this.GiongThuCungEditForm.get('HinhAnh').patchValue(res.data.HinhAnh);
-      this.imageUrl = 'http://takecareofthepet.somee.com/Images/' + res.data.HinhAnh;
+      this.imageUrl = 'http://localhost:1650/Images/' + res.data.HinhAnh;
       this.GiongThuCungEditForm.get('DacDiem').patchValue(res.data.DacDiem);
       this.GiongThuCungEditForm.get('TinhCach').patchValue(res.data.TinhCach);
       this.GiongThuCungEditForm.get('CachChamSoc').patchValue(res.data.CachChamSoc);

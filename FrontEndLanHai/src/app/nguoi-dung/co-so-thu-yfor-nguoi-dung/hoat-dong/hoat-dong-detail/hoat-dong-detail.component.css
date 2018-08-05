@@ -6,3 +6,6 @@ img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
     padding-top: 19px;
     padding-bottom: 20px;
 }
+img {
+    width: 100%;
+}

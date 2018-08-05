@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { DichVuService } from '../../shared/Service/DichVu.service';
 
 @Component({
   selector: 'app-co-so-thu-yfor-nguoi-dung',
@@ -7,17 +8,16 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./co-so-thu-yfor-nguoi-dung.component.css']
 })
 export class CoSoThuYforNguoiDungComponent implements OnInit {
-
-  IdCoSoThuY: any;
-
+  id: any;
   constructor(
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      this.IdCoSoThuY = params.get('IdCoSoThuY');
+      this.id = params.get('IdCoSoThuY');
     });
+    console.log('parent'+this.id);
   }
 
 }

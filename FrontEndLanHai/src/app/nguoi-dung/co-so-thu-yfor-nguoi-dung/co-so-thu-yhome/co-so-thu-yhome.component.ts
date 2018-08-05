@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-co-so-thu-yhome',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./co-so-thu-yhome.component.css']
 })
 export class CoSoThuYhomeComponent implements OnInit {
-
-  constructor() { }
+  id: any;
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.id = params.get('IdCoSoThuY');
+    });
+    console.log('home'+this.id);
   }
 
 }

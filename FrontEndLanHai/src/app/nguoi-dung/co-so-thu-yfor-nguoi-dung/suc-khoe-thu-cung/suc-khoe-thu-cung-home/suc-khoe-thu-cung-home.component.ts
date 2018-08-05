@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SucKhoeThuCungService } from '../../../../shared/Service/SucKhoeThuCung.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-suc-khoe-thu-cung-home',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./suc-khoe-thu-cung-home.component.css']
 })
 export class SucKhoeThuCungHomeComponent implements OnInit {
-
-  constructor() { }
+  idsucKhoeThuCung: any;
+  constructor(
+    private route: ActivatedRoute,
+    private sucKhoeThuCungService: SucKhoeThuCungService,
+  ) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.idsucKhoeThuCung = params.get('IdCoSoThuY');
+    });
+    this.sucKhoeThuCungService.sucKhoeThuCungForTrueListVoiCSYT(this.idsucKhoeThuCung);//sucKhoeThuCungForTrueListProperty
   }
-
 }
