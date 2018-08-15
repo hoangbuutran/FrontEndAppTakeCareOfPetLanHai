@@ -8,6 +8,7 @@ import { QlsucKhoeThuCungAddComponent } from './qlsuc-khoe-thu-cung-add/qlsuc-kh
 import { QlsucKhoeThuCungEditComponent } from './qlsuc-khoe-thu-cung-edit/qlsuc-khoe-thu-cung-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    EditorModule,
   ],
   declarations: [QlsucKhoeThuCungComponent, QlsucKhoeThuCungListComponent, QlsucKhoeThuCungAddComponent, QlsucKhoeThuCungEditComponent]
 })

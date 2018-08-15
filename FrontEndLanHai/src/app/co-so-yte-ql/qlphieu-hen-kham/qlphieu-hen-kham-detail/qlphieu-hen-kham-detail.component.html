@@ -65,11 +65,16 @@
             </div>
 
             <div class="form-horizontal">
-                <div class="form-group">
+              <div class="form-group">
+                <div *ngIf="!TinhTrangDetail">
                   <button (click)="duyetPhieu(IdLichHenKhamDetail)" class="btn btn-block btn-success btn-lg">Duyệt phiếu</button>
+                </div>
+                <br>
+                <div *ngIf="!TinhTrangDetail">
                   <button (click)="removePhieu(IdLichHenKhamDetail)" class="btn btn-block btn-danger btn-lg">Hủy(xóa) phiếu</button>
                 </div>
               </div>
+            </div>
           </div>
         </div>
         <div class="col-lg-6 col-xs-6">

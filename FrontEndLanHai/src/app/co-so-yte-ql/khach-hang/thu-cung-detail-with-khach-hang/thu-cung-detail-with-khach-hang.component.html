@@ -84,6 +84,39 @@
               <pagination-controls (pageChange)="p2 =$event" id="second"></pagination-controls>
             </div>
           </div>
+          <hr>
+          <br>
+          <div class="col-lg-12 col-xs-12">
+            <h3>Lịch sử khám bệnh</h3>
+            <div>
+              <button data-toggle="modal" data-target="#lichSuAddDetalModal" class="btn btn-success">Thêm lần khám</button>
+            </div>
+            <div class="box-body">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Ngày khám</th>
+                    <th>Tình trạng bệnh</th>
+                    <th>Xem thêm</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let item of lichSuKhamDetail | paginate: { itemsPerPage: 5, currentPage: p3, id: 'third' }">
+                  <tr>
+                    <td>
+                      {{ item.NgayThang | date: "dd-MM-yyyy"}}
+                    </td>
+                    <td>
+                      {{ item.TinhTrangBenh }}
+                    </td>
+                    <td>
+                      <button class="btn btn-warning btn-rounded m-b-12 m-l-5" (click)="xemLichSuKham(item.IdLichSuKham)" data-toggle="modal" data-target="#lichSuDetailDetalModal">Xem</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <pagination-controls (pageChange)="p3 =$event" id="third"></pagination-controls>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -91,13 +124,12 @@
 </section>
 
 
-<!-- modal dùng để hiển thị thông tin tài khoản -->
 <div class="modal fade" id="TinhTrangDetalModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">
-          <label id="title">Thông tin chi tiết giống thú cưng</label>
+          <label id="title">Thông tin chi tiết tình trạng thú cưng</label>
         </h4>
       </div>
       <div class="modal-body">
@@ -117,6 +149,89 @@
             <div class="col-md-12">
               <label>Nội dung tình trạng: </label>
               {{noiDungTinhTrangDetail}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="lichSuAddDetalModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          <label id="title">Them lich su kham thú cưng</label>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" [formGroup]="lichSuKhamAddForm" (ngSubmit)="lichSuKhamAddSubmitForm()">
+          <div class="box-body">
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-3 control-label">Tình trạng bệnh</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" formControlName="TinhTrangBenh" placeholder="tinh trang benh">
+                <p *ngIf="lichSuKhamAddForm.get('TinhTrangBenh').invalid && lichSuKhamAddForm.get('TinhTrangBenh').touched">Required</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">Lời Nhắn</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="LoiNhan" placeholder="loi nhan">
+                  <p *ngIf="lichSuKhamAddForm.get('LoiNhan').invalid && lichSuKhamAddForm.get('LoiNhan').touched">Required</p>
+                </div>
+              </div>
+
+          </div>
+          <div class="box-footer">
+            <button type="submit" [disabled]="lichSuKhamAddForm.invalid" class="btn btn-info pull-right">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="lichSuDetailDetalModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          <label id="title">Thông tin lich su kham thú cưng</label>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-horizontal">
+          <div class="form-group">
+            <div class="col-md-12 center-block">
+              <label>Tình trạng bệnh: </label>
+              {{ tinhTrangBenh }}
+            </div>
+          </div>
+        </div>
+        <div class="form-horizontal">
+          <div class="form-group">
+            <div class="col-md-12 center-block">
+              <label>Ngày thăm khám: </label>
+              {{ ngayTham }}
+            </div>
+          </div>
+        </div>
+        <div class="form-horizontal">
+          <div class="form-group">
+            <div class="col-md-12 center-block">
+              <label>Lời nhắn bác sĩ: </label>
+              {{ loiNhan }}
             </div>
           </div>
         </div>

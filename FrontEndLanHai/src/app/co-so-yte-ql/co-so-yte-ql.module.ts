@@ -9,6 +9,8 @@ import { ChangeProfileCstyComponent } from './change-profile-csty/change-profile
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QlgioiThieuComponent } from './qlgioi-thieu/qlgioi-thieu.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { EscapeHtmlPipe } from '../shared/Pipe/EscapeHtmlPipe.pipe';
 
 @NgModule({
   imports: [
@@ -17,7 +19,15 @@ import { QlgioiThieuComponent } from './qlgioi-thieu/qlgioi-thieu.component';
     NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule,
+    EditorModule,
   ],
-  declarations: [CoSoYteQlComponent, HomeYteComponent, ChangePassCstyComponent, ChangeProfileCstyComponent, QlgioiThieuComponent]
+  declarations: [
+    CoSoYteQlComponent, 
+    HomeYteComponent, 
+    ChangePassCstyComponent, 
+    ChangeProfileCstyComponent, 
+    QlgioiThieuComponent,
+    EscapeHtmlPipe,
+  ]
 })
 export class CoSoYteQlModule { }

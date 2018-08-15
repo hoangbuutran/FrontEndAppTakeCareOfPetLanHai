@@ -28,7 +28,8 @@
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">Nội dung hoạt động</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" formControlName="NoiDung" placeholder="Nội dung hoạt động">
+                <editor formControlName="NoiDung" class="col-md-12"></editor>
+                <!-- <input type="text" class="form-control" formControlName="NoiDung" placeholder="Nội dung hoạt động"> -->
                 <p *ngIf="hoatDongAddForm.get('NoiDung').invalid && hoatDongAddForm.get('NoiDung').touched">Required</p>
               </div>
             </div>

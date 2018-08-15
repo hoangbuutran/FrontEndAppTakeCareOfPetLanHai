@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLinkActive, ActivatedRoute, ParamMap } from '@angular/router';
+import { RouterLinkActive, ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { PhieuHenKhamService } from '../../../shared/Service/PhieuHenKham.service';
 import { DichVuService } from '../../../shared/Service/DichVu.service';
 import { NguoiDungService } from '../../../shared/Service/NguoiDungService';
@@ -24,6 +24,7 @@ export class QlphieuHenKhamDetailComponent implements OnInit {
   TinhTrangDetail: any;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private phieuHenKhamService: PhieuHenKhamService,
     private dichVuService: DichVuService,
@@ -60,14 +61,17 @@ export class QlphieuHenKhamDetailComponent implements OnInit {
 
   duyetPhieu(idPhieu: any) {
     this.phieuHenKhamService.duyetPhieuHenKham(idPhieu).subscribe(res => {
-      this.toastr.success(res.message,'thông báo');
+      this.toastr.success('Phiếu đã được duyệt thành công','thông báo');
+      this.loadForm();
     });
   }
   
   removePhieu(idPhieu: any) {
     if(confirm('Bạn có chắc chắn muốn hủy phiếu ?') === true){
       this.phieuHenKhamService.tuChoiPhieuHenKham(idPhieu).subscribe(res => {
-        this.toastr.success(res.message,'thông báo');
+        this.toastr.success('Xoa thanh cong phieu hen kham','thông báo');
+        this.phieuHenKhamService.phieuHenKhamListVoiCSYT();
+        this.router.navigate(['/cosoyteql/qlphieuhenkham/list']);
       });
     }
   }

@@ -4,6 +4,8 @@ import { ThuCungService } from '../../../shared/Service/ThuCung.service';
 import { CanNangService } from '../../../shared/Service/CanNang.service';
 import { TinhTrangService } from '../../../shared/Service/TinhTrang.service';
 import { ThuCungModel } from '../../../shared/Model/ThuCung.model';
+import { LichSuKhamService } from '../../../shared/Service/LichSuKham.service';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-thu-cung-detail-with-khach-hang',
@@ -16,6 +18,13 @@ export class ThuCungDetailWithKhachHangComponent implements OnInit {
   NgayNuoiDetail;
   TenGiongThuCungDetail;
 
+  tinhTrangBenh:any;
+  ngayTham:any;
+  loiNhan:any;
+
+  lichSuKhamAddForm: FormGroup;
+  lichSuKhamDetail: any[];
+
   hinhAnhDetail;
   noiDungTinhTrangDetail;
   constructor(
@@ -23,6 +32,8 @@ export class ThuCungDetailWithKhachHangComponent implements OnInit {
     private thuCungService: ThuCungService,
     private canNangService: CanNangService,
     private tinhTrangService: TinhTrangService,
+    private lichSuKhamService: LichSuKhamService,
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit() {
@@ -36,7 +47,19 @@ export class ThuCungDetailWithKhachHangComponent implements OnInit {
       this.NgayNuoiDetail = res.data.NgayNuoi;
       this.TenGiongThuCungDetail = res.data.GiongThuCung.TenGiongThuCung;
     });
+    this.lichSuKhamService.getAllWithIdThuCung(this.id).subscribe(
+      res => {
+        this.lichSuKhamDetail = res.data;
+        console.log(this.lichSuKhamDetail);
+      }
+    );
 
+    this.lichSuKhamAddForm = this.fb.group({
+      IdThuCung: ['', Validators.required],
+      LoiNhan: ['', Validators.required],
+      TinhTrangBenh: ['', Validators.required],
+    });
+    this.lichSuKhamAddForm.get('IdThuCung').patchValue(this.id);
   }
 
   XemThongTinTinhTrang(IdTinhTrang: number) {
@@ -45,4 +68,17 @@ export class ThuCungDetailWithKhachHangComponent implements OnInit {
       this.noiDungTinhTrangDetail = res.data.NoiDungTinhTrang;
     });
   }
+
+  lichSuKhamAddSubmitForm(){
+
+  }
+
+  xemLichSuKham(idLichSuKham) {
+    this.lichSuKhamService.view(idLichSuKham).subscribe(res => {
+      this.tinhTrangBenh = res.data.TinhTrangBenh;
+      this.ngayTham = res.data.NgayThang;
+      this.loiNhan = res.data.LoiNhan;
+    });
+  }
+
 }

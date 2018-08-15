@@ -8,6 +8,7 @@ import { QlhoatDongAddComponent } from './qlhoat-dong-add/qlhoat-dong-add.compon
 import { QlhoatDongEditComponent } from './qlhoat-dong-edit/qlhoat-dong-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    EditorModule,
   ],
   declarations: [QlhoatDongComponent, QlhoatDongListComponent, QlhoatDongAddComponent, QlhoatDongEditComponent]
 })

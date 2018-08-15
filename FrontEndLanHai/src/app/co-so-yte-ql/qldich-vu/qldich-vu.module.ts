@@ -8,6 +8,7 @@ import { QldichVuAddComponent } from './qldich-vu-add/qldich-vu-add.component';
 import { QldichVuEditComponent } from './qldich-vu-edit/qldich-vu-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 @NgModule({
   imports: [
@@ -15,8 +16,14 @@ import { NgxPaginationModule } from 'ngx-pagination';
     QldichVuRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    EditorModule
   ],
-  declarations: [QldichVuComponent, QldichVuListComponent, QldichVuAddComponent, QldichVuEditComponent]
+  declarations: [
+    QldichVuComponent,
+    QldichVuListComponent,
+    QldichVuAddComponent,
+    QldichVuEditComponent,
+  ]
 })
 export class QldichVuModule { }
