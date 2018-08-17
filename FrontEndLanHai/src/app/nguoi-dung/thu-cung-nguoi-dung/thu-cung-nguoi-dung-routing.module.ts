@@ -8,8 +8,8 @@ const routes: Routes = [
     path: '',
     component: ThuCungNguoiDungComponent,
     children: [
-      { path: '', redirectTo: 'home/:IdNguoiDung', pathMatch: 'full' },
-      { path: 'home/:IdNguoiDung', component: ThuCungNguoiDungHomeComponent },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: ThuCungNguoiDungHomeComponent },
     ]
   }
 ];

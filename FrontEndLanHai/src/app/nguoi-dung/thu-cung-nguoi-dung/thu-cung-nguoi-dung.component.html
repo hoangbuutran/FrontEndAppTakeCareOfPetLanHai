@@ -14,9 +14,17 @@
         </div>
         <div id="menu" class="box-header with-border">
           <h4 class="box-title">
-              <a routerLink="/nguoidung/thucungnguoidung/home/1">
-                <i class="fa fa-link"></i>
-                <span>Thú cưng của bạn</span>
+            <a routerLink="/nguoidung/thucungnguoidung/home">
+              <i class="fa fa-link"></i>
+              <span>Thú cưng của bạn</span>
+            </a>
+          </h4>
+        </div>
+        <div id="menu" class="box-header with-border">
+          <h4 class="box-title">
+            <a routerLink="/nguoidung/inforcosothuy/{{ idCoSoThuCung }}/home/{{ idCoSoThuCung }}">
+              <i class="fa fa-link"></i>
+              <span>Cơ sở bạn đăng ký</span>
             </a>
           </h4>
         </div>
@@ -31,10 +39,11 @@
 
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">Danh sách cơ sở thú y</h3>
+          <h3 class="box-title">Cơ sở thú cưng gần bạn</h3>
         </div>
         <div class="box-body" *ngFor="let item of listCoSoThuY">
-          <button routerLink="/nguoidung/inforcosothuy/{{ item.IdCoSoThuY }}/home/{{ item.IdCoSoThuY }}" class="btn btn-default btn-block"> {{ item.TenCoSoThuY }} </button>
+          <button routerLink="/nguoidung/inforcosothuy/{{ item.IdCoSoThuY }}/home/{{ item.IdCoSoThuY }}" class="btn btn-default btn-block">
+          {{ item.TenCoSoThuY }} </button>
           <button class="btn btn-default btn-block">Tên cơ sở thú y số 1</button>
           <button class="btn btn-default btn-block">Tên cơ sở thú y số 1</button>
           <button class="btn btn-default btn-block">Tên cơ sở thú y số 1</button>

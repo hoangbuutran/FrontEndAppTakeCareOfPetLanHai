@@ -11,6 +11,10 @@ import { SucKhoeThuCungListComponent } from './suc-khoe-thu-cung-list/suc-khoe-t
     CommonModule,
     SucKhoeThuCungRoutingModule
   ],
-  declarations: [SucKhoeThuCungComponent, SucKhoeThuCungHomeComponent, SucKhoeThuCungListComponent]
+  declarations: [
+    SucKhoeThuCungComponent, 
+    SucKhoeThuCungHomeComponent, 
+    SucKhoeThuCungListComponent, 
+  ]
 })
 export class SucKhoeThuCungModule { }

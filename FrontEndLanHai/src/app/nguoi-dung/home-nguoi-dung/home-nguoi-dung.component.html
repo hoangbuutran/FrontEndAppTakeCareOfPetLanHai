@@ -16,7 +16,7 @@
                     </div>
                     <div id="menu" class="box-header with-border">
                         <h4 class="box-title">
-                            <a routerLink="/nguoidung/thucungnguoidung/home/{{idNguoiDung}}">
+                            <a routerLink="/nguoidung/thucungnguoidung/home">
                                 <i class="fa fa-link"></i>
                                 <span>Thú cưng của bạn</span>
                             </a>
@@ -54,7 +54,7 @@
                                     <span class='description'>{{ item.ChuyenMuc.TenChuyenMuc }} - {{ item.NgayDang | date: "yyyy-MM-dd" }}</span>
                                 </div>
                                 <div class='box-tools'>
-                                    <button class='btn btn-box-tool' data-toggle='tooltip' title='Mark as read'>
+                                    <button class='btn btn-box-tool' (click)="xemBaiViet(item.IdBaiViet)" data-toggle="modal" data-target="#baiVietDetailDetalModal">
                                         <i class='fa fa-circle-o'></i>
                                     </button>
                                     <button class='btn btn-box-tool' data-widget='collapse'>
@@ -67,7 +67,8 @@
                             </div>
                             <div class='box-body'>
                                 <p>{{ item.TieuDe }}</p>
-                                <img class="img-responsive pad" src="assets/img/photo2.png" alt="Photo">
+                                <img [src]="item.HinhAnh" class="center-block" style="width:665px; height:450px; border-radius: 10px">
+                                <hr>
                                 <button (click)="likeUnLike(item.IdBaiViet)" class='btn btn-default btn-xs'>
                                     <i class='fa fa-thumbs-o-up'></i>Like
                                 </button>
@@ -80,7 +81,8 @@
                             </div>
                             <div class="box-footer">
                                 <form [formGroup]="binhLuanAddForm" (ngSubmit)="binhLuanSubmitForm(item.IdBaiViet)" action="#" method="post">
-                                    <img class="img-responsive img-circle img-sm" src="assets/img/user4-128x128.jpg" alt="alt text">
+                                    <!-- <img class="img-responsive img-circle img-sm" src="assets/img/user4-128x128.jpg" alt="alt text"> -->
+                                    <img [src]="imageDaiDien" class="img-responsive img-circle img-sm">
                                     <div class="input-group">
                                         <input type="text" class="form-control" formControlName="NoiDung" placeholder="Mời nhập comment">
                                         <div class="input-group-btn">
@@ -218,7 +220,8 @@
                         </div>
                         <div class='box-body'>
                             <p>{{ TieuDeDetail }}</p>
-                            <img class="img-responsive pad" src="assets/img/photo2.png" alt="Photo">
+                            <img [src]="HinhAnhDetail" class="center-block" style="width:714px; height:482px; border-radius: 10px">
+                            <hr>
                             <p>{{ NoiDungDetail }}</p>
 
                             <button (click)="likeUnLike(idBaiVietDetail)" class='btn btn-default btn-xs'>

@@ -24,7 +24,7 @@ export class HoaDonDetailComponent implements OnInit {
   emailDetail: any;
   sDTDetail: any;
   ngaySinhDetail: any;
-
+  tinhtrangdonhang: boolean;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -38,11 +38,17 @@ export class HoaDonDetailComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('IdHoaDon');
     });
+    this.tinhtrangdonhang = true;
     this.hoaDonService.viewCTHoaDonVoiIdHoaDon(this.id).subscribe(
       res => {
         this.listCTHD = res.data;
       }
     );
+    this.load();
+
+  }
+
+  load() {
     this.hoaDonService.view(this.id).subscribe(
       res => {
         this.trangThai = res.data.TrangThai;
@@ -62,14 +68,15 @@ export class HoaDonDetailComponent implements OnInit {
   duyetDonHang() {
     this.hoaDonService.updateTrangThai(this.id).subscribe(res => {
       this.toastr.success('Hóa đơn đã được duyệt', 'Thông báo');
-      this.router.navigate(['/shop/hoadon/view/' + this.id]);
+      this.load();
+      this.tinhtrangdonhang = false;
     });
   }
-  
+
   huyDonHang() {
     this.hoaDonService.huyDonHangForShop(this.id).subscribe(res => {
       this.toastr.success('Hóa đơn đã được hủy thành công', 'Thông báo');
-      this.router.navigate(['/shop/hoadon/list/' + this.id]);
+      this.router.navigate(['/shop/hoadon/list']);
     });
   }
 }

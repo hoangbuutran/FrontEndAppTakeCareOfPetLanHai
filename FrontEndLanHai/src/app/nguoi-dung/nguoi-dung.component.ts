@@ -13,6 +13,7 @@ export class NguoiDungComponent implements OnInit {
   idNguoiDung: any;
   tenNguoiDung: any;
   sessionuser: any;
+  imageDaiDien: any;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -23,6 +24,7 @@ export class NguoiDungComponent implements OnInit {
   ngOnInit() {
     this.sessionuser = this.sessionService.getToken();
     this.nguoiDungService.viewNguoiDungVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
+      this.imageDaiDien = 'http://localhost:1650/Images/' + res.data.HinhAnh;
       this.idNguoiDung = res.data.IdNguoiDung;
       this.tenNguoiDung = res.data.TenNguoiDung;
     });

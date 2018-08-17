@@ -8,7 +8,6 @@ import { CartComponent } from './cart/cart.component';
 import { HoaDonDaMuaComponent } from './hoa-don-da-mua/hoa-don-da-mua.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { EscapeHtmlPipeForDichVu } from '../shared/Pipe/EscapeHtmlPipeForDichVu.pipe';
 
 @NgModule({
   imports: [
@@ -23,7 +22,6 @@ import { EscapeHtmlPipeForDichVu } from '../shared/Pipe/EscapeHtmlPipeForDichVu.
     HomeNguoiDungComponent, 
     CartComponent, 
     HoaDonDaMuaComponent,
-    
   ]
 })
 export class NguoiDungModule { }

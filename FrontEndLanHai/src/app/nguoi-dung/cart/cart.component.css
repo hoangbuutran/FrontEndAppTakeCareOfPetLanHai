@@ -42,3 +42,6 @@ td {
         display: block;
     }
 }
+.row.col-md-12 {
+    height: 663px;
+}

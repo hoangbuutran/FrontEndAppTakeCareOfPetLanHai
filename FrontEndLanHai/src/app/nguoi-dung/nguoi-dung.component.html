@@ -78,12 +78,14 @@
                     <!-- User Account Menu -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="assets/Image/avatar5.png" class="user-image" alt="User Image">
+                            <!-- <img src="assets/Image/avatar5.png" class="user-image" alt="User Image"> -->
+                            <img [src]="imageDaiDien" class="user-image" alt="User Image">
                             <span class="hidden-xs">{{ tenNguoiDung }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="user-header">
-                                <img src="assets/Image/avatar5.png" class="img-circle" alt="User Image">
+                                <!-- <img src="assets/Image/avatar5.png" class="img-circle" alt="User Image"> -->
+                                <img [src]="imageDaiDien" class="img-circle" alt="User Image">
                                 <p>
                                     {{ tenNguoiDung }} - vai trò người dùng
                                 </p>

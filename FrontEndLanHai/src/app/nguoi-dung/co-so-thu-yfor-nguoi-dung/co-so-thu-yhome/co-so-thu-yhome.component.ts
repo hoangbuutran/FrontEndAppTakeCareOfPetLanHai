@@ -16,7 +16,6 @@ export class CoSoThuYhomeComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('IdCoSoThuY');
     });
-    console.log('home'+this.id);
   }
 
 }

@@ -24,11 +24,14 @@ export class HomeNguoiDungComponent implements OnInit {
   TenChuyenMucDetail: any;
   NgayDangDetail: any;
   TieuDeDetail: any;
+  HinhAnhDetail: any;
   NoiDungDetail: any;
   SoLikeDetail: any;
   SoCmtDetail: any;
   BinhLuansDetail: any[];
   IdNguoiDungDetail: any;
+
+  imageDaiDien: any;
 
   listLike: any[];
 
@@ -57,8 +60,10 @@ export class HomeNguoiDungComponent implements OnInit {
     });
 
     this.sessionuser = this.sessionService.getToken();
+    
     this.nguoiDungService.viewNguoiDungVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
       this.idNguoiDung = res.data.IdNguoiDung;
+      this.imageDaiDien = 'http://localhost:1650/Images/' + res.data.HinhAnh;
       this.binhLuanAddForm.get('IdNguoiDung').patchValue(res.data.IdNguoiDung);
       this.likeForm.get('IdNguoiDung').patchValue(res.data.IdNguoiDung);
     });
@@ -81,6 +86,7 @@ export class HomeNguoiDungComponent implements OnInit {
       this.TenChuyenMucDetail = res.data.ChuyenMuc.TenChuyenMuc;
       this.NgayDangDetail = res.data.NgayDang;
       this.TieuDeDetail = res.data.TieuDe;
+      this.HinhAnhDetail = res.data.HinhAnh;
       this.NoiDungDetail = res.data.NoiDung;
       this.SoLikeDetail = res.data.SoLike;
       this.SoCmtDetail = res.data.SoCmt;

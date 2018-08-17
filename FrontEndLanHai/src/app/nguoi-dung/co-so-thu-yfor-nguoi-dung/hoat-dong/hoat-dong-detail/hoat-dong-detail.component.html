@@ -31,7 +31,8 @@
 
       </div>
       <div class="col-md-12">
-        {{ NoiDungDetail }}
+        <!-- {{ NoiDungDetail }} -->
+        <div [innerHTML]="NoiDungDetail | keepHtmlHoatDong"></div>
       </div>
 
     </div>
