@@ -10,7 +10,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QlgioiThieuComponent } from './qlgioi-thieu/qlgioi-thieu.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
-import { EscapeHtmlPipe } from '../shared/Pipe/EscapeHtmlPipe.pipe';
+import { EscapeHtmlPipeGioiThieuCSTY } from '../shared/Pipe/EscapeHtmlPipeGioiThieuCSTY.pipe';
+
 
 @NgModule({
   imports: [
@@ -27,7 +28,7 @@ import { EscapeHtmlPipe } from '../shared/Pipe/EscapeHtmlPipe.pipe';
     ChangePassCstyComponent, 
     ChangeProfileCstyComponent, 
     QlgioiThieuComponent,
-    EscapeHtmlPipe,
+    EscapeHtmlPipeGioiThieuCSTY,
   ]
 })
 export class CoSoYteQlModule { }

@@ -7,6 +7,7 @@ import { QlshopListComponent } from './qlshop-list/qlshop-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { QlshopAddComponent } from './qlshop-add/qlshop-add.component';
+import { QlshopListChuaDuyetComponent } from './qlshop-list-chua-duyet/qlshop-list-chua-duyet.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { QlshopAddComponent } from './qlshop-add/qlshop-add.component';
     ReactiveFormsModule,
     NgxPaginationModule
   ],
-  declarations: [QlshopComponent, QlshopListComponent, QlshopAddComponent]
+  declarations: [QlshopComponent, QlshopListComponent, QlshopAddComponent, QlshopListChuaDuyetComponent]
 })
 export class QlshopModule { }

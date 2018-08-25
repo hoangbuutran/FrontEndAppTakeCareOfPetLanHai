@@ -21,6 +21,7 @@ export class ShopService {
         private http: HttpClient,
         private sessionService: SessionService,
     ) { }
+    shopListChuaDuyetProperty: ShopModel[];
     shopListProperty: ShopModel[];
     shopListForTrueProperty: ShopModel[];
     url: string;
@@ -32,6 +33,16 @@ export class ShopService {
 
     KhoaMo(shopId: number | string): Observable<any> {
         this.url = 'http://localhost:1650/api/shop/khoamo/' + shopId;
+        return this.apiService.get(this.url);
+    }
+
+    Duyet(shopId: number | string): Observable<any> {
+        this.url = 'http://localhost:1650/api/shop/duyet/' + shopId;
+        return this.apiService.get(this.url);
+    }
+
+    TuChoi(shopId: number | string): Observable<any> {
+        this.url = 'http://localhost:1650/api/shop/tuchoi/' + shopId;
         return this.apiService.get(this.url);
     }
 
@@ -53,6 +64,13 @@ export class ShopService {
         this.url = 'http://localhost:1650/api/shop/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.shopListProperty = res.data;
+        });
+    }
+
+    viewListShopChuaDuyet() {
+        this.url = 'http://localhost:1650/api/shop/chuapheduyet';
+        this.apiService.get(this.url).subscribe(res => {
+            this.shopListChuaDuyetProperty = res.data;
         });
     }
 
