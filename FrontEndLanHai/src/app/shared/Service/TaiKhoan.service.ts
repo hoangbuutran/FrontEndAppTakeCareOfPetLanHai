@@ -18,27 +18,27 @@ export class TaiKhoanService {
     url: string;
 
     Login(loginModel: LoginModel) {
-        this.url = 'http://localhost:1650/api/taikhoan/login';
+        this.url = 'http://petcare.somee.com/api/taikhoan/login';
         return this.apiService.post(this.url, loginModel);
     }
 
     Register(RegisterModel: any) {
-        this.url = 'http://localhost:1650/api/taikhoan/createnguoidung';
+        this.url = 'http://petcare.somee.com/api/taikhoan/createnguoidung';
         return this.apiService.post(this.url, RegisterModel);
     }
 
     ForgotPass(EmailForm: any) {
-        this.url = 'http://localhost:1650/api/taikhoan/sendmailforgotpasss';
+        this.url = 'http://petcare.somee.com/api/taikhoan/sendmailforgotpasss';
         return this.apiService.post(this.url, EmailForm);
     }
 
     view(taiKhoanId: number | string) {
-        this.url = 'http://localhost:1650/api/taikhoan/getbyid/' + taiKhoanId;
+        this.url = 'http://petcare.somee.com/api/taikhoan/getbyid/' + taiKhoanId;
         return this.apiService.get(this.url);
     }
 
     ChangePass(ChangePassModel: any) {
-        this.url = 'http://localhost:1650/api/taikhoan/doimatkhau';
+        this.url = 'http://petcare.somee.com/api/taikhoan/doimatkhau';
         return this.apiService.post(this.url, ChangePassModel);
     }
 }

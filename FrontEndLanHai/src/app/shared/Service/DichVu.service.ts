@@ -30,38 +30,38 @@ export class DichVuService {
     url: string;
 
     create(dichVu: any): Observable<any> {
-        this.url = 'http://localhost:1650/api/dich-vu/create';
+        this.url = 'http://petcare.somee.com/api/dich-vu/create';
         return this.apiService.post(this.url, dichVu);
     }
 
     KhoaMo(dichVuId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/dich-vu/khoamo/' + dichVuId;
+        this.url = 'http://petcare.somee.com/api/dich-vu/khoamo/' + dichVuId;
         return this.apiService.get(this.url);
     }
 
     delete(dichVuId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/dich-vu/delete/' + dichVuId;
+        this.url = 'http://petcare.somee.com/api/dich-vu/delete/' + dichVuId;
         return this.apiService.get(this.url);
     }
 
     Update(dichVu: any) {
-        this.url = 'http://localhost:1650/api/dich-vu/update';
+        this.url = 'http://petcare.somee.com/api/dich-vu/update';
         return this.apiService.put(this.url, dichVu);
     }
 
     view(dichVuId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/dich-vu/get-by-id/' + dichVuId;
+        this.url = 'http://petcare.somee.com/api/dich-vu/get-by-id/' + dichVuId;
         return this.apiService.get(this.url);
     }
 
 
     search(searchString: string): Observable<any[]> {
-        this.url = 'http://localhost:1650/api/dich-vu/search-key/' + searchString;
+        this.url = 'http://petcare.somee.com/api/dich-vu/search-key/' + searchString;
         return this.apiService.get(this.url);
     }
 
     viewDichVuVoiCSYT(cSYTId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/dich-vu/get-all-with-id-cosothuy/' + cSYTId;
+        this.url = 'http://petcare.somee.com/api/dich-vu/get-all-with-id-cosothuy/' + cSYTId;
         return this.apiService.get(this.url);
     }
 
@@ -75,7 +75,7 @@ export class DichVuService {
     }
 
     viewDichVuForTrueVoiCSYT(cSYTId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/dich-vu/get-all-with-id-cosothuy-for-true/' + cSYTId;
+        this.url = 'http://petcare.somee.com/api/dich-vu/get-all-with-id-cosothuy-for-true/' + cSYTId;
         return this.apiService.get(this.url);
     }
 

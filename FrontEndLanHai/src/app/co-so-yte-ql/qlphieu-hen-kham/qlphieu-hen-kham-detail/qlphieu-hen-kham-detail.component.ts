@@ -4,6 +4,7 @@ import { PhieuHenKhamService } from '../../../shared/Service/PhieuHenKham.servic
 import { DichVuService } from '../../../shared/Service/DichVu.service';
 import { NguoiDungService } from '../../../shared/Service/NguoiDungService';
 import { ToastrService } from 'ngx-toastr';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-qlphieu-hen-kham-detail',
@@ -11,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./qlphieu-hen-kham-detail.component.css']
 })
 export class QlphieuHenKhamDetailComponent implements OnInit {
+
   id = '';
   IdLichHenKhamDetail: any;
   IdNguoiDungDetail: any;
@@ -23,6 +25,10 @@ export class QlphieuHenKhamDetailComponent implements OnInit {
   tenDichVuDetail: any;
   TinhTrangDetail: any;
 
+  // listPhieuHenNgay: any[];
+
+  // phieuVoiNgay: FormGroup;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -30,6 +36,7 @@ export class QlphieuHenKhamDetailComponent implements OnInit {
     private dichVuService: DichVuService,
     private nguoiDungService: NguoiDungService,
     private toastr: ToastrService,
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit() {
@@ -49,6 +56,20 @@ export class QlphieuHenKhamDetailComponent implements OnInit {
       this.LyDoHenKhamDetail = res.data.LyDoHenKham;
       this.IdDichVuDetail = res.data.IdDichVu;
       this.TinhTrangDetail = res.data.TinhTrang;
+
+      // this.phieuVoiNgay = this.fb.group({
+      //   NgayHenKham: ['', Validators.required],
+      //   IdCoSoThuY: ['', Validators.required],
+      // });
+      
+      // this.phieuVoiNgay.get('IdCoSoThuY').patchValue(this.IdCoSoThuYDetail);
+      // this.phieuVoiNgay.get('NgayHenKham').patchValue(this.NgayHenKhamDetail);
+
+      // this.phieuHenKhamService.phieuVoiNgay(this.phieuVoiNgay).subscribe(
+      //   res => {
+      //     this.listPhieuHenNgay = res.data;
+      //   }
+      // );
 
       this.dichVuService.view(this.IdDichVuDetail).subscribe(res => {
         this.tenDichVuDetail = res.data.TenDichVu;

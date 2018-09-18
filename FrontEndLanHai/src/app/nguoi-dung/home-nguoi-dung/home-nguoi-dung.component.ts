@@ -63,7 +63,7 @@ export class HomeNguoiDungComponent implements OnInit {
     
     this.nguoiDungService.viewNguoiDungVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
       this.idNguoiDung = res.data.IdNguoiDung;
-      this.imageDaiDien = 'http://localhost:1650/Images/' + res.data.HinhAnh;
+      this.imageDaiDien = 'http://petcare.somee.com/Images/' + res.data.HinhAnh;
       this.binhLuanAddForm.get('IdNguoiDung').patchValue(res.data.IdNguoiDung);
       this.likeForm.get('IdNguoiDung').patchValue(res.data.IdNguoiDung);
     });
