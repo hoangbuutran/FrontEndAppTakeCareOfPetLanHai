@@ -27,70 +27,70 @@ export class ShopService {
     url: string;
 
     create(shop: any): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/shop/create';
+        this.url = 'http://localhost:1650/api/shop/create';
         return this.apiService.post(this.url, shop);
     }
 
     KhoaMo(shopId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/shop/khoamo/' + shopId;
+        this.url = 'http://localhost:1650/api/shop/khoamo/' + shopId;
         return this.apiService.get(this.url);
     }
 
     Duyet(shopId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/shop/duyet/' + shopId;
+        this.url = 'http://localhost:1650/api/shop/duyet/' + shopId;
         return this.apiService.get(this.url);
     }
 
     TuChoi(shopId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/shop/tuchoi/' + shopId;
+        this.url = 'http://localhost:1650/api/shop/tuchoi/' + shopId;
         return this.apiService.get(this.url);
     }
 
     delete(shopId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/shop/delete/' + shopId;
+        this.url = 'http://localhost:1650/api/shop/delete/' + shopId;
         return this.apiService.get(this.url);
     }
     Update(shop: ShopModel) {
-        this.url = 'http://petcare.somee.com/api/shop/update';
+        this.url = 'http://localhost:1650/api/shop/update';
         return this.apiService.put(this.url, shop);
     }
 
     view(shopId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/shop/getbyid/' + shopId;
+        this.url = 'http://localhost:1650/api/shop/getbyid/' + shopId;
         return this.apiService.get(this.url);
     }
 
     viewListShop() {
-        this.url = 'http://petcare.somee.com/api/shop/getall';
+        this.url = 'http://localhost:1650/api/shop/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.shopListProperty = res.data;
         });
     }
 
     viewListShopChuaDuyet() {
-        this.url = 'http://petcare.somee.com/api/shop/chuapheduyet';
+        this.url = 'http://localhost:1650/api/shop/chuapheduyet';
         this.apiService.get(this.url).subscribe(res => {
             this.shopListChuaDuyetProperty = res.data;
         });
     }
 
     viewListShopForTrue() {
-        this.url = 'http://petcare.somee.com/api/shop/getall';
+        this.url = 'http://localhost:1650/api/shop/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.shopListForTrueProperty = res.data;
         });
     }
 
     viewShopVoiIDTaiKhoan(taiKhoanId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/shop/getbyidtaikhoan/' + taiKhoanId;
+        this.url = 'http://localhost:1650/api/shop/getbyidtaikhoan/' + taiKhoanId;
         return this.apiService.get(this.url);
     }
     xemTaiKhoanShop(ShopId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/taikhoan/getbyid/' + ShopId;
+        this.url = 'http://localhost:1650/api/taikhoan/getbyid/' + ShopId;
         return this.apiService.get(this.url);
     }
     countshop(): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/shop/listcountshop';
+        this.url = 'http://localhost:1650/api/shop/listcountshop';
         return this.apiService.get(this.url);
     }
 

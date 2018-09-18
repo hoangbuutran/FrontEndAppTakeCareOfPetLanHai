@@ -20,30 +20,30 @@ export class QuyenService {
     url: string;
 
     create(quyen: QuyenModel) {
-        this.url = 'http://petcare.somee.com/api/quyen/create';
+        this.url = 'http://localhost:1650/api/quyen/create';
         return this.apiService.post(this.url, quyen);
     }
 
     KhoaMo(quyenId: number | string): Observable<QuyenModel> {
-        this.url = 'http://petcare.somee.com/api/quyen/khoamo/' + quyenId;
+        this.url = 'http://localhost:1650/api/quyen/khoamo/' + quyenId;
         return this.apiService.get(this.url);
     }
 
     delete(quyenId: number | string): Observable<QuyenModel> {
-        this.url = 'http://petcare.somee.com/api/quyen/delete/' + quyenId;
+        this.url = 'http://localhost:1650/api/quyen/delete/' + quyenId;
         return this.apiService.get(this.url);
     }
     Update(quyen: QuyenModel) {
-        this.url = 'http://petcare.somee.com/api/quyen/update';
+        this.url = 'http://localhost:1650/api/quyen/update';
         return this.apiService.put(this.url, quyen);
     }
 
     view(quyenId: number | string): Observable<QuyenModel> {
-        this.url = 'http://petcare.somee.com/api/quyen/getbyid/' + quyenId;
+        this.url = 'http://localhost:1650/api/quyen/getbyid/' + quyenId;
         return this.apiService.get(this.url);
     }
     countQuyen() {
-        this.url = 'http://petcare.somee.com/api/quyen/listcountquyen';
+        this.url = 'http://localhost:1650/api/quyen/listcountquyen';
         return this.apiService.get(this.url);
     }
     search(searchString: string): Observable<QuyenModel[]> {
@@ -52,7 +52,7 @@ export class QuyenService {
     }
 
     QuyenList() {
-        this.url = 'http://petcare.somee.com/api/quyen/getall';
+        this.url = 'http://localhost:1650/api/quyen/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.quyenListProperty = res.data;
         });

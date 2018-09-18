@@ -23,12 +23,12 @@ export class ErrorService {
 
 
     view(errorId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/error/getbyid/' + errorId;
+        this.url = 'http://localhost:1650/api/error/getbyid/' + errorId;
         return this.apiService.get(this.url);
     }
 
     errorList() {
-        this.url = 'http://petcare.somee.com/api/error/getall';
+        this.url = 'http://localhost:1650/api/error/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.errorListProperty = res.data;
         });

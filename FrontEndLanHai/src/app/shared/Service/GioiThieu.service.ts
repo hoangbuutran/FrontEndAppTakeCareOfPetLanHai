@@ -29,12 +29,12 @@ export class GioiThieuService {
     url: string;
 
     Update(gioiThieu: any) {
-        this.url = 'http://petcare.somee.com/api/gioi-thieu/update';
+        this.url = 'http://localhost:1650/api/gioi-thieu/update';
         return this.apiService.put(this.url, gioiThieu);
     }
 
     viewgioiThieuVoiCSYT(cSYTId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/gioi-thieu/get-by-id/' + cSYTId;
+        this.url = 'http://localhost:1650/api/gioi-thieu/get-by-id/' + cSYTId;
         return this.apiService.get(this.url);
     }
 

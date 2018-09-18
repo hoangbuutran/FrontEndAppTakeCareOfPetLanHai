@@ -6,6 +6,7 @@ import { TinhTrangService } from '../../../shared/Service/TinhTrang.service';
 import { ThuCungModel } from '../../../shared/Model/ThuCung.model';
 import { LichSuKhamService } from '../../../shared/Service/LichSuKham.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { PhieuHenKhamService } from '../../../shared/Service/PhieuHenKham.service';
 
 @Component({
   selector: 'app-thu-cung-detail-with-khach-hang',
@@ -18,9 +19,9 @@ export class ThuCungDetailWithKhachHangComponent implements OnInit {
   NgayNuoiDetail;
   TenGiongThuCungDetail;
 
-  tinhTrangBenh:any;
-  ngayTham:any;
-  loiNhan:any;
+  tinhTrangBenh: any;
+  ngayTham: any;
+  loiNhan: any;
 
   lichSuKhamAddForm: FormGroup;
   lichSuKhamDetail: any[];
@@ -50,7 +51,6 @@ export class ThuCungDetailWithKhachHangComponent implements OnInit {
     this.lichSuKhamService.getAllWithIdThuCung(this.id).subscribe(
       res => {
         this.lichSuKhamDetail = res.data;
-        console.log(this.lichSuKhamDetail);
       }
     );
 
@@ -69,8 +69,14 @@ export class ThuCungDetailWithKhachHangComponent implements OnInit {
     });
   }
 
-  lichSuKhamAddSubmitForm(){
-
+  lichSuKhamAddSubmitForm() {
+    this.lichSuKhamService.create(this.lichSuKhamAddForm.value).subscribe(res => {
+      this.lichSuKhamService.getAllWithIdThuCung(this.id).subscribe(
+        res1 => {
+          this.lichSuKhamDetail = res1.data;
+        }
+      );
+    });
   }
 
   xemLichSuKham(idLichSuKham) {

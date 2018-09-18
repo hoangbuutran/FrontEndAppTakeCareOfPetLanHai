@@ -81,6 +81,32 @@
           <h3>Lịch hẹn khám trong ngày tương ứng với phiếu</h3>
           <div class="box-body">
 
+
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Ngày hẹn</th>
+                  <th>Giờ hẹn</th>
+                  <th>Loại dịch vụ</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let item of listPhieuHenNgay | paginate: { itemsPerPage: 5, currentPage: p }">
+                <tr>
+                  <td>
+                    {{ item.NgayHenKham | date: "yyyy-MM-dd" }}
+                  </td>
+                  <td>
+                    {{ item.GioHenKham }}
+                  </td>
+                  <td>
+                    {{ item.DichVu.TenDichVu }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <pagination-controls (pageChange)="p =$event"></pagination-controls>
+
+
           </div>
         </div>
       </div>

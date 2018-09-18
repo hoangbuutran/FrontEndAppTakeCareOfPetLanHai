@@ -25,9 +25,9 @@ export class QlphieuHenKhamDetailComponent implements OnInit {
   tenDichVuDetail: any;
   TinhTrangDetail: any;
 
-  // listPhieuHenNgay: any[];
+  listPhieuHenNgay: any[];
 
-  // phieuVoiNgay: FormGroup;
+  phieuVoiNgay: FormGroup;
 
   constructor(
     private router: Router,
@@ -57,23 +57,27 @@ export class QlphieuHenKhamDetailComponent implements OnInit {
       this.IdDichVuDetail = res.data.IdDichVu;
       this.TinhTrangDetail = res.data.TinhTrang;
 
-      // this.phieuVoiNgay = this.fb.group({
-      //   NgayHenKham: ['', Validators.required],
-      //   IdCoSoThuY: ['', Validators.required],
-      // });
-      
-      // this.phieuVoiNgay.get('IdCoSoThuY').patchValue(this.IdCoSoThuYDetail);
-      // this.phieuVoiNgay.get('NgayHenKham').patchValue(this.NgayHenKhamDetail);
+      this.phieuVoiNgay = this.fb.group({
+        NgayHenKham: ['', Validators.required],
+        IdCoSoThuY: ['', Validators.required],
+      });
 
-      // this.phieuHenKhamService.phieuVoiNgay(this.phieuVoiNgay).subscribe(
-      //   res => {
-      //     this.listPhieuHenNgay = res.data;
-      //   }
-      // );
+      this.phieuVoiNgay.get('IdCoSoThuY').patchValue(this.IdCoSoThuYDetail);
+      this.phieuVoiNgay.get('NgayHenKham').patchValue(this.NgayHenKhamDetail);
 
+      this.phieuHenKhamService.phieuVoiNgay(this.phieuVoiNgay.value).subscribe(
+        // tslint:disable-next-line:no-shadowed-variable
+        res => {
+          this.listPhieuHenNgay = res.data;
+          console.log(this.listPhieuHenNgay);
+        }
+      );
+
+      // tslint:disable-next-line:no-shadowed-variable
       this.dichVuService.view(this.IdDichVuDetail).subscribe(res => {
         this.tenDichVuDetail = res.data.TenDichVu;
       });
+      // tslint:disable-next-line:no-shadowed-variable
       this.nguoiDungService.view(this.IdNguoiDungDetail).subscribe(res => {
         this.tenNguoiDungDetail = res.data.TenNguoiDung;
       });
@@ -82,15 +86,15 @@ export class QlphieuHenKhamDetailComponent implements OnInit {
 
   duyetPhieu(idPhieu: any) {
     this.phieuHenKhamService.duyetPhieuHenKham(idPhieu).subscribe(res => {
-      this.toastr.success('Phiếu đã được duyệt thành công','thông báo');
+      this.toastr.success('Phiếu đã được duyệt thành công', 'thông báo');
       this.loadForm();
     });
   }
-  
+
   removePhieu(idPhieu: any) {
-    if(confirm('Bạn có chắc chắn muốn hủy phiếu ?') === true){
+    if (confirm('Bạn có chắc chắn muốn hủy phiếu ?') === true) {
       this.phieuHenKhamService.tuChoiPhieuHenKham(idPhieu).subscribe(res => {
-        this.toastr.success('Xoa thanh cong phieu hen kham','thông báo');
+        this.toastr.success('Xoa thanh cong phieu hen kham', 'thông báo');
         this.phieuHenKhamService.phieuHenKhamListVoiCSYT();
         this.router.navigate(['/cosoyteql/qlphieuhenkham/list']);
       });
