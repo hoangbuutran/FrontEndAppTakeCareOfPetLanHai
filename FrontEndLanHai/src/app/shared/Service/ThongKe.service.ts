@@ -32,7 +32,7 @@ export class ThongKeService {
 
     // thống kê 5 sản phẩm bán chạy nhất trong ngày
     viewThongKe5SanPhamMaxDayVoiIdShop(idShop: number) {
-        this.url = 'http://localhost:1650/api/thongkebaocao/Lay_Ra_5_San_Pham_Max_Trong_Ngay/' + idShop;
+        this.url = 'http://petcare.somee.com/api/thongkebaocao/Lay_Ra_5_San_Pham_Max_Trong_Ngay/' + idShop;
         return this.apiService.get(this.url);
     }
 
@@ -50,7 +50,7 @@ export class ThongKeService {
 
     // thống kê 10 sản phẩm bán chạy nhất trong tháng
     viewThongKe10SanPhamMaxMonVoiIdShop(idShop: number, fromNgayThang: any) {
-        this.url = 'http://localhost:1650/api/thongkebaocao/Lay_Ra_10_San_Pham_Max_Trong_Thang/' + idShop;
+        this.url = 'http://petcare.somee.com/api/thongkebaocao/Lay_Ra_10_San_Pham_Max_Trong_Thang/' + idShop;
         return this.apiService.post(this.url, fromNgayThang);
     }
     thongKeView10SanPhamMaxMonVoiIdShop(fromNgayThang: any) {
@@ -64,7 +64,7 @@ export class ThongKeService {
 
     // thống kê hóa đơn theo tháng được chọn
     viewThongKeHoaDonTheoThangVoiIdShop(idShop: number,  fromNgayThang: any) {
-        this.url = 'http://localhost:1650/api/thongkebaocao/Hoa_Don_Theo_Thang/' + idShop;
+        this.url = 'http://petcare.somee.com/api/thongkebaocao/Hoa_Don_Theo_Thang/' + idShop;
         return this.apiService.post(this.url, fromNgayThang);
     }
     thongKeViewHoaDonTheoThangVoiIdShop(fromNgayThang: any) {
@@ -78,7 +78,7 @@ export class ThongKeService {
 
     // thống kê hóa đơn theo khoảng tháng được chọn
     viewThongKeHoaDonTheoKhoangThangVoiIdShop(idShop: number, fromNgayThang: any) {
-        this.url = 'http://localhost:1650/api/thongkebaocao/Hoa_Don_Trong_Thang/' + idShop;
+        this.url = 'http://petcare.somee.com/api/thongkebaocao/Hoa_Don_Trong_Thang/' + idShop;
         return this.apiService.post(this.url, fromNgayThang);
     }
     thongKeViewHoaDonTheoKhoangThangVoiIdShop(fromNgayThang: any) {

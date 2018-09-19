@@ -23,51 +23,51 @@ export class BaiVietService {
     url: string;
 
     create(baiViet: any): Observable<any> {
-        this.url = 'http://localhost:1650/api/baiviet/create';
+        this.url = 'http://petcare.somee.com/api/baiviet/create';
         return this.apiService.post(this.url, baiViet);
     }
 
     like(like: any): Observable<any> {
-        this.url = 'http://localhost:1650/api/baiviet/like';
+        this.url = 'http://petcare.somee.com/api/baiviet/like';
         return this.apiService.post(this.url, like);
     }
 
 
     listLike(idBaiViet: any): Observable<any> {
-        this.url = 'http://localhost:1650/api/baiviet/getalllikebyidbaiviet/' + idBaiViet;
+        this.url = 'http://petcare.somee.com/api/baiviet/getalllikebyidbaiviet/' + idBaiViet;
         return this.apiService.get(this.url);
     }
 
     delete(baiVietId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/baiviet/delete/' + baiVietId;
+        this.url = 'http://petcare.somee.com/api/baiviet/delete/' + baiVietId;
         return this.apiService.get(this.url);
     }
 
     view(baiVietId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/baiviet/getbyid/' + baiVietId;
+        this.url = 'http://petcare.somee.com/api/baiviet/getbyid/' + baiVietId;
         return this.apiService.get(this.url);
     }
 
     KhoaMo(baivietId: number | string): Observable<any> {
-        this.url = 'http://localhost:1650/api/baiviet/khoamo/' + baivietId;
+        this.url = 'http://petcare.somee.com/api/baiviet/khoamo/' + baivietId;
         return this.apiService.get(this.url);
     }
 
 
     Update(baiViet: BaiVietModel) {
-        this.url = 'http://localhost:1650/api/baiviet/update';
+        this.url = 'http://petcare.somee.com/api/baiviet/update';
         return this.apiService.put(this.url, baiViet);
     }
 
     viewbaiVietVoiIdNguoiDung(idNguoiDung: number | string) {
-        this.url = 'http://localhost:1650/api/baiviet/getallbyidnguoidung/' + idNguoiDung;
+        this.url = 'http://petcare.somee.com/api/baiviet/getallbyidnguoidung/' + idNguoiDung;
         return this.apiService.get(this.url).subscribe(res => {
             this.listBaiVietWithIdNguoiDung = res.data;
         });
     }
 
     viewListBaiViet() {
-        this.url = 'http://localhost:1650/api/baiviet/getallsortdate';
+        this.url = 'http://petcare.somee.com/api/baiviet/getallsortdate';
         return this.apiService.get(this.url).subscribe(res => {
             this.listBaiViet = res.data;
         });
