@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SessionService } from '../../../shared/Service/session.service';
+import { LinkServerModel } from '../../../shared/Model/LinkServer.model';
 
 @Component({
   selector: 'app-qlsuc-khoe-thu-cung-edit',
@@ -65,7 +66,7 @@ export class QlsucKhoeThuCungEditComponent implements OnInit {
       this.sucKhoeThuCungEditForm.get('MoTa').patchValue(res.data.MoTa);
       this.sucKhoeThuCungEditForm.get('NoiDung').patchValue(res.data.NoiDung);
       this.sucKhoeThuCungEditForm.get('ImageShow').patchValue(res.data.ImageShow);
-      this.imageUrl = 'http://localhost:1650/Images/' + res.data.ImageShow;
+      this.imageUrl = LinkServerModel.URL + 'Images/' + res.data.ImageShow;
       this.sucKhoeThuCungEditForm.get('TinhTrang').patchValue(res.data.TinhTrang);
     });
   }

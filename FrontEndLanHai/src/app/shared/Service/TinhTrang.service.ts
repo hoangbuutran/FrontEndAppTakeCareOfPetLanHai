@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { TinhTrangModel } from '../Model/TinhTrang.model';
 import { SessionService } from './session.service';
 import { CoSoThuYService } from './CoSoThuY.service';
+import { LinkServerModel } from '../Model/LinkServer.model';
 
 @Injectable()
 
@@ -26,38 +27,38 @@ export class TinhTrangService {
     url: string;
 
     create(tinhTrang: any): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/tinhtrang/create';
+        this.url = LinkServerModel.URL + 'api/tinhtrang/create';
         return this.apiService.post(this.url, tinhTrang);
     }
 
     KhoaMo(tinhTrangId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/tinhtrang/khoamo/' + tinhTrangId;
+        this.url = LinkServerModel.URL + 'api/tinhtrang/khoamo/' + tinhTrangId;
         return this.apiService.get(this.url);
     }
 
     delete(tinhTrangId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/tinhtrang/delete/' + tinhTrangId;
+        this.url = LinkServerModel.URL + 'api/tinhtrang/delete/' + tinhTrangId;
         return this.apiService.get(this.url);
     }
     Update(tinhTrang: TinhTrangModel) {
-        this.url = 'http://petcare.somee.com/api/tinhtrang/update';
+        this.url = LinkServerModel.URL + 'api/tinhtrang/update';
         return this.apiService.put(this.url, tinhTrang);
     }
 
     view(tinhTrangId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/tinhtrang/getbyid/' + tinhTrangId;
+        this.url = LinkServerModel.URL + 'api/tinhtrang/getbyid/' + tinhTrangId;
         return this.apiService.get(this.url);
     }
 
     viewtinhTrangVoiIdThuCung(idThuCung: number | string) {
-        this.url = 'http://petcare.somee.com/api/tinhtrang/getalltinhtrangbyidthucung/' + idThuCung;
+        this.url = LinkServerModel.URL + 'api/tinhtrang/getalltinhtrangbyidthucung/' + idThuCung;
         return this.apiService.get(this.url).subscribe(res => {
             this.listtinhTrangWithIdThuCung = res.data;
         });
     }
 
     counttinhTrang(): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/tinhtrang/listcounttinhTrang';
+        this.url = LinkServerModel.URL + 'api/tinhtrang/listcounttinhTrang';
         return this.apiService.get(this.url);
     }
 
@@ -67,7 +68,7 @@ export class TinhTrangService {
     }
 
     tinhTrangList() {
-        this.url = 'http://petcare.somee.com/api/tinhtrang/getall';
+        this.url = LinkServerModel.URL + 'api/tinhtrang/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.tinhTrangListProperty = res.data;
         });

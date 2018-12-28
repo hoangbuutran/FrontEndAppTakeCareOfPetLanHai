@@ -6,6 +6,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { BinhLuanService } from '../../shared/Service/BinhLuan.service';
 import { BaiVietService } from '../../shared/Service/BaiViet.service';
+import { LinkServerModel } from '../../shared/Model/LinkServer.model';
 
 @Component({
   selector: 'app-home-nguoi-dung',
@@ -63,7 +64,7 @@ export class HomeNguoiDungComponent implements OnInit {
     
     this.nguoiDungService.viewNguoiDungVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
       this.idNguoiDung = res.data.IdNguoiDung;
-      this.imageDaiDien = 'http://petcare.somee.com/Images/' + res.data.HinhAnh;
+      this.imageDaiDien = LinkServerModel.URL + 'Images/' + res.data.HinhAnh;
       this.binhLuanAddForm.get('IdNguoiDung').patchValue(res.data.IdNguoiDung);
       this.likeForm.get('IdNguoiDung').patchValue(res.data.IdNguoiDung);
     });

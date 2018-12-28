@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { NguoiDungModel } from '../Model/NguoiDung.model';
 import { SessionService } from './session.service';
 import { CoSoThuYService } from './CoSoThuY.service';
+import { LinkServerModel } from '../Model/LinkServer.model';
 
 @Injectable()
 
@@ -28,41 +29,41 @@ export class NguoiDungService {
     url: string;
 
     create(nguoiDung: any): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/nguoidung/create';
+        this.url = LinkServerModel.URL + 'api/nguoidung/create';
         return this.apiService.post(this.url, nguoiDung);
     }
 
     KhoaMo(nguoiDungId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/nguoidung/khoamo/' + nguoiDungId;
+        this.url = LinkServerModel.URL + 'api/nguoidung/khoamo/' + nguoiDungId;
         return this.apiService.get(this.url);
     }
 
     delete(nguoiDungId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/nguoidung/delete/' + nguoiDungId;
+        this.url = LinkServerModel.URL + 'api/nguoidung/delete/' + nguoiDungId;
         return this.apiService.get(this.url);
     }
     Update(nguoiDung: NguoiDungModel) {
-        this.url = 'http://petcare.somee.com/api/nguoidung/update';
+        this.url = LinkServerModel.URL + 'api/nguoidung/update';
         return this.apiService.put(this.url, nguoiDung);
     }
 
     view(nguoiDungId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/nguoidung/getbyid/' + nguoiDungId;
+        this.url = LinkServerModel.URL + 'api/nguoidung/getbyid/' + nguoiDungId;
         return this.apiService.get(this.url);
     }
 
     viewNguoiDungVoiCSYT(cSYTId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/nguoidung/getallbyidcosoyte/' + cSYTId;
+        this.url = LinkServerModel.URL + 'api/nguoidung/getallbyidcosoyte/' + cSYTId;
         return this.apiService.get(this.url);
     }
 
     viewNguoiDungVoiIDTaiKhoan(taiKhoanId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/nguoidung/getbyidtaikhoan/' + taiKhoanId;
+        this.url = LinkServerModel.URL + 'api/nguoidung/getbyidtaikhoan/' + taiKhoanId;
         return this.apiService.get(this.url);
     }
 
     countNguoiDung(): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/nguoidung/listcountnguoidung';
+        this.url = LinkServerModel.URL + 'api/nguoidung/listcountnguoidung';
         return this.apiService.get(this.url);
     }
 

@@ -3,6 +3,7 @@ import { GiongThuCungModel } from '../../../shared/Model/GiongThuCung.model';
 import { GiongThuCungService } from '../../../shared/Service/GiongThuCung.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LinkServerModel } from '../../../shared/Model/LinkServer.model';
 
 @Component({
   selector: 'app-giong-thu-cung-list',
@@ -53,8 +54,8 @@ export class GiongThuCungListComponent implements OnInit {
     this.giongThuCungService.XemThongTinGiongThuCung(id).subscribe(x => {
       this.TenGiongThuCungDetail = x.data.TenGiongThuCung;
       this.GioiThieuDetail = x.data.GioiThieu;
-      this.HinhAnhDetail = 'http://petslike.somee.com/Images/' + x.data.HinhAnh;
-      this.imageUrl = 'http://petslike.somee.com/Images/' + x.data.HinhAnh;
+      this.HinhAnhDetail = LinkServerModel.URL + 'Images/' + x.data.HinhAnh;
+      this.imageUrl = LinkServerModel.URL + 'Images/' + x.data.HinhAnh;
       this.DacDiemDetail = x.data.DacDiem;
       this.TinhCachDetail = x.data.TinhCach;
       this.CachChamSocDetail = x.data.CachChamSoc;

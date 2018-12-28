@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { SessionService } from '../shared/Service/session.service';
 import { NguoiDungService } from '../shared/Service/NguoiDungService';
+import { LinkServerModel } from '../shared/Model/LinkServer.model';
 
 @Component({
   selector: 'app-nguoi-dung',
@@ -24,7 +25,7 @@ export class NguoiDungComponent implements OnInit {
   ngOnInit() {
     this.sessionuser = this.sessionService.getToken();
     this.nguoiDungService.viewNguoiDungVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
-      this.imageDaiDien = 'http://petcare.somee.com/Images/' + res.data.HinhAnh;
+      this.imageDaiDien = LinkServerModel.URL + 'Images/' + res.data.HinhAnh;
       this.idNguoiDung = res.data.IdNguoiDung;
       this.tenNguoiDung = res.data.TenNguoiDung;
     });

@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { HinhAnhSanPhamModel } from '../Model/HinhAnhSanPham.model';
 import { SessionService } from './session.service';
 import { ShopService } from './Shop.service';
+import { LinkServerModel } from '../Model/LinkServer.model';
 
 @Injectable()
 
@@ -25,12 +26,12 @@ export class HinhAnhSanPhamService {
     url: string;
 
     delete(sanphamId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/hinhanhsanpham/delete/' + sanphamId;
+        this.url = LinkServerModel.URL + 'api/hinhanhsanpham/delete/' + sanphamId;
         return this.apiService.get(this.url);
     }
 
     viewHinhAnhSanPhamVoiIdSanPham(idSanPham: number | string) {
-        this.url = 'http://petcare.somee.com/api/hinhanhsanpham/getallwithidsanpham/' + idSanPham;
+        this.url = LinkServerModel.URL + 'api/hinhanhsanpham/getallwithidsanpham/' + idSanPham;
         return this.apiService.get(this.url);
     }
 

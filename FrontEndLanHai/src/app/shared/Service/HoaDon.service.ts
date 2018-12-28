@@ -11,6 +11,7 @@ import { HoaDonModel } from '../Model/HoaDon.model';
 import { SessionService } from './session.service';
 import { ShopService } from './Shop.service';
 import { ChiTietHoaDonModel } from '../Model/ChiTietHoaDon.model';
+import { LinkServerModel } from '../Model/LinkServer.model';
 
 @Injectable()
 
@@ -29,32 +30,32 @@ export class HoaDonService {
     url: string;
 
     create(hoaDon: any): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/hoadon/create';
+        this.url = LinkServerModel.URL + 'api/hoadon/create';
         return this.apiService.post(this.url, hoaDon);
     }
 
     updateTrangThai(hoaDonId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/hoadon/updatetrangthai/' + hoaDonId;
+        this.url = LinkServerModel.URL + 'api/hoadon/updatetrangthai/' + hoaDonId;
         return this.apiService.get(this.url);
     }
 
     delete(HoaDonId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/hoadon/delete/' + HoaDonId;
+        this.url = LinkServerModel.URL + 'api/hoadon/delete/' + HoaDonId;
         return this.apiService.get(this.url);
     }
 
     Update(HoaDon: HoaDonModel) {
-        this.url = 'http://petcare.somee.com/api/hoadon/update';
+        this.url = LinkServerModel.URL + 'api/hoadon/update';
         return this.apiService.put(this.url, HoaDon);
     }
 
     view(HoaDonId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/hoadon/getbyid/' + HoaDonId;
+        this.url = LinkServerModel.URL + 'api/hoadon/getbyid/' + HoaDonId;
         return this.apiService.get(this.url);
     }
 
     countHoaDon(idShop: number): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/hoadon/listcounthoadonshop/' + idShop;
+        this.url = LinkServerModel.URL + 'api/hoadon/listcounthoadonshop/' + idShop;
         return this.apiService.get(this.url);
     }
 
@@ -64,17 +65,17 @@ export class HoaDonService {
     }
 
     viewHoaDonVoiIdShop(idShop: number) {
-        this.url = 'http://petcare.somee.com/api/hoadon/getallbyidshop/' + idShop;
+        this.url = LinkServerModel.URL + 'api/hoadon/getallbyidshop/' + idShop;
         return this.apiService.get(this.url);
     }
 
     viewHoaDonVoiIdNguoiDung(idNguoiDung: number) {
-        this.url = 'http://petcare.somee.com/api/hoadon/getallbyidnguoidung/' + idNguoiDung;
+        this.url = LinkServerModel.URL + 'api/hoadon/getallbyidnguoidung/' + idNguoiDung;
         return this.apiService.get(this.url);
     }
 
     viewCTHoaDonVoiIdHoaDon(idHoaDon: number) {
-        this.url = 'http://petcare.somee.com/api/hoadon/getallcthdbyidhoadon/' + idHoaDon;
+        this.url = LinkServerModel.URL + 'api/hoadon/getallcthdbyidhoadon/' + idHoaDon;
         return this.apiService.get(this.url);
     }
 
@@ -88,22 +89,22 @@ export class HoaDonService {
     }
 
     huyDonHangForShop(hoaDonId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/hoadon/huydonhangforshop/' + hoaDonId;
+        this.url = LinkServerModel.URL + 'api/hoadon/huydonhangforshop/' + hoaDonId;
         return this.apiService.get(this.url);
     }
 
     huyDonHangForNguoiDung(hoaDonId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/hoadon/huydonhangfornguoidung/' + hoaDonId;
+        this.url = LinkServerModel.URL + 'api/hoadon/huydonhangfornguoidung/' + hoaDonId;
         return this.apiService.get(this.url);
     }
 
     kiemTraVaThanhToan(cthd: any[], idNguoiDung: any): Observable<any>  {
-        this.url = 'http://petcare.somee.com/api/hoadon/checkcthoadonandcreatehoadon/' + idNguoiDung;
+        this.url = LinkServerModel.URL + 'api/hoadon/checkcthoadonandcreatehoadon/' + idNguoiDung;
         return this.apiService.post(this.url, cthd);
     }
 
     kiemTraSanPham(cthd: any[]): Observable<any>  {
-        this.url = 'http://petcare.somee.com/api/hoadon/checkcthoadon';
+        this.url = LinkServerModel.URL + 'api/hoadon/checkcthoadon';
         return this.apiService.post(this.url, cthd);
     }
 

@@ -7,6 +7,7 @@ import 'rxjs/add/operator/catch';
 import { ApiService } from './api.service';
 import { LoginModel } from '../Model/Login.model';
 import { TaiKhoanModel } from '../Model/TaiKhoan.model';
+import { LinkServerModel } from '../Model/LinkServer.model';
 
 
 @Injectable()
@@ -18,27 +19,27 @@ export class TaiKhoanService {
     url: string;
 
     Login(loginModel: LoginModel) {
-        this.url = 'http://petcare.somee.com/api/taikhoan/login';
+        this.url = LinkServerModel.URL + 'api/taikhoan/login';
         return this.apiService.post(this.url, loginModel);
     }
 
     Register(RegisterModel: any) {
-        this.url = 'http://petcare.somee.com/api/taikhoan/createnguoidung';
+        this.url = LinkServerModel.URL + 'api/taikhoan/createnguoidung';
         return this.apiService.post(this.url, RegisterModel);
     }
 
     ForgotPass(EmailForm: any) {
-        this.url = 'http://petcare.somee.com/api/taikhoan/sendmailforgotpasss';
+        this.url = LinkServerModel.URL + 'api/taikhoan/sendmailforgotpasss';
         return this.apiService.post(this.url, EmailForm);
     }
 
     view(taiKhoanId: number | string) {
-        this.url = 'http://petcare.somee.com/api/taikhoan/getbyid/' + taiKhoanId;
+        this.url = LinkServerModel.URL + 'api/taikhoan/getbyid/' + taiKhoanId;
         return this.apiService.get(this.url);
     }
 
     ChangePass(ChangePassModel: any) {
-        this.url = 'http://petcare.somee.com/api/taikhoan/doimatkhau';
+        this.url = LinkServerModel.URL + 'api/taikhoan/doimatkhau';
         return this.apiService.post(this.url, ChangePassModel);
     }
 }

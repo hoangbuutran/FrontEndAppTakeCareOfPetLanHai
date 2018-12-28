@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { NguoiDungService } from '../../../shared/Service/NguoiDungService';
 import { ThuCungModel } from '../../../shared/Model/Thucung.model';
 import { ThuCungService } from '../../../shared/Service/ThuCung.service';
+import { LinkServerModel } from '../../../shared/Model/LinkServer.model';
 
 @Component({
   selector: 'app-khach-hang-detail',
@@ -40,7 +41,7 @@ export class KhachHangDetailComponent implements OnInit {
       this.NgaySinhDetail = res.data.NgaySinh;
       this.SDTDetail = res.data.SDT;
       this.EmailDetail = res.data.Email;
-      this.HinhAnhDetail = 'http://takecareofpets.somee.com/Images/' + res.data.HinhAnh;
+      this.HinhAnhDetail = LinkServerModel.URL + 'Images/' + res.data.HinhAnh;
     });
     this.thuCungService.viewthuCungVoiIdNguoiDung(this.id);
   }

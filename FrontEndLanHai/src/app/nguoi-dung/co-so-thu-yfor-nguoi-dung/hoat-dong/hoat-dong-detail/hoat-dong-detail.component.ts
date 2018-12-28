@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { HoatDongService } from '../../../../shared/Service/HoatDong.service';
+import { LinkServerModel } from '../../../../shared/Model/LinkServer.model';
 
 @Component({
   selector: 'app-hoat-dong-detail',
@@ -31,7 +32,7 @@ export class HoatDongDetailComponent implements OnInit {
       this.MoTaHoatDongDetail = res.data.MoTa;
       this.NoiDungDetail = res.data.NoiDung;
       this.IdCoSoThuYDetail = res.data.IdCoSoThuY;
-      this.ImageShowDetail = 'http://localhost:1650/Images/' + res.data.ImageShow;
+      this.ImageShowDetail = LinkServerModel.URL + 'Images/' + res.data.ImageShow;
       this.NgayThangDetail = res.data.NgayThang;
     });
   }

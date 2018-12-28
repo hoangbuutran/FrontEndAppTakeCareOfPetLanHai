@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { GiongThuCungService } from '../../../shared/Service/GiongThuCung.service';
 import { ToastrService } from 'ngx-toastr';
+import { LinkServerModel } from '../../../shared/Model/LinkServer.model';
 
 @Component({
   selector: 'app-giong-thu-cung-edit',
@@ -55,7 +56,7 @@ export class GiongThuCungEditComponent implements OnInit {
       this.GiongThuCungEditForm.get('TenGiongThuCung').patchValue(res.data.TenGiongThuCung);
       this.GiongThuCungEditForm.get('GioiThieu').patchValue(res.data.GioiThieu);
       this.GiongThuCungEditForm.get('HinhAnh').patchValue(res.data.HinhAnh);
-      this.imageUrl = 'http://localhost:1650/Images/' + res.data.HinhAnh;
+      this.imageUrl = LinkServerModel.URL + 'Images/' + res.data.HinhAnh;
       this.GiongThuCungEditForm.get('DacDiem').patchValue(res.data.DacDiem);
       this.GiongThuCungEditForm.get('TinhCach').patchValue(res.data.TinhCach);
       this.GiongThuCungEditForm.get('CachChamSoc').patchValue(res.data.CachChamSoc);

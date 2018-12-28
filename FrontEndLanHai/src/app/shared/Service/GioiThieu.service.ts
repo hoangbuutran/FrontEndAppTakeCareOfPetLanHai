@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { SessionService } from './session.service';
 import { CoSoThuYService } from './CoSoThuY.service';
+import { LinkServerModel } from '../Model/LinkServer.model';
 
 @Injectable()
 
@@ -29,12 +30,12 @@ export class GioiThieuService {
     url: string;
 
     Update(gioiThieu: any) {
-        this.url = 'http://petcare.somee.com/api/gioi-thieu/update';
+        this.url = LinkServerModel.URL + 'api/gioi-thieu/update';
         return this.apiService.put(this.url, gioiThieu);
     }
 
     viewgioiThieuVoiCSYT(cSYTId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/gioi-thieu/get-by-id/' + cSYTId;
+        this.url = LinkServerModel.URL + 'api/gioi-thieu/get-by-id/' + cSYTId;
         return this.apiService.get(this.url);
     }
 

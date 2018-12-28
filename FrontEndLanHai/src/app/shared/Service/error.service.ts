@@ -8,6 +8,7 @@ import { ApiService } from './api.service';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { ErrorModel } from '../Model/error.model';
+import { LinkServerModel } from '../Model/LinkServer.model';
 
 @Injectable()
 
@@ -23,12 +24,12 @@ export class ErrorService {
 
 
     view(errorId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/error/getbyid/' + errorId;
+        this.url = LinkServerModel.URL + 'api/error/getbyid/' + errorId;
         return this.apiService.get(this.url);
     }
 
     errorList() {
-        this.url = 'http://petcare.somee.com/api/error/getall';
+        this.url = LinkServerModel.URL + 'api/error/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.errorListProperty = res.data;
         });

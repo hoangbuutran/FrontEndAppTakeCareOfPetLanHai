@@ -7,6 +7,7 @@ import { ThuCungModel } from '../../../shared/Model/ThuCung.model';
 import { LichSuKhamService } from '../../../shared/Service/LichSuKham.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { PhieuHenKhamService } from '../../../shared/Service/PhieuHenKham.service';
+import { LinkServerModel } from '../../../shared/Model/LinkServer.model';
 
 @Component({
   selector: 'app-thu-cung-detail-with-khach-hang',
@@ -64,7 +65,7 @@ export class ThuCungDetailWithKhachHangComponent implements OnInit {
 
   XemThongTinTinhTrang(IdTinhTrang: number) {
     this.tinhTrangService.view(IdTinhTrang).subscribe(res => {
-      this.hinhAnhDetail = 'http://takecareofpets.somee.com/Images/' + res.data.HinhAnh;
+      this.hinhAnhDetail = LinkServerModel.URL + 'Images/' + res.data.HinhAnh;
       this.noiDungTinhTrangDetail = res.data.NoiDungTinhTrang;
     });
   }

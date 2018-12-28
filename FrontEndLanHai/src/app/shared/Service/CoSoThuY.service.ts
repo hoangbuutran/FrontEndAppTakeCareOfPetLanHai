@@ -8,6 +8,7 @@ import { ApiService } from './api.service';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { CoSoThuYModel } from '../Model/CoSoThuY.model';
+import { LinkServerModel } from '../Model/LinkServer.model';
 
 @Injectable()
 
@@ -22,36 +23,36 @@ export class CoSoThuYService {
     url: string;
 
     create(coSoThuY: any): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/cosothuy/create';
+        this.url = LinkServerModel.URL + 'api/cosothuy/create';
         return this.apiService.post(this.url, coSoThuY);
     }
 
     KhoaMo(coSoThuYId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/cosothuy/khoamo/' + coSoThuYId;
+        this.url = LinkServerModel.URL + 'api/cosothuy/khoamo/' + coSoThuYId;
         return this.apiService.get(this.url);
     }
 
     delete(coSoThuYId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/cosothuy/delete/' + coSoThuYId;
+        this.url = LinkServerModel.URL + 'api/cosothuy/delete/' + coSoThuYId;
         return this.apiService.get(this.url);
     }
     Update(coSoThuY: CoSoThuYModel) {
-        this.url = 'http://petcare.somee.com/api/cosothuy/update';
+        this.url = LinkServerModel.URL + 'api/cosothuy/update';
         return this.apiService.put(this.url, coSoThuY);
     }
 
     view(coSoThuYId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/cosothuy/getbyid/' + coSoThuYId;
+        this.url = LinkServerModel.URL + 'api/cosothuy/getbyid/' + coSoThuYId;
         return this.apiService.get(this.url);
     }
 
     viewWithIdTaiKhoan(taiKhoanId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/cosothuy/getbyidtaikhoan/' + taiKhoanId;
+        this.url = LinkServerModel.URL + 'api/cosothuy/getbyidtaikhoan/' + taiKhoanId;
         return this.apiService.get(this.url);
     }
 
     countCoSoThuY(): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/cosothuy/listcountcosothuy';
+        this.url = LinkServerModel.URL + 'api/cosothuy/listcountcosothuy';
         return this.apiService.get(this.url);
     }
 
@@ -61,18 +62,18 @@ export class CoSoThuYService {
     }
 
     xemTaiKhoanCoSoThuY(coSoThuYId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/taikhoan/getbyid/' + coSoThuYId;
+        this.url = LinkServerModel.URL + 'api/taikhoan/getbyid/' + coSoThuYId;
         return this.apiService.get(this.url);
     }
 
     coSoThuYList() {
-        this.url = 'http://petcare.somee.com/api/cosothuy/getall';
+        this.url = LinkServerModel.URL + 'api/cosothuy/getall';
         this.apiService.get(this.url).subscribe(res => {
             this.coSoThuYListProperty = res.data;
         });
     }
     coSoThuYListForNguoiDung(): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/cosothuy/getall';
+        this.url = LinkServerModel.URL + 'api/cosothuy/getall';
         return this.apiService.get(this.url);
     }
 }

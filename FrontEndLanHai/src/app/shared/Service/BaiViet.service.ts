@@ -8,6 +8,7 @@ import { ApiService } from './api.service';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { BaiVietModel } from '../Model/BaiViet.model';
+import { LinkServerModel } from '../Model/LinkServer.model';
 
 @Injectable()
 
@@ -23,51 +24,51 @@ export class BaiVietService {
     url: string;
 
     create(baiViet: any): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/baiviet/create';
+        this.url = LinkServerModel.URL + 'api/baiviet/create';
         return this.apiService.post(this.url, baiViet);
     }
 
     like(like: any): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/baiviet/like';
+        this.url = LinkServerModel.URL + 'api/baiviet/like';
         return this.apiService.post(this.url, like);
     }
 
 
     listLike(idBaiViet: any): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/baiviet/getalllikebyidbaiviet/' + idBaiViet;
+        this.url = LinkServerModel.URL + 'api/baiviet/getalllikebyidbaiviet/' + idBaiViet;
         return this.apiService.get(this.url);
     }
 
     delete(baiVietId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/baiviet/delete/' + baiVietId;
+        this.url = LinkServerModel.URL + 'api/baiviet/delete/' + baiVietId;
         return this.apiService.get(this.url);
     }
 
     view(baiVietId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/baiviet/getbyid/' + baiVietId;
+        this.url = LinkServerModel.URL + 'api/baiviet/getbyid/' + baiVietId;
         return this.apiService.get(this.url);
     }
 
     KhoaMo(baivietId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/baiviet/khoamo/' + baivietId;
+        this.url = LinkServerModel.URL + 'api/baiviet/khoamo/' + baivietId;
         return this.apiService.get(this.url);
     }
 
 
     Update(baiViet: BaiVietModel) {
-        this.url = 'http://petcare.somee.com/api/baiviet/update';
+        this.url = LinkServerModel.URL + 'api/baiviet/update';
         return this.apiService.put(this.url, baiViet);
     }
 
     viewbaiVietVoiIdNguoiDung(idNguoiDung: number | string) {
-        this.url = 'http://petcare.somee.com/api/baiviet/getallbyidnguoidung/' + idNguoiDung;
+        this.url = LinkServerModel.URL + 'api/baiviet/getallbyidnguoidung/' + idNguoiDung;
         return this.apiService.get(this.url).subscribe(res => {
             this.listBaiVietWithIdNguoiDung = res.data;
         });
     }
 
     viewListBaiViet() {
-        this.url = 'http://petcare.somee.com/api/baiviet/getallsortdate';
+        this.url = LinkServerModel.URL + 'api/baiviet/getallsortdate';
         return this.apiService.get(this.url).subscribe(res => {
             this.listBaiViet = res.data;
         });

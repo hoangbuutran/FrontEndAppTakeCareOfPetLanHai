@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { SessionService } from './session.service';
 import { CoSoThuYService } from './CoSoThuY.service';
+import { LinkServerModel } from '../Model/LinkServer.model';
 
 @Injectable()
 
@@ -30,42 +31,42 @@ export class PhieuHenKhamService {
     url: string;
 
     duyetPhieuHenKham(phieuHenKhamId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/phieu-hen-kham/duyet-phieu-hen-kham/' + phieuHenKhamId;
+        this.url = LinkServerModel.URL + 'api/phieu-hen-kham/duyet-phieu-hen-kham/' + phieuHenKhamId;
         return this.apiService.get(this.url);
     }
 
     tuChoiPhieuHenKham(phieuHenKhamId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/phieu-hen-kham/tu-choi-phieu-hen-kham/' + phieuHenKhamId;
+        this.url = LinkServerModel.URL + 'api/phieu-hen-kham/tu-choi-phieu-hen-kham/' + phieuHenKhamId;
         return this.apiService.get(this.url);
     }
 
     create(phieuHenKham: any): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/phieu-hen-kham/create';
+        this.url = LinkServerModel.URL + 'api/phieu-hen-kham/create';
         return this.apiService.post(this.url, phieuHenKham);
     }
 
     phieuVoiNgay(phieuVoiNgay: any): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/phieu-hen-kham/phieu-voi-ngay';
+        this.url = LinkServerModel.URL + 'api/phieu-hen-kham/phieu-voi-ngay';
         return this.apiService.post(this.url, phieuVoiNgay);
     }
 
     delete(phieuHenKhamId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/phieu-hen-kham/delete/' + phieuHenKhamId;
+        this.url = LinkServerModel.URL + 'api/phieu-hen-kham/delete/' + phieuHenKhamId;
         return this.apiService.get(this.url);
     }
 
     Update(phieuHenKham: any) {
-        this.url = 'http://petcare.somee.com/api/phieu-hen-kham/update';
+        this.url = LinkServerModel.URL + 'api/phieu-hen-kham/update';
         return this.apiService.put(this.url, phieuHenKham);
     }
 
     view(phieuHenKhamId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/phieu-hen-kham/get-by-id/' + phieuHenKhamId;
+        this.url = LinkServerModel.URL + 'api/phieu-hen-kham/get-by-id/' + phieuHenKhamId;
         return this.apiService.get(this.url);
     }
 
     viewphieuHenKhamVoiCSYT(cSYTId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/phieu-hen-kham/get-all-with-id-cosothuy/' + cSYTId;
+        this.url = LinkServerModel.URL + 'api/phieu-hen-kham/get-all-with-id-cosothuy/' + cSYTId;
         return this.apiService.get(this.url);
     }
 
@@ -79,7 +80,7 @@ export class PhieuHenKhamService {
     }
 
     viewphieuHenKhamVoiIdNguoiDung(idNguoiDung: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/phieu-hen-kham/get-all-with-id-nguoi-dung/' + idNguoiDung;
+        this.url = LinkServerModel.URL + 'api/phieu-hen-kham/get-all-with-id-nguoi-dung/' + idNguoiDung;
         return this.apiService.get(this.url);
     }
 

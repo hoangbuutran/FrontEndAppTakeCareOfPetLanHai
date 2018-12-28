@@ -5,6 +5,7 @@ import { HoatDongService } from '../../../shared/Service/HoatDong.service';
 import { ToastrService } from 'ngx-toastr';
 import { CoSoThuYService } from '../../../shared/Service/CoSoThuY.service';
 import { SessionService } from '../../../shared/Service/session.service';
+import { LinkServerModel } from '../../../shared/Model/LinkServer.model';
 
 @Component({
   selector: 'app-qlhoat-dong-edit',
@@ -57,7 +58,7 @@ export class QlhoatDongEditComponent implements OnInit {
       this.hoatDongEditForm.get('TenHoatDong').patchValue(res.data.TenHoatDong);
       this.hoatDongEditForm.get('MoTa').patchValue(res.data.MoTa);
       this.hoatDongEditForm.get('ImageShow').patchValue(res.data.ImageShow);
-      this.imageUrl = 'http://localhost:1650/Images/' + res.data.ImageShow;
+      this.imageUrl = LinkServerModel.URL + 'Images/' + res.data.ImageShow;
       this.hoatDongEditForm.get('NoiDung').patchValue(res.data.NoiDung);
       this.hoatDongEditForm.get('TinhTrang').patchValue(res.data.TinhTrang);
     });

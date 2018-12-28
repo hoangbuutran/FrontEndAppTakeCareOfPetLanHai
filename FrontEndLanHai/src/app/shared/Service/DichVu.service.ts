@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { SessionService } from './session.service';
 import { CoSoThuYService } from './CoSoThuY.service';
+import { LinkServerModel } from '../Model/LinkServer.model';
 
 @Injectable()
 
@@ -30,38 +31,38 @@ export class DichVuService {
     url: string;
 
     create(dichVu: any): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/dich-vu/create';
+        this.url = LinkServerModel.URL + 'api/dich-vu/create';
         return this.apiService.post(this.url, dichVu);
     }
 
     KhoaMo(dichVuId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/dich-vu/khoamo/' + dichVuId;
+        this.url = LinkServerModel.URL + 'api/dich-vu/khoamo/' + dichVuId;
         return this.apiService.get(this.url);
     }
 
     delete(dichVuId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/dich-vu/delete/' + dichVuId;
+        this.url = LinkServerModel.URL + 'api/dich-vu/delete/' + dichVuId;
         return this.apiService.get(this.url);
     }
 
     Update(dichVu: any) {
-        this.url = 'http://petcare.somee.com/api/dich-vu/update';
+        this.url = LinkServerModel.URL + 'api/dich-vu/update';
         return this.apiService.put(this.url, dichVu);
     }
 
     view(dichVuId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/dich-vu/get-by-id/' + dichVuId;
+        this.url = LinkServerModel.URL + 'api/dich-vu/get-by-id/' + dichVuId;
         return this.apiService.get(this.url);
     }
 
 
     search(searchString: string): Observable<any[]> {
-        this.url = 'http://petcare.somee.com/api/dich-vu/search-key/' + searchString;
+        this.url = LinkServerModel.URL + 'api/dich-vu/search-key/' + searchString;
         return this.apiService.get(this.url);
     }
 
     viewDichVuVoiCSYT(cSYTId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/dich-vu/get-all-with-id-cosothuy/' + cSYTId;
+        this.url = LinkServerModel.URL + 'api/dich-vu/get-all-with-id-cosothuy/' + cSYTId;
         return this.apiService.get(this.url);
     }
 
@@ -75,7 +76,7 @@ export class DichVuService {
     }
 
     viewDichVuForTrueVoiCSYT(cSYTId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/dich-vu/get-all-with-id-cosothuy-for-true/' + cSYTId;
+        this.url = LinkServerModel.URL + 'api/dich-vu/get-all-with-id-cosothuy-for-true/' + cSYTId;
         return this.apiService.get(this.url);
     }
 

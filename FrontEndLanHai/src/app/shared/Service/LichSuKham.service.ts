@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { SessionService } from './session.service';
 import { CoSoThuYService } from './CoSoThuY.service';
+import { LinkServerModel } from '../Model/LinkServer.model';
 
 @Injectable()
 
@@ -25,27 +26,27 @@ export class LichSuKhamService {
     url: string;
 
     create(phieuHenKham: any): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/lich-su-kham/create';
+        this.url = LinkServerModel.URL + 'api/lich-su-kham/create';
         return this.apiService.post(this.url, phieuHenKham);
     }
 
     delete(phieuHenKhamId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/lich-su-kham/delete/' + phieuHenKhamId;
+        this.url = LinkServerModel.URL + 'api/lich-su-kham/delete/' + phieuHenKhamId;
         return this.apiService.get(this.url);
     }
 
     Update(phieuHenKham: any) {
-        this.url = 'http://petcare.somee.com/api/lich-su-kham/update';
+        this.url = LinkServerModel.URL + 'api/lich-su-kham/update';
         return this.apiService.put(this.url, phieuHenKham);
     }
 
     view(phieuHenKhamId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/lich-su-kham/get-by-id/' + phieuHenKhamId;
+        this.url = LinkServerModel.URL + 'api/lich-su-kham/get-by-id/' + phieuHenKhamId;
         return this.apiService.get(this.url);
     }
 
     getAllWithIdThuCung(idThuCung: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/lich-su-kham/get-all-with-id-thucung/' + idThuCung;
+        this.url = LinkServerModel.URL + 'api/lich-su-kham/get-all-with-id-thucung/' + idThuCung;
         return this.apiService.get(this.url);
     }
 

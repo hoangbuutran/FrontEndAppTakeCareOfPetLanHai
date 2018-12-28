@@ -6,6 +6,7 @@ import { LoaiSanPhamService } from '../../../shared/Service/LoaiSanPham.service'
 import { ShopService } from '../../../shared/Service/Shop.service';
 import { HinhAnhSanPhamModel } from '../../../shared/Model/HinhAnhSanPham.model';
 import { HinhAnhSanPhamService } from '../../../shared/Service/HinhAnhSanPham.service';
+import { LinkServerModel } from '../../../shared/Model/LinkServer.model';
 
 @Component({
   selector: 'app-san-pham-list',
@@ -58,7 +59,7 @@ export class SanPhamListComponent implements OnInit {
   getLink(){
     this.listLinkHinhAnh = [];
     this.hinhAnhDetails.forEach(element => {
-      this.listLinkHinhAnh.push('http://takecareofpets.somee.com/Images/' + element.LinkHinhAnh);
+      this.listLinkHinhAnh.push(LinkServerModel.URL + 'Images/' + element.LinkHinhAnh);
     });
   }
 

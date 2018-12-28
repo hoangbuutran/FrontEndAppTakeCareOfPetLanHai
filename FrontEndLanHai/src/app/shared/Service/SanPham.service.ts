@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { SanPhamModel } from '../Model/SanPham.model';
 import { SessionService } from './session.service';
 import { ShopService } from './Shop.service';
+import { LinkServerModel } from '../Model/LinkServer.model';
 
 @Injectable()
 
@@ -29,17 +30,17 @@ export class SanPhamService {
     url: string;
 
     create(sanPham: any): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/sanpham/create';
+        this.url = LinkServerModel.URL + 'api/sanpham/create';
         return this.apiService.post(this.url, sanPham);
     }
 
     KhoaMo(sanPhamId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/sanpham/khoamo/' + sanPhamId;
+        this.url = LinkServerModel.URL + 'api/sanpham/khoamo/' + sanPhamId;
         return this.apiService.get(this.url);
     }
 
     delete(sanPhamId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/sanpham/delete/' + sanPhamId;
+        this.url = LinkServerModel.URL + 'api/sanpham/delete/' + sanPhamId;
         return this.apiService.get(this.url);
     }
 
@@ -48,7 +49,7 @@ export class SanPhamService {
         const formData: FormData = new FormData();
         formData.append('Image', fileToUpload, fileToUpload.name);
         formData.append('IdSanPham', idSanPham);
-        this.url = 'http://petcare.somee.com/api/giongthucung/uploadimage';
+        this.url = LinkServerModel.URL + 'api/giongthucung/uploadimage';
 
         console.log(fileToUpload);
 
@@ -59,22 +60,22 @@ export class SanPhamService {
         const frmData = new FormData();
         frmData.append('fileUpload', myFiles);
         frmData.append('IdSanPham', idSanPham);
-        this.url = 'http://petcare.somee.com/api/hinhanhsanpham/uploadimage';
+        this.url = LinkServerModel.URL + 'api/hinhanhsanpham/uploadimage';
         return this.http.post(this.url, frmData);
     }
 
     Update(sanPham: SanPhamModel) {
-        this.url = 'http://petcare.somee.com/api/sanpham/update';
+        this.url = LinkServerModel.URL + 'api/sanpham/update';
         return this.apiService.put(this.url, sanPham);
     }
 
     view(sanPhamId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/sanpham/getbyid/' + sanPhamId;
+        this.url = LinkServerModel.URL + 'api/sanpham/getbyid/' + sanPhamId;
         return this.apiService.get(this.url);
     }
 
     countSanPham(idShop: number): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/sanpham/listcountsanphamwithidshop/' + idShop;
+        this.url = LinkServerModel.URL + 'api/sanpham/listcountsanphamwithidshop/' + idShop;
         return this.apiService.get(this.url);
     }
 
@@ -84,12 +85,12 @@ export class SanPhamService {
     }
 
     viewSanPhamVoiIdShop(idShop: number) {
-        this.url = 'http://petcare.somee.com/api/sanpham/getallbyidshop/' + idShop;
+        this.url = LinkServerModel.URL + 'api/sanpham/getallbyidshop/' + idShop;
         return this.apiService.get(this.url);
     }
 
     viewSanPhamVoiIdLoaiSanPham(idLoaiSanPham: number) {
-        this.url = 'http://petcare.somee.com/api/sanpham/getallbyidloaisanpham/' + idLoaiSanPham;
+        this.url = LinkServerModel.URL + 'api/sanpham/getallbyidloaisanpham/' + idLoaiSanPham;
         return this.apiService.get(this.url);
     }
 
@@ -104,7 +105,7 @@ export class SanPhamService {
     }
 
     viewLoaiSanPhamVoiSanPham() {
-        this.url = 'http://petcare.somee.com/api/loaisanpham/getallloaisanphamwithsanpham';
+        this.url = LinkServerModel.URL + 'api/loaisanpham/getallloaisanphamwithsanpham';
         return this.apiService.get(this.url);
     }
 }

@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { SessionService } from './session.service';
 import { CoSoThuYService } from './CoSoThuY.service';
+import { LinkServerModel } from '../Model/LinkServer.model';
 
 @Injectable()
 
@@ -31,12 +32,12 @@ export class SucKhoeThuCungService {
     url: string;
 
     create(sucKhoeThuCung: any): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/suc-khoe-thu-cung/create';
+        this.url = LinkServerModel.URL + 'api/suc-khoe-thu-cung/create';
         return this.apiService.post(this.url, sucKhoeThuCung);
     }
 
     KhoaMo(sucKhoeThuCungId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/suc-khoe-thu-cung/khoamo/' + sucKhoeThuCungId;
+        this.url = LinkServerModel.URL + 'api/suc-khoe-thu-cung/khoamo/' + sucKhoeThuCungId;
         return this.apiService.get(this.url);
     }
 
@@ -44,33 +45,33 @@ export class SucKhoeThuCungService {
         const formData: FormData = new FormData();
         formData.append('ImageShow', fileToUpload, fileToUpload.name);
         formData.append('Id', idSucKhoeThuCung);
-        this.url = 'http://petcare.somee.com/api/suc-khoe-thu-cung/uploadimage';
+        this.url = LinkServerModel.URL + 'api/suc-khoe-thu-cung/uploadimage';
         return this.http.post(this.url, formData);
     }
 
     delete(sucKhoeThuCungId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/suc-khoe-thu-cung/delete/' + sucKhoeThuCungId;
+        this.url = LinkServerModel.URL + 'api/suc-khoe-thu-cung/delete/' + sucKhoeThuCungId;
         return this.apiService.get(this.url);
     }
 
     Update(sucKhoeThuCung: any) {
-        this.url = 'http://petcare.somee.com/api/suc-khoe-thu-cung/update';
+        this.url = LinkServerModel.URL + 'api/suc-khoe-thu-cung/update';
         return this.apiService.put(this.url, sucKhoeThuCung);
     }
 
     view(sucKhoeThuCungId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/suc-khoe-thu-cung/get-by-id/' + sucKhoeThuCungId;
+        this.url = LinkServerModel.URL + 'api/suc-khoe-thu-cung/get-by-id/' + sucKhoeThuCungId;
         return this.apiService.get(this.url);
     }
 
 
     search(searchString: string): Observable<any[]> {
-        this.url = 'http://petcare.somee.com/api/suc-khoe-thu-cung/search-key/' + searchString;
+        this.url = LinkServerModel.URL + 'api/suc-khoe-thu-cung/search-key/' + searchString;
         return this.apiService.get(this.url);
     }
 
     viewsucKhoeThuCungVoiCSYT(cSYTId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/suc-khoe-thu-cung/get-all-with-id-cosothuy/' + cSYTId;
+        this.url = LinkServerModel.URL + 'api/suc-khoe-thu-cung/get-all-with-id-cosothuy/' + cSYTId;
         return this.apiService.get(this.url);
     }
 
@@ -84,7 +85,7 @@ export class SucKhoeThuCungService {
     }
 
     viewsucKhoeThuCungForTrueVoiCSYT(cSYTId: number | string): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/suc-khoe-thu-cung/get-all-with-id-cosothuy-for-true/' + cSYTId;
+        this.url = LinkServerModel.URL + 'api/suc-khoe-thu-cung/get-all-with-id-cosothuy-for-true/' + cSYTId;
         return this.apiService.get(this.url);
     }
 
@@ -95,7 +96,7 @@ export class SucKhoeThuCungService {
     }
 
     viewsucKhoeThuCungGetAll(): Observable<any> {
-        this.url = 'http://petcare.somee.com/api/suc-khoe-thu-cung/get-all-for-true/';
+        this.url = LinkServerModel.URL + 'api/suc-khoe-thu-cung/get-all-for-true/';
         return this.apiService.get(this.url);
     }
     sucKhoeThuCungGetAllListVoiCSYT() {
