@@ -12,6 +12,7 @@ import { SessionService } from '../shared/Service/session.service';
 export class LoginComponent implements OnInit {
   LoginForm: FormGroup;
   errorMessenger: string;
+  trangThai: boolean;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.trangThai = true;
     this.LoginForm = this.fb.group({
       UserName: ['', Validators.required],
       Pass: ['', Validators.required],
@@ -50,6 +52,7 @@ export class LoginComponent implements OnInit {
 
           }
         } else { // sai tai khoan
+          this.trangThai = false;
           this.errorMessenger = res.message;
         }
       });

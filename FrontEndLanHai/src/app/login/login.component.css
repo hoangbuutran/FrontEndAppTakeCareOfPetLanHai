@@ -1,0 +1,16 @@
+.input-login {
+    margin-bottom: 15px;
+}
+
+.link-forgot-pass {
+    float: left;
+    background-color: #0cffe6;
+    border-radius: 10px;
+    padding: 5px;
+}
+.link-register {
+    float: right;
+    background-color: #0cffe6;
+    border-radius: 10px;
+    padding: 5px;
+}

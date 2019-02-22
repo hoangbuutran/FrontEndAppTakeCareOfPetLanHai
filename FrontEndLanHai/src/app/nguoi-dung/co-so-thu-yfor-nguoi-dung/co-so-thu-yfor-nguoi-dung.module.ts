@@ -7,6 +7,7 @@ import { CoSoThuYhomeComponent } from './co-so-thu-yhome/co-so-thu-yhome.compone
 import { DatLichKhamComponent } from './dat-lich-kham/dat-lich-kham.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { HoatDongComponent } from './hoat-dong/hoat-dong.component';
 
 @NgModule({
   imports: [

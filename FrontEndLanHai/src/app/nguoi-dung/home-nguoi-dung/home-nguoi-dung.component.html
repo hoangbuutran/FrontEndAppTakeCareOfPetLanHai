@@ -67,7 +67,7 @@
                             </div>
                             <div class='box-body'>
                                 <p>{{ item.TieuDe }}</p>
-                                <img [src]="item.HinhAnh" class="center-block" style="width:665px; height:450px; border-radius: 10px">
+                                <img [src]="item.HinhAnh" (click)="xemBaiViet(item.IdBaiViet)" data-toggle="modal" data-target="#baiVietDetailDetalModal" class="center-block img-rounded" style="max-width: 545px;">
                                 <hr>
                                 <button (click)="likeUnLike(item.IdBaiViet)" class='btn btn-default btn-xs'>
                                     <i class='fa fa-thumbs-o-up'></i>Like
@@ -206,21 +206,10 @@
                                 </span>
                                 <span class='description'>{{ TenChuyenMucDetail }} - {{ NgayDangDetail | date: "yyyy-MM-dd" }}</span>
                             </div>
-                            <div class='box-tools'>
-                                <button class='btn btn-box-tool' data-toggle='tooltip' title='Mark as read'>
-                                    <i class='fa fa-circle-o'></i>
-                                </button>
-                                <button class='btn btn-box-tool' data-widget='collapse'>
-                                    <i class='fa fa-minus'></i>
-                                </button>
-                                <button class='btn btn-box-tool' data-widget='remove'>
-                                    <i class='fa fa-times'></i>
-                                </button>
-                            </div>
                         </div>
                         <div class='box-body'>
                             <p>{{ TieuDeDetail }}</p>
-                            <img [src]="HinhAnhDetail" class="center-block" style="width:714px; height:482px; border-radius: 10px">
+                            <img [src]="HinhAnhDetail" class="center-block  img-rounded">
                             <hr>
                             <p>{{ NoiDungDetail }}</p>
 

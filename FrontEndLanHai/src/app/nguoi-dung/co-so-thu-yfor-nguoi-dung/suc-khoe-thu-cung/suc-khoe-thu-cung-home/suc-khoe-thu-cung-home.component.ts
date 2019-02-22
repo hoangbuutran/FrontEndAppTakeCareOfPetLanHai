@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SucKhoeThuCungService } from '../../../../shared/Service/SucKhoeThuCung.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { LinkServerModel } from '../../../../shared/Model/LinkServer.model';
 
 @Component({
   selector: 'app-suc-khoe-thu-cung-home',
@@ -8,7 +9,10 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./suc-khoe-thu-cung-home.component.css']
 })
 export class SucKhoeThuCungHomeComponent implements OnInit {
+  
   idsucKhoeThuCung: any;
+  linkHost = '' + LinkServerModel.URL;
+  
   constructor(
     private route: ActivatedRoute,
     private sucKhoeThuCungService: SucKhoeThuCungService,
