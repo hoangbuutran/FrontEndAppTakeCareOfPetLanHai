@@ -61,7 +61,7 @@ export class HomeNguoiDungComponent implements OnInit {
     });
 
     this.sessionuser = this.sessionService.getToken();
-    
+
     this.nguoiDungService.viewNguoiDungVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
       this.idNguoiDung = res.data.IdNguoiDung;
       this.imageDaiDien = LinkServerModel.URL + 'Images/' + res.data.HinhAnh;
@@ -69,7 +69,7 @@ export class HomeNguoiDungComponent implements OnInit {
       this.likeForm.get('IdNguoiDung').patchValue(res.data.IdNguoiDung);
     });
 
-    this.baiVietService.viewListBaiViet();//listBaiViet
+    this.baiVietService.viewListBaiViet(); // listBaiViet
   }
 
   binhLuanSubmitForm(idBaiViet: number | string) {
@@ -92,20 +92,20 @@ export class HomeNguoiDungComponent implements OnInit {
       this.SoLikeDetail = res.data.SoLike;
       this.SoCmtDetail = res.data.SoCmt;
       this.IdNguoiDungDetail = res.data.IdNguoiDung;
-      this.binhLuanService.viewBinhLuanVoiIdBaiViet(idBaiViet);//listbinhLuanWithIdBaiViet
+      this.binhLuanService.viewBinhLuanVoiIdBaiViet(idBaiViet); // listbinhLuanWithIdBaiViet
     });
   }
 
   likeUnLike(idBaiViet) {
     this.likeForm.value.IdBaiViet = idBaiViet;
     this.baiVietService.like(this.likeForm.value).subscribe(res => {
-      this.binhLuanService.viewBinhLuanVoiIdBaiViet(idBaiViet);//listbinhLuanWithIdBaiViet
-      this.baiVietService.viewListBaiViet();//listBaiViet
+      this.binhLuanService.viewBinhLuanVoiIdBaiViet(idBaiViet); // listbinhLuanWithIdBaiViet
+      this.baiVietService.viewListBaiViet(); // listBaiViet
       this.xemBaiViet(idBaiViet);
     });
   }
 
-  showLike(idBaiViet){
+  showLike(idBaiViet) {
       this.baiVietService.listLike(idBaiViet).subscribe(res => {
         this.listLike = res.data;
       });

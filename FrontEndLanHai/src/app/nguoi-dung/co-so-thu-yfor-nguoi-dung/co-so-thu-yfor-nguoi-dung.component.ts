@@ -17,7 +17,6 @@ export class CoSoThuYforNguoiDungComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('IdCoSoThuY');
     });
-    console.log('parent'+this.id);
   }
 
 }

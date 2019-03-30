@@ -23,10 +23,10 @@ import { EscapeHtmlPipeGioiThieuCSTY } from '../shared/Pipe/EscapeHtmlPipeGioiTh
     EditorModule,
   ],
   declarations: [
-    CoSoYteQlComponent, 
-    HomeYteComponent, 
-    ChangePassCstyComponent, 
-    ChangeProfileCstyComponent, 
+    CoSoYteQlComponent,
+    HomeYteComponent,
+    ChangePassCstyComponent,
+    ChangeProfileCstyComponent,
     QlgioiThieuComponent,
     EscapeHtmlPipeGioiThieuCSTY,
   ]

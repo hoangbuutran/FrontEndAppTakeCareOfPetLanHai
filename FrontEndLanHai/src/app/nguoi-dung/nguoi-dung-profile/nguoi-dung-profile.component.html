@@ -2,49 +2,45 @@
 <section class="content">
 
     <div class="row">
-        <div class="col-sm-2 col-md-2">
-            
-            <div class="box">
-                <div id="menu" class="box-header with-border">
-                    <h4 class="box-title">
-                        <a routerLink="/nguoidung/home">
-                            <i class="fa fa-link"></i>
-                            <span>Trang Chủ</span>
-                        </a>
-                    </h4>
-                </div>
-                <div id="menu" class="box-header with-border">
-                    <h4 class="box-title">
-                        <a routerLink="/nguoidung/thucungnguoidung/home">
-                            <i class="fa fa-link"></i>
-                            <span>Thú cưng của bạn</span>
-                        </a>
-                    </h4>
-                </div>
-                <div id="menu" class="box-header with-border">
-                    <h4 class="box-title">
-                        <a routerLink="/nguoidung/nguoidungprofile/edit/{{idNguoiDung}}">
-                            <i class="fa fa-link"></i>
-                            <span>Chỉnh sửa thông tin</span>
-                        </a>
-                    </h4>
-                </div>
-                <div id="menu" class="box-header with-border">
-                    <h4 class="box-title">
-                        <a routerLink="/nguoidung/nguoidungprofile/taobaidang">
-                            <i class="fa fa-link"></i>
-                            <span>Tạo mới bài đăng</span>
-                        </a>
-                    </h4>
-                </div>
+
+        <nav id="sidebar" style="float:left">
+            <div data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="sidebar-header">
+                <h3>Bootstrap Sidebar</h3>
+                <strong>BS</strong>
             </div>
-        </div>
+            <ul class="list-unstyled components">
+                <li>
+                    <a routerLink="/nguoidung/home">
+                        <i class="fa fa-link"></i>
+                        <span>Trang Chủ</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/nguoidung/thucungnguoidung/home">
+                        <i class="fa fa-link"></i>
+                        <span>Thú cưng của bạn</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/nguoidung/nguoidungprofile/edit/{{idNguoiDung}}">
+                        <i class="fa fa-link"></i>
+                        <span>Chỉnh sửa thông tin</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/nguoidung/nguoidungprofile/taobaidang">
+                        <i class="fa fa-link"></i>
+                        <span>Tạo mới bài đăng</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
         <div class="col-sm-7 col-md-7" style="overflow:auto; height:624px;">
             <router-outlet></router-outlet>
         </div>
 
-        <div class="col-sm-3 col-md-3">
+        <div class="col-sm-2 col-md-2">
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Recently Added Products</h3>

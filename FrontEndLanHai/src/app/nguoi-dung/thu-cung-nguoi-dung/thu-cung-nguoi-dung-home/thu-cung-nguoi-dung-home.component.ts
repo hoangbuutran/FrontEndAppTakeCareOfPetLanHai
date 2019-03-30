@@ -47,9 +47,9 @@ export class ThuCungNguoiDungHomeComponent implements OnInit {
   idNguoiDung: any;
   idThuCung: any;
 
-  tinhTrangBenh:any;
-  ngayTham:any;
-  loiNhan:any;
+  tinhTrangBenh: any;
+  ngayTham: any;
+  loiNhan: any;
 
   constructor(
     private fb: FormBuilder,
@@ -120,7 +120,7 @@ export class ThuCungNguoiDungHomeComponent implements OnInit {
       this.thuCungEditForm.get('IdNguoiDung').patchValue(this.idNguoiDung);
     });
 
-    this.giongThuCungService.giongThuCungList();// giongThuCungListProperty
+    this.giongThuCungService.giongThuCungList(); // giongThuCungListProperty
 
   }
 
@@ -130,13 +130,13 @@ export class ThuCungNguoiDungHomeComponent implements OnInit {
       this.ngayNuoiDetail = res.data.NgayNuoi;
       this.idThuCung = res.data.IdThuCung;
       this.trangThaiDetail = res.data.TrangThai;
-      this.giongThuCungService.view(res.data.IdGiongThuCung).subscribe(res => {
-        this.giongThuCungDetail = res.data.TenGiongThuCung;
+      this.giongThuCungService.view(res.data.IdGiongThuCung).subscribe(res2 => {
+        this.giongThuCungDetail = res2.data.TenGiongThuCung;
       });
-      this.tinhTrangService.viewtinhTrangVoiIdThuCung(IdThuCung);// listtinhTrangWithIdThuCung
-      this.canNangService.viewcanNangVoiIdThuCung(IdThuCung);// listcanNangWithIdThuCung
-      this.lichSuKhamService.getAllWithIdThuCung(IdThuCung).subscribe(res => {
-        this.lichSuKhamDetail = res.data;
+      this.tinhTrangService.viewtinhTrangVoiIdThuCung(IdThuCung); // listtinhTrangWithIdThuCung
+      this.canNangService.viewcanNangVoiIdThuCung(IdThuCung); // listcanNangWithIdThuCung
+      this.lichSuKhamService.getAllWithIdThuCung(IdThuCung).subscribe(res2 => {
+        this.lichSuKhamDetail = res2.data;
       });
     });
   }

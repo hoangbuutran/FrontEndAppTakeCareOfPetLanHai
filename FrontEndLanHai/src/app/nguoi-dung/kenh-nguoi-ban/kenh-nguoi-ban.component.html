@@ -2,75 +2,39 @@
 <section class="content">
 
   <div class="row">
-    <div class="col-lg-2 col-xs-3">
-
-      <div class="box">
-        <div id="menu" class="box-header with-border">
-          <h4 class="box-title">
-            <a routerLink="/nguoidung/home">
-              <i class="fa fa-link"></i>
-              <span>Trang Chủ</span>
-            </a>
-          </h4>
-        </div>
-        <div id="menu" class="box-header with-border">
-          <h4 class="box-title">
-            <a routerLink="/nguoidung/thucungnguoidung/home">
-              <i class="fa fa-link"></i>
-              <span>Thú cưng của bạn</span>
-            </a>
-          </h4>
-        </div>
-        <div id="menu" class="box-header with-border">
-          <h4 class="box-title">
-            <a routerLink="/nguoidung/kenhnguoiban">
-              <i class="fa fa-link"></i>
-              <span>Mua sản phẩm</span>
-            </a>
-          </h4>
-        </div>
-        <div id="menu" class="box-header with-border">
-          <h4 class="box-title">
-            <a routerLink="/nguoidung/kenhnguoiban/dangkybanhang">
-              <i class="fa fa-link"></i>
-              <span>Đăng kí bán hàng</span>
-            </a>
-          </h4>
-        </div>
-      </div>
-
-
-
-      <!-- <ul class="sidebar-menu">
-        <li class="">
-          <a routerLink="/nguoidung/home">
-            <i class="fa fa-link"></i>
-            <span>Trang Chủ</span>
-          </a>
-        </li>
-        <li class="">
-          <a routerLink="/nguoidung/thucungnguoidung/home/1">
-            <i class="fa fa-link"></i>
-            <span>Thú cưng của bạn</span>
-          </a>
-        </li>
-        <li class="">
-          <a routerLink="/nguoidung/kenhnguoiban">
-            <i class="fa fa-link"></i>
-            <span>Mua sản phẩm</span>
-          </a>
-        </li>
-        <li class="">
-          <a routerLink="/nguoidung/kenhnguoiban/dangkybanhang">
-            <i class="fa fa-link"></i>
-            <span>Đăng kí bán hàng</span>
-          </a>
-        </li>
-      </ul> -->
-
-    </div>
-
-    <div class="col-lg-8 col-xs-6">
+      <nav id="sidebar" style="float:left">
+          <div data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="sidebar-header">
+              <h3>Bootstrap Sidebar</h3>
+              <strong>BS</strong>
+          </div>
+          <ul class="list-unstyled components">
+              <li>
+                  <a routerLink="/nguoidung/home">
+                      <i class="fa fa-link"></i>
+                      <span>Trang Chủ</span>
+                  </a>
+              </li>
+              <li>
+                  <a routerLink="/nguoidung/thucungnguoidung/home">
+                      <i class="fa fa-link"></i>
+                      <span>Thú cưng của bạn</span>
+                  </a>
+              </li>
+              <li>
+                  <a routerLink="/nguoidung/kenhnguoiban">
+                      <i class="fa fa-link"></i>
+                      <span>Mua sản phẩm</span>
+                  </a>
+              </li>
+              <li>
+                  <a routerLink="/nguoidung/kenhnguoiban/dangkybanhang">
+                    <i class="fa fa-link"></i>
+                    <span>Đăng kí bán hàng</span>
+                  </a>
+              </li>
+          </ul>
+      </nav>
+    <div class="col-lg-7 col-xs-6">
       <router-outlet></router-outlet>
     </div>
 
@@ -82,11 +46,6 @@
         </div>
         <div class="box-body" *ngFor="let item of shopService.shopListForTrueProperty">
           <button routerLink="/nguoidung/kenhcuashop/{{ item.IdShop }}/home/{{ item.IdShop }}" class="btn btn-default btn-block">{{ item.TenShop }}</button>
-          <button class="btn btn-default btn-block">Tên shop số 1</button>
-          <button class="btn btn-default btn-block">Tên shop số 1</button>
-          <button class="btn btn-default btn-block">Tên shop số 1</button>
-          <button class="btn btn-default btn-block">Tên shop số 1</button>
-          <button class="btn btn-default btn-block">Tên shop số 1</button>
         </div>
       </div>
 

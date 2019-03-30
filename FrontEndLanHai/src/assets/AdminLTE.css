@@ -100,7 +100,7 @@ body {
   z-index: 800;
 }
 .main-footer {
-  background: #03f2ff;
+  background: #d6e0e0;
   padding: 15px;
   color: #000;
 }
@@ -200,7 +200,7 @@ a:focus {
   -o-transition: margin-left 0.3s ease-in-out;
   transition: margin-left 0.3s ease-in-out;
   margin-bottom: 0;
-  margin-left: 230px;
+  margin-left: 252px;
   border: none;
   min-height: 50px;
   border-radius: 0;
