@@ -6,6 +6,7 @@ import { ShopService } from '../../../shared/Service/Shop.service';
 import { SanPhamModel } from '../../../shared/Model/SanPham.model';
 import { ShoppingCartService } from '../../../shared/Service/ShoppingCart.service';
 import { ToastrService } from 'ngx-toastr';
+import { LinkServerModel } from '../../../shared/Model/LinkServer.model';
 
 @Component({
   selector: 'app-view-detail-product',
@@ -17,7 +18,8 @@ export class ViewDetailProductComponent implements OnInit {
   id = '';
   GiaDetail: any;
   DacDiemDetail: any;
-  HinhAnhSanPhamsDetail: any;
+  HinhAnhSanPhamsDetail: any[];
+  HinhAnhSanPhams: any[];
   IdLoaiSanPhamDetail: any;
   TenLoaiSanPham: any;
   IdSanPhamDetail: any;
@@ -25,7 +27,7 @@ export class ViewDetailProductComponent implements OnInit {
   TenShop: any;
   NgayNhapDetail: any;
   TenSanPhamDetail: any;
-
+  listLinkHinhAnh = new Array<string>();
   sanPhamDetail: any;
 
   constructor(
@@ -50,16 +52,25 @@ export class ViewDetailProductComponent implements OnInit {
       this.IdSanPhamDetail = res.data.IdSanPham;
       this.IdShopDetail = res.data.IdShop;
       this.TenSanPhamDetail = res.data.TenSanPham;
-      this.loaiSanPhamService.view(this.IdLoaiSanPhamDetail).subscribe(res => {
-        this.TenLoaiSanPham = res.data.TenLoaiSanPham;
+      this.getLink();
+      this.loaiSanPhamService.view(this.IdLoaiSanPhamDetail).subscribe(res2 => {
+        this.TenLoaiSanPham = res2.data.TenLoaiSanPham;
       });
-      this.shopService.view(this.IdShopDetail).subscribe(res => {
-        this.TenShop = res.data.TenShop;
+      this.shopService.view(this.IdShopDetail).subscribe(res1 => {
+        this.TenShop = res1.data.TenShop;
       });
     });
-    
+
   }
-  
+
+
+  getLink() {
+    this.listLinkHinhAnh = [];
+    this.HinhAnhSanPhamsDetail.forEach(element => {
+      this.listLinkHinhAnh.push(LinkServerModel.URL + 'Images/' + element.LinkHinhAnh);
+    });
+  }
+
   public addProductToCart(product: SanPhamModel): void {
     this.toastr.success('sản phẩm đã được thêm vào giỏ', 'Thông báo');
     this.shoppingCartService.addItem(this.sanPhamDetail, 1);

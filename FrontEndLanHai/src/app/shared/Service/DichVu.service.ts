@@ -75,6 +75,13 @@ export class DichVuService {
         });
     }
 
+    dichVuListVoiForTrueCSYT() {
+        this.sessionuser = this.sessionService.getToken();
+        this.coSoThuYService.viewWithIdTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
+            this.dichVuForTrueListVoiCSYT(res.data.IdCoSoThuY);
+        });
+    }
+
     viewDichVuForTrueVoiCSYT(cSYTId: number | string): Observable<any> {
         this.url = LinkServerModel.URL + 'api/dich-vu/get-all-with-id-cosothuy-for-true/' + cSYTId;
         return this.apiService.get(this.url);

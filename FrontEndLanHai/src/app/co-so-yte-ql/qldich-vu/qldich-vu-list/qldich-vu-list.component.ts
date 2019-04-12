@@ -40,7 +40,7 @@ export class QldichVuListComponent implements OnInit {
 
   khoaMo(id: number) {
 
-    if (confirm('Bạn có chắc chắn muốn khóa dịch vụ ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn khóa/mở ?') === true) {
       this.dichVuService.KhoaMo(id)
         .subscribe(x => {
           this.dichVuService.dichVuListVoiCSYT();
@@ -50,7 +50,7 @@ export class QldichVuListComponent implements OnInit {
   }
 
   xoaDichVu(id: number) {
-    if (confirm('Bạn có chắc chắn muốn xóa dịch vụ ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn xóa ?') === true) {
       this.dichVuService.delete(id)
         .subscribe(x => {
           this.dichVuService.dichVuListVoiCSYT();

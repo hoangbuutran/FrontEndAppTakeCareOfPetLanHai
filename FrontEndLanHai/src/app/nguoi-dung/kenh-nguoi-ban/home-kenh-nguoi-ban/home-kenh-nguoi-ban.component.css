@@ -1,3 +1,16 @@
+.line_break 
+{
+    width: 756px;
+    height: 5px;
+    margin-left: 15px;
+    float: left;
+    color: black;
+    padding-top: 3px;
+    background-color: rgba(255,255,255,.5);
+    border: none;
+    border-bottom: 3px solid #a59393;
+}
+
 .col-item
 {
     border: 1px solid #E1E1E1;

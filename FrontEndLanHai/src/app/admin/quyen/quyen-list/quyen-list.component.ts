@@ -44,21 +44,21 @@ export class QuyenListComponent implements OnInit {
 
   KhoaMo(id: number) {
 
-    if (confirm('Bạn có chắc chắn muốn khóa quyền ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn khóa/mở ?') === true) {
       this.quyenService.KhoaMo(id)
         .subscribe(x => {
           this.quyenService.QuyenList();
-          this.toastr.warning('Khóa quyền thành công', 'Thông báo');
+          this.toastr.warning('Thành công', 'Thông báo');
         });
     }
   }
 
   XoaQuyen(id: number) {
-    if (confirm('Bạn có chắc chắn muốn xóa quyền ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn xóa ?') === true) {
       this.quyenService.delete(id)
         .subscribe(x => {
           this.quyenService.QuyenList();
-          this.toastr.warning('Xóa quyền thành công', 'Thông báo');
+          this.toastr.warning('Thành công', 'Thông báo');
         });
     }
   }

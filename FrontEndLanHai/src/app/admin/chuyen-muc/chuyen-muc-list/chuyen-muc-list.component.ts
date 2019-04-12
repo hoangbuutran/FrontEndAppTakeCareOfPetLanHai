@@ -42,7 +42,7 @@ export class ChuyenMucListComponent implements OnInit {
 
   khoaMo(id: number) {
 
-    if (confirm('Bạn có chắc chắn muốn khóa quyền ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn khóa/mở ?') === true) {
       this.chuyenMucService.KhoaMo(id)
         .subscribe(x => {
           this.chuyenMucService.chuyenMucList();
@@ -52,7 +52,7 @@ export class ChuyenMucListComponent implements OnInit {
   }
 
   xoaChuyenMuc(id: number) {
-    if (confirm('Bạn có chắc chắn muốn xóa quyền ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn xóa ?') === true) {
       this.chuyenMucService.delete(id)
         .subscribe(x => {
           this.chuyenMucService.chuyenMucList();

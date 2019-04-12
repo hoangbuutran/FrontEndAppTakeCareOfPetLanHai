@@ -66,7 +66,7 @@ export class GiongThuCungListComponent implements OnInit {
   }
 
   KhoaMo(id: number) {
-    if (confirm('Bạn có chắc chắn muốn khóa giống thú cưng ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn khóa/mở ?') === true) {
       this.giongThuCungService.KhoaMo(id)
         .subscribe(x => {
           this.giongThuCungService.giongThuCungList();
@@ -76,11 +76,11 @@ export class GiongThuCungListComponent implements OnInit {
   }
 
   XoaGiongThuCung(id: number) {
-    if (confirm('Bạn có chắc chắn muốn xóa giống thú cưng ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn xóa ?') === true) {
       this.giongThuCungService.delete(id)
         .subscribe(x => {
           this.giongThuCungService.giongThuCungList();
-          this.toastr.warning('Xóa giống thú cưng thành công', 'Thông báo');
+          this.toastr.warning('Thành công', 'Thông báo');
         });
     }
   }

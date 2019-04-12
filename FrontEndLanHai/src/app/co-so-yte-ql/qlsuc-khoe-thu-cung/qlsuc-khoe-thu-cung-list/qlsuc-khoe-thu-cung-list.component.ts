@@ -40,7 +40,7 @@ export class QlsucKhoeThuCungListComponent implements OnInit {
 
   khoaMo(id: number) {
 
-    if (confirm('Bạn có chắc chắn muốn khóa suc Khoe Thu Cung ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn khóa/mở ?') === true) {
       this.sucKhoeThuCungService.KhoaMo(id)
         .subscribe(x => {
           this.sucKhoeThuCungService.sucKhoeThuCungListVoiCSYT();
@@ -50,7 +50,7 @@ export class QlsucKhoeThuCungListComponent implements OnInit {
   }
 
   xoasucKhoeThuCung(id: number) {
-    if (confirm('Bạn có chắc chắn muốn xóa suc Khoe Thu Cung ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn xóa ?') === true) {
       this.sucKhoeThuCungService.delete(id)
         .subscribe(x => {
           this.sucKhoeThuCungService.sucKhoeThuCungListVoiCSYT();

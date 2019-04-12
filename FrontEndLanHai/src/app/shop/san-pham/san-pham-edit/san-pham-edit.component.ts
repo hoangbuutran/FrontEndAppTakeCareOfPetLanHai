@@ -60,7 +60,7 @@ export class SanPhamEditComponent implements OnInit {
     this.ganGiaTri();
     this.loadForm();
   }
-  
+
   ganGiaTri() {
     this.sessionuser = this.sessionService.getToken();
     this.shopService.viewShopVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
@@ -90,7 +90,7 @@ export class SanPhamEditComponent implements OnInit {
     }
   }
 
-  xoaAnhCu(){
+  xoaAnhCu() {
     if (confirm('Bạn có chắc chắn muốn xóa ảnh của sản phẩm ?') === true) {
       this.hinhAnhSanPhamService.delete(this.SanPhamEditForm.value.IdSanPham).subscribe(res => {
         this.ngOnInit();
@@ -99,7 +99,7 @@ export class SanPhamEditComponent implements OnInit {
     }
   }
 
-  getLink(){
+  getLink() {
     this.listLinkHinhAnh = [];
     this.hinhAnhDetails.forEach(element => {
       this.listLinkHinhAnh.push(LinkServerModel.URL + 'Images/' + element.LinkHinhAnh);
@@ -119,15 +119,15 @@ export class SanPhamEditComponent implements OnInit {
   }
   sanPhamEditSubmitForm() {
     this.sanPhamService.Update(this.SanPhamEditForm.value)
-    .subscribe(data => {
-      for (var i = 0; i < this.myFiles.length; i++) {
-        this.sanPhamService.uploadFiles(data.data.IdSanPham, this.myFiles[i]).subscribe(res => {
-          this.toastr.success(res.message, 'Thông báo');
-        });
-      }
-      this.sanPhamService.sanPhamListWithIdShop();
-      this.toastr.success(data.message, 'Thông báo');
-    });
-  this.router.navigate(['/shop/sanpham/list']);
+      .subscribe(data => {
+        for (var i = 0; i < this.myFiles.length; i++) {
+          this.sanPhamService.uploadFiles(data.data.IdSanPham, this.myFiles[i]).subscribe(res => {
+            this.toastr.success(res.message, 'Thông báo');
+          });
+        }
+        this.sanPhamService.sanPhamListWithIdShop();
+        this.toastr.success(data.message, 'Thông báo');
+      });
+    this.router.navigate(['/shop/sanpham/list']);
   }
 }

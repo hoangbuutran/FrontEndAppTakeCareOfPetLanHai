@@ -40,7 +40,7 @@ export class QlhoatDongListComponent implements OnInit {
 
   khoaMo(id: number) {
 
-    if (confirm('Bạn có chắc chắn muốn khóa hoạt động ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn khóa/mở ?') === true) {
       this.hoatDongService.KhoaMo(id)
         .subscribe(x => {
           this.hoatDongService.hoatDongListVoiCSYT();
@@ -50,7 +50,7 @@ export class QlhoatDongListComponent implements OnInit {
   }
 
   xoahoatDong(id: number) {
-    if (confirm('Bạn có chắc chắn muốn xóa hoạt động ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn xóa ?') === true) {
       this.hoatDongService.delete(id)
         .subscribe(x => {
           this.hoatDongService.hoatDongListVoiCSYT();

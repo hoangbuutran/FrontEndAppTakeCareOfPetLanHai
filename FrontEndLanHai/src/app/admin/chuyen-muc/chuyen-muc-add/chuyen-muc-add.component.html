@@ -9,9 +9,9 @@
         <form class="form-horizontal" [formGroup]="ChuyenMucAddForm" (ngSubmit)="ChuyenMucAddSubmitForm()">
           <div class="box-body">
             <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Tên quyền</label>
+              <label for="inputEmail3" class="col-sm-2 control-label">Tên chuyên mục</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" formControlName="TenChuyenMuc" placeholder="Tên quyền">
+                <input type="text" class="form-control" formControlName="TenChuyenMuc" placeholder="Tên chuyên mục">
                 <p *ngIf="ChuyenMucAddForm.get('TenChuyenMuc').invalid && ChuyenMucAddForm.get('TenChuyenMuc').touched">Required</p>
               </div>
             </div>

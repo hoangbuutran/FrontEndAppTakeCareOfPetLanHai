@@ -66,7 +66,7 @@ export class CoSoThuYlistComponent implements OnInit {
   }
   
   khoaMo(id: number) {
-    if (confirm('Bạn có chắc chắn muốn khóa cơ sở thú y ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn khóa/mở ?') === true) {
       this.coSoThuYService.KhoaMo(id)
         .subscribe(x => {
           this.coSoThuYService.coSoThuYList();
@@ -76,11 +76,11 @@ export class CoSoThuYlistComponent implements OnInit {
   }
 
   xoaCoSoThuY(id: number) {
-    if (confirm('Bạn có chắc chắn muốn xóa cơ sở thú y ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn xóa?') === true) {
       this.coSoThuYService.delete(id)
         .subscribe(x => {
           this.coSoThuYService.coSoThuYList();
-          this.toastr.warning('Xóa cơ sở thú y thành công', 'Thông báo');
+          this.toastr.warning('Thành công', 'Thông báo');
         });
     }
   }

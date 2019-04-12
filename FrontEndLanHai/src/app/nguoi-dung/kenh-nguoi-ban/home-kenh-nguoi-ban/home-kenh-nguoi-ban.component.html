@@ -11,34 +11,37 @@
       </div>
     </div>
   </div>
-  <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="item active">
-        <div *ngFor="let itemSanPham of itemLoaiSanPham.SanPhams; let i=index">
-          <div *ngIf="i < 4">
-            <div class="col-lg-3 col-xs-6">
-              <div class="col-item">
-                <div class="photo">
-                  <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
-                </div>
-                <div class="info">
-                  <div class="row">
-                    <div class="price col-md-12">
-                      <h5>
-                        {{ itemSanPham.TenSanPham}}</h5>
-                      <h5 class="price-text-color">
-                        {{ itemSanPham.Gia }}</h5>
+
+  <div *ngIf="itemLoaiSanPham.SanPhams?.length > 0; else elseAgeBlock">
+    <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="item active">
+          <div *ngFor="let itemSanPham of itemLoaiSanPham.SanPhams; let i=index">
+            <div *ngIf="i < 4">
+              <div class="col-lg-3 col-xs-6">
+                <div class="col-item">
+                  <div class="photo">
+                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                  </div>
+                  <div class="info">
+                    <div class="row">
+                      <div class="price col-md-12">
+                        <h5>
+                          {{ itemSanPham.TenSanPham}}</h5>
+                        <h5 class="price-text-color">
+                          {{ itemSanPham.Gia }}</h5>
+                      </div>
                     </div>
-                  </div>
-                  <div class="separator clear-left">
-                    <p  class="btn-details" (click)="addProductToCart(itemSanPham, 1)">
-                      <i class="fa fa-shopping-cart"></i>
-                    </p>
-                    <p class="btn-details" routerLink="/nguoidung/kenhnguoiban/viewproduct/{{ itemSanPham.IdSanPham }}">
-                      <i class="fa fa-bars"></i>
-                    </p>
-                  </div>
-                  <div class="clearfix">
+                    <div class="separator clear-left">
+                      <p class="btn-details" (click)="addProductToCart(itemSanPham, 1)">
+                        <i class="fa fa-shopping-cart"></i>
+                      </p>
+                      <p class="btn-details" routerLink="/nguoidung/kenhnguoiban/viewproduct/{{ itemSanPham.IdSanPham }}">
+                        <i class="fa fa-bars"></i>
+                      </p>
+                    </div>
+                    <div class="clearfix">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -47,6 +50,10 @@
         </div>
       </div>
     </div>
+    <hr class="line_break">
   </div>
+  <ng-template #elseAgeBlock>
+    <b style="margin-left: 17px;">Chưa có sản phẩm nào.</b>
+  </ng-template>
 </div>
 <br>

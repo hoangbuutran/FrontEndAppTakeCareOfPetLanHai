@@ -83,6 +83,13 @@ export class HoatDongService {
         });
     }
 
+    hoatDongListVoiForTrueCSYT() {
+        this.sessionuser = this.sessionService.getToken();
+        this.coSoThuYService.viewWithIdTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
+            this.hoatDongForTrueListVoiCSYT(res.data.IdCoSoThuY);
+        });
+    }
+
     viewhoatDongForTrueVoiCSYT(IdCoSoThuY: number | string): Observable<any> {
         this.url = LinkServerModel.URL + 'api/hoat-dong/get-all-with-id-cosothuy-for-true/' + IdCoSoThuY;
         return this.apiService.get(this.url);

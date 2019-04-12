@@ -34,7 +34,7 @@ export class QlshopListComponent implements OnInit {
   }
 
   khoaMo(IdShop) {
-    if (confirm('Bạn có chắc chắn muốn khóa cơ sở thú y ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn khóa/mở ?') === true) {
       this.shopService.KhoaMo(IdShop)
         .subscribe(res => {
           this.shopService.viewListShop();

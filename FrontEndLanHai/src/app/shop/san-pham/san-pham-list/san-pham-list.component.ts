@@ -56,7 +56,7 @@ export class SanPhamListComponent implements OnInit {
     });
   }
 
-  getLink(){
+  getLink() {
     this.listLinkHinhAnh = [];
     this.hinhAnhDetails.forEach(element => {
       this.listLinkHinhAnh.push(LinkServerModel.URL + 'Images/' + element.LinkHinhAnh);
@@ -64,7 +64,7 @@ export class SanPhamListComponent implements OnInit {
   }
 
   khoaMo(id: number) {
-    if (confirm('Bạn có chắc chắn muốn khóa sản phẩm ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn khóa/mở ?') === true) {
       this.sanPhamService.KhoaMo(id)
         .subscribe(x => {
           this.sanPhamService.sanPhamListWithIdShop();

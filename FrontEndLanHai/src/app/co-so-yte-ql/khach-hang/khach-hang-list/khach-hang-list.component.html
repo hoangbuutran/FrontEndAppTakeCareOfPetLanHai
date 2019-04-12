@@ -14,7 +14,6 @@
                   <table class="table table-bordered">
                       <thead>
                           <tr>
-                              <th>STT</th>
                               <th>Tên khách hàng</th>
                               <th>Trạng thái</th>
                               <th>Tùy chọn</th>
@@ -22,9 +21,6 @@
                       </thead>
                       <tbody *ngFor="let item of nguoiDungService.nguoiDungListProperty | paginate: { itemsPerPage: 5, currentPage: p }">
                           <tr>
-                              <td>
-                                  1
-                              </td>
                               <td>
                                   {{ item.TenNguoiDung }}
                               </td>

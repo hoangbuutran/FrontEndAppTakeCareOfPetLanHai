@@ -8,7 +8,7 @@ import { DatLichKhamComponent } from './dat-lich-kham/dat-lich-kham.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HoatDongComponent } from './hoat-dong/hoat-dong.component';
-import { EscapeHtmlPipeGioiThieuCSTY } from '../../shared/Pipe/EscapeHtmlPipeGioiThieuCSTY.pipe';
+import { EscapeHtmlPipeGioiThieu2 } from '../../shared/Pipe/EscapeHtmlPipeGioiThieu2.pipe';
 
 @NgModule({
   imports: [
@@ -18,6 +18,6 @@ import { EscapeHtmlPipeGioiThieuCSTY } from '../../shared/Pipe/EscapeHtmlPipeGio
     ReactiveFormsModule,
     NgxPaginationModule
   ],
-  declarations: [CoSoThuYforNguoiDungComponent, CoSoThuYhomeComponent, DatLichKhamComponent, EscapeHtmlPipeGioiThieuCSTY]
+  declarations: [CoSoThuYforNguoiDungComponent, CoSoThuYhomeComponent, DatLichKhamComponent, EscapeHtmlPipeGioiThieu2]
 })
 export class CoSoThuYforNguoiDungModule { }

@@ -46,7 +46,7 @@ export class KhachHangListComponent implements OnInit {
 
   khoaMo(id: number) {
 
-    if (confirm('Bạn có chắc chắn muốn khóa khach hang ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn khóa/mở ?') === true) {
       this.nguoiDungService.KhoaMo(id)
         .subscribe(x => {
           this.nguoiDungService.nguoiDungListVoiCSYT();
@@ -56,7 +56,7 @@ export class KhachHangListComponent implements OnInit {
   }
 
   xoaNguoiDung(id: number) {
-    if (confirm('Bạn có chắc chắn muốn xóa Khach hang ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn xóa?') === true) {
       this.nguoiDungService.delete(id)
         .subscribe(x => {
           this.nguoiDungService.nguoiDungListVoiCSYT();

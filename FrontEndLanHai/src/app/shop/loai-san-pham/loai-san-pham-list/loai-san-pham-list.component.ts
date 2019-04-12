@@ -41,7 +41,7 @@ export class LoaiSanPhamListComponent implements OnInit {
 
   khoaMo(id: number) {
 
-    if (confirm('Bạn có chắc chắn muốn khóa loại sản phẩm ?') === true) {
+    if (confirm('Bạn có chắc chắn muốn khóa/mở ?') === true) {
       this.loaiSanPhamService.KhoaMo(id)
         .subscribe(x => {
           this.loaiSanPhamService.loaiSanPhamListWithIdShop();
