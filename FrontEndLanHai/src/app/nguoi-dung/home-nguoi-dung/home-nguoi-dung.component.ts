@@ -36,6 +36,8 @@ export class HomeNguoiDungComponent implements OnInit {
 
   listLike: any[];
 
+  linkSerVer = LinkServerModel.URL;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,

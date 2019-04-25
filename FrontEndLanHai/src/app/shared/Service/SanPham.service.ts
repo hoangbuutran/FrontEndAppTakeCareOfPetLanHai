@@ -74,6 +74,11 @@ export class SanPhamService {
         return this.apiService.get(this.url);
     }
 
+    addImage(sanPhamId: number | string): Observable<any> {
+        this.url = LinkServerModel.URL + 'api/sanpham/imageforsanphambyid/' + sanPhamId;
+        return this.apiService.get(this.url);
+    }
+
     countSanPham(idShop: number): Observable<any> {
         this.url = LinkServerModel.URL + 'api/sanpham/listcountsanphamwithidshop/' + idShop;
         return this.apiService.get(this.url);

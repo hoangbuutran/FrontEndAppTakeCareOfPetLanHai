@@ -113,7 +113,7 @@ import { LichSuKhamService } from './shared/Service/LichSuKham.service';
     ChuyenMucService,
     HinhAnhSanPhamService,
     AuthGuard,
-  ], 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,7 +14,7 @@ import { LinkServerModel } from '../../../shared/Model/LinkServer.model';
   styleUrls: ['./view-detail-product.component.css']
 })
 export class ViewDetailProductComponent implements OnInit {
-
+  urlServer = LinkServerModel.URL;
   id = '';
   GiaDetail: any;
   DacDiemDetail: any;

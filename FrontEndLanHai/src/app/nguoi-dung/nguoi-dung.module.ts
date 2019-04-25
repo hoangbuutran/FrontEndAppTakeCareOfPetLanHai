@@ -8,19 +8,22 @@ import { CartComponent } from './cart/cart.component';
 import { HoaDonDaMuaComponent } from './hoa-don-da-mua/hoa-don-da-mua.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SlideshowModule } from 'ng-simple-slideshow';
+
 
 @NgModule({
   imports: [
     CommonModule,
     NguoiDungRoutingModule,
     FormsModule,
+    SlideshowModule,
     ReactiveFormsModule,
     NgxPaginationModule,
   ],
   declarations: [
-    NguoiDungComponent, 
-    HomeNguoiDungComponent, 
-    CartComponent, 
+    NguoiDungComponent,
+    HomeNguoiDungComponent,
+    CartComponent,
     HoaDonDaMuaComponent,
   ]
 })

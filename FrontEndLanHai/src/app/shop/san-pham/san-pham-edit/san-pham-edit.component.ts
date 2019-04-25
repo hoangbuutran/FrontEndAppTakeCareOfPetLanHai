@@ -18,6 +18,7 @@ import { LinkServerModel } from '../../../shared/Model/LinkServer.model';
 export class SanPhamEditComponent implements OnInit {
 
   id = '';
+  idSanPham: any;
   SanPhamEditForm: FormGroup;
 
   trangThaiList = [
@@ -82,9 +83,10 @@ export class SanPhamEditComponent implements OnInit {
     if (files) {
       for (let file of files) {
         let reader = new FileReader();
+        // tslint:disable-next-line:no-shadowed-variable
         reader.onload = (e: any) => {
           this.urls.push(e.target.result);
-        }
+        };
         reader.readAsDataURL(file);
       }
     }
@@ -120,11 +122,17 @@ export class SanPhamEditComponent implements OnInit {
   sanPhamEditSubmitForm() {
     this.sanPhamService.Update(this.SanPhamEditForm.value)
       .subscribe(data => {
-        for (var i = 0; i < this.myFiles.length; i++) {
+        for (let i = 0; i < this.myFiles.length; i++) {
           this.sanPhamService.uploadFiles(data.data.IdSanPham, this.myFiles[i]).subscribe(res => {
             this.toastr.success(res.message, 'Thông báo');
+            if (i === this.myFiles.length - 1) {
+              this.sanPhamService.addImage(data.data.IdSanPham).subscribe(data1 => {
+                this.toastr.success('Thêm hình ảnh đầu tiên vào hình ảnh chính.', 'Thông báo');
+              });
+            }
           });
         }
+        this.idSanPham = data.data.IdSanPham;
         this.sanPhamService.sanPhamListWithIdShop();
         this.toastr.success(data.message, 'Thông báo');
       });

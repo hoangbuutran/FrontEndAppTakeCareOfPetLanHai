@@ -30,7 +30,7 @@ export class NguoiDungComponent implements OnInit {
       this.tenNguoiDung = res.data.TenNguoiDung;
     });
   }
-  
+
   LogOut() {
     sessionStorage.removeItem('session');
     this.router.navigate(['/login']);

@@ -21,7 +21,12 @@
               <div class="col-lg-3 col-xs-6">
                 <div class="col-item">
                   <div class="photo">
-                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                    <div *ngIf="itemSanPham.HinhAnhChinh == null; else login">
+                        <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                    </div>
+                    <ng-template #login>
+                        <img [src] = "urlServer+'Images/'+itemSanPham.HinhAnhChinh" class="img-responsive">
+                    </ng-template>
                   </div>
                   <div class="info">
                     <div class="row">

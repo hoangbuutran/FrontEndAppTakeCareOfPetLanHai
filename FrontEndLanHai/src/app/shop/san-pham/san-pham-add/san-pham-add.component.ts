@@ -19,7 +19,7 @@ export class SanPhamAddComponent implements OnInit {
 
   sessionuser: any;
   SanPhamAddForm: FormGroup;
-
+  idSanPham: any;
   urls = new Array<string>();
 
   trangThaiList = [
@@ -81,9 +81,14 @@ export class SanPhamAddComponent implements OnInit {
   SanPhamAddSubmitForm() {
     this.sanPhamService.create(this.SanPhamAddForm.value)
       .subscribe(data => {
-        for (var i = 0; i < this.myFiles.length; i++) {
+        for (let i = 0; i < this.myFiles.length; i++) {
           this.sanPhamService.uploadFiles(data.data.IdSanPham, this.myFiles[i]).subscribe(res => {
             this.toastr.success(res.message, 'Thông báo');
+            if (i === this.myFiles.length - 1) {
+              this.sanPhamService.addImage(data.data.IdSanPham).subscribe(data1 => {
+                this.toastr.success('Thêm hình ảnh đầu tiên vào hình ảnh chính.', 'Thông báo');
+              });
+            }
           });
         }
         this.sanPhamService.sanPhamListWithIdShop();

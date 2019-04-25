@@ -37,7 +37,7 @@
                         <div class="box box-widget">
                             <div class='box-header with-border'>
                                 <div class='user-block'>
-                                    <img class='img-circle' src='assets/img/user1-128x128.jpg' alt='user image'>
+                                    <img class='img-circle' [src]="linkSerVer+'Images/'+item.NguoiDung.HinhAnh" alt='user image'>
                                     <span class='username'>
                                         <a routerLink="/nguoidung/nguoidungprofile/home/{{ item.IdNguoiDung }}">{{ item.NguoiDung.TenNguoiDung }}</a>
                                     </span>
