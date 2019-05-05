@@ -23,6 +23,7 @@ export class HomeNguoiDungComponent implements OnInit {
   idBaiVietDetail: any;
   TenNguoiDungDetail: any;
   TenChuyenMucDetail: any;
+  anhDaiDienBaiViet: any;
   NgayDangDetail: any;
   TieuDeDetail: any;
   HinhAnhDetail: any;
@@ -35,7 +36,7 @@ export class HomeNguoiDungComponent implements OnInit {
   imageDaiDien: any;
 
   listLike: any[];
-
+  imageDaiDienNotPlus: any;
   linkSerVer = LinkServerModel.URL;
 
   constructor(
@@ -67,6 +68,7 @@ export class HomeNguoiDungComponent implements OnInit {
     this.nguoiDungService.viewNguoiDungVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
       this.idNguoiDung = res.data.IdNguoiDung;
       this.imageDaiDien = LinkServerModel.URL + 'Images/' + res.data.HinhAnh;
+      this.imageDaiDienNotPlus = res.data.HinhAnh;
       this.binhLuanAddForm.get('IdNguoiDung').patchValue(res.data.IdNguoiDung);
       this.likeForm.get('IdNguoiDung').patchValue(res.data.IdNguoiDung);
     });
@@ -77,6 +79,7 @@ export class HomeNguoiDungComponent implements OnInit {
   binhLuanSubmitForm(idBaiViet: number | string) {
     this.binhLuanAddForm.value.IdBaiViet = idBaiViet;
     this.binhLuanService.create(this.binhLuanAddForm.value).subscribe(res => {
+      this.binhLuanService.viewBinhLuanVoiIdBaiViet(idBaiViet); // listbinhLuanWithIdBaiViet
       this.toastr.success(res.message, 'thông báo');
     });
   }
@@ -89,6 +92,7 @@ export class HomeNguoiDungComponent implements OnInit {
       this.TenChuyenMucDetail = res.data.ChuyenMuc.TenChuyenMuc;
       this.NgayDangDetail = res.data.NgayDang;
       this.TieuDeDetail = res.data.TieuDe;
+      this.anhDaiDienBaiViet = res.data.NguoiDung.HinhAnh;
       this.HinhAnhDetail = res.data.HinhAnh;
       this.NoiDungDetail = res.data.NoiDung;
       this.SoLikeDetail = res.data.SoLike;

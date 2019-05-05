@@ -4,6 +4,7 @@ import { SanPhamService } from '../../../shared/Service/SanPham.service';
 import { SanPhamModel } from '../../../shared/Model/SanPham.model';
 import { ShoppingCartService } from '../../../shared/Service/ShoppingCart.service';
 import { ToastrService } from 'ngx-toastr';
+import { LinkServerModel } from '../../../shared/Model/LinkServer.model';
 
 @Component({
   selector: 'app-view-shop-ban-hang-home',
@@ -14,7 +15,7 @@ export class ViewShopBanHangHomeComponent implements OnInit {
 
   idShop: any;
   listSanPhamVoiIdShop: any;
-  
+  urlServer = LinkServerModel.URL;
   constructor(
     private route: ActivatedRoute,
     private sanPhamService: SanPhamService,

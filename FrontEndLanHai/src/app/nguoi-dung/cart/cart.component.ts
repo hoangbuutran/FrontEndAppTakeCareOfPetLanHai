@@ -57,7 +57,7 @@ export class CartComponent implements OnInit {
           viewcart.Gia = element.Gia;
           viewcart.tongTien = element.tongTien;
           this.listViewCart.push(viewcart);
-          this.tongTienGioHang = this.tongTienGioHang + element.tongTien
+          this.tongTienGioHang = this.tongTienGioHang + element.tongTien;
         });
       });
     });

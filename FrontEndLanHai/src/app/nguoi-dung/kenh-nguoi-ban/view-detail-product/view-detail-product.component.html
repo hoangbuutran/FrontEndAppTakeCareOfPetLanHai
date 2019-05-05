@@ -30,9 +30,7 @@
       <p class="price"> Đặc điểm sản phẩm</p>
     </ul>
     <div style="width:100%;border-top:1px solid silver">
-      <p style="padding:15px;">
-        {{ DacDiemDetail }}
-      </p>
+      <div [innerHTML]="DacDiemDetail | keepHtmlGioiThieuCSTY"></div>
     </div>
   </div>
 </div>

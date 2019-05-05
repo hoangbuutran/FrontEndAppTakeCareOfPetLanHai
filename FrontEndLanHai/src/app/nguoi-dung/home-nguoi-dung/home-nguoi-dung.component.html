@@ -37,7 +37,12 @@
                         <div class="box box-widget">
                             <div class='box-header with-border'>
                                 <div class='user-block'>
-                                    <img class='img-circle' [src]="linkSerVer+'Images/'+item.NguoiDung.HinhAnh" alt='user image'>
+                                    <div *ngIf="item.NguoiDung.HinhAnh == null || item.NguoiDung.HinhAnh == ''; else login">
+                                        <img src="assets/img/user1-128x128.jpg" class="user-image" alt="a" />
+                                    </div>
+                                    <ng-template #login>
+                                        <img class='img-circle' [src]="item.NguoiDung.HinhAnh" alt='user image'>
+                                    </ng-template>
                                     <span class='username'>
                                         <a routerLink="/nguoidung/nguoidungprofile/home/{{ item.IdNguoiDung }}">{{ item.NguoiDung.TenNguoiDung }}</a>
                                     </span>
@@ -72,7 +77,13 @@
                             <div class="box-footer">
                                 <form [formGroup]="binhLuanAddForm" (ngSubmit)="binhLuanSubmitForm(item.IdBaiViet)" action="#" method="post">
                                     <!-- <img class="img-responsive img-circle img-sm" src="assets/img/user4-128x128.jpg" alt="alt text"> -->
-                                    <img [src]="imageDaiDien" class="img-responsive img-circle img-sm">
+                                    <!-- <img [src]="imageDaiDien" class="img-responsive img-circle img-sm"> -->
+                                    <div *ngIf="imageDaiDienNotPlus == null || imageDaiDienNotPlus == ''; else login">
+                                        <img src="assets/img/user1-128x128.jpg" class="img-responsive img-circle img-sm" alt="a" />
+                                    </div>
+                                    <ng-template #login>
+                                        <img class='img-responsive img-circle img-sm' [src]="imageDaiDienNotPlus" alt='user image'>
+                                    </ng-template>
                                     <div class="input-group">
                                         <input type="text" class="form-control" formControlName="NoiDung" placeholder="Mời nhập comment">
                                         <div class="input-group-btn">
@@ -190,7 +201,12 @@
                     <div class="box box-widget">
                         <div class='box-header with-border'>
                             <div class='user-block'>
-                                <img class='img-circle' src='assets/img/user1-128x128.jpg' alt='user image'>
+                                <div *ngIf="anhDaiDienBaiViet == null || anhDaiDienBaiViet == ''; else login">
+                                    <img src="assets/img/user1-128x128.jpg" class="user-image" alt="a" />
+                                </div>
+                                <ng-template #login>
+                                    <img class='img-circle' [src]="linkSerVer+'Images/'+anhDaiDienBaiViet" alt='user image'>
+                                </ng-template>
                                 <span class='username'>
                                     <a routerLink="/nguoidung/nguoidungprofile/home/{{ IdNguoiDungDetail }}">{{ TenNguoiDungDetail }}</a>
                                 </span>
@@ -199,7 +215,7 @@
                         </div>
                         <div class='box-body'>
                             <p>{{ TieuDeDetail }}</p>
-                            <img [src]="HinhAnhDetail" class="center-block  img-rounded">
+                            <img [src]="HinhAnhDetail" class="center-block img-rounded" style="max-width: 545px;">
                             <hr>
                             <p>{{ NoiDungDetail }}</p>
 
@@ -211,7 +227,12 @@
                         </div>
                         <div class='box-footer box-comments'>
                             <div class='box-comment' *ngFor="let item of binhLuanService.listbinhLuanWithIdBaiViet">
-                                <img class='img-circle img-sm' src='assets/img/user3-128x128.jpg' alt='user image'>
+                                <div *ngIf="imageDaiDienNotPlus == null || imageDaiDienNotPlus == ''; else login">
+                                    <img src="assets/img/user1-128x128.jpg" class="img-responsive img-circle img-sm" alt="a" />
+                                </div>
+                                <ng-template #login>
+                                    <img class='img-responsive img-circle img-sm' [src]="imageDaiDienNotPlus" alt='user image'>
+                                </ng-template>
                                 <div class='comment-text'>
                                     <span class="username">
                                         {{ item.NguoiDung.TenNguoiDung }}
@@ -223,7 +244,12 @@
                         </div>
                         <div class="box-footer">
                             <form [formGroup]="binhLuanAddForm" (ngSubmit)="binhLuanSubmitForm(idBaiVietDetail)" action="#" method="post">
-                                <img class="img-responsive img-circle img-sm" src="assets/img/user4-128x128.jpg" alt="alt text">
+                                <div *ngIf="imageDaiDienNotPlus == null || imageDaiDienNotPlus == ''; else login">
+                                    <img src="assets/img/user1-128x128.jpg" class="img-responsive img-circle img-sm" alt="a" />
+                                </div>
+                                <ng-template #login>
+                                    <img class='img-responsive img-circle img-sm' [src]="imageDaiDienNotPlus" alt='user image'>
+                                </ng-template>
                                 <div class="input-group">
                                     <input type="text" class="form-control" formControlName="NoiDung" placeholder="Mời nhập comment">
                                     <div class="input-group-btn">

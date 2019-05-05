@@ -7,6 +7,7 @@ import { HomeKenhNguoiBanComponent } from './home-kenh-nguoi-ban/home-kenh-nguoi
 import { DangKyBanHangComponent } from './dang-ky-ban-hang/dang-ky-ban-hang.component';
 import { ViewDetailProductComponent } from './view-detail-product/view-detail-product.component';
 import { SlideshowModule } from 'ng-simple-slideshow';
+import { EscapeHtmlPipeGioiThieuCSTY } from '../../shared/Pipe/EscapeHtmlPipeGioiThieuCSTY.pipe';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SlideshowModule } from 'ng-simple-slideshow';
     SlideshowModule,
     KenhNguoiBanRoutingModule
   ],
-  declarations: [KenhNguoiBanComponent, HomeKenhNguoiBanComponent, DangKyBanHangComponent, ViewDetailProductComponent]
+  // tslint:disable-next-line:max-line-length
+  declarations: [EscapeHtmlPipeGioiThieuCSTY, KenhNguoiBanComponent, HomeKenhNguoiBanComponent, DangKyBanHangComponent, ViewDetailProductComponent]
 })
 export class KenhNguoiBanModule { }

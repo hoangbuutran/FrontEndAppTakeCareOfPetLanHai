@@ -1,3 +1,15 @@
+.list-hinh-anh-shop {
+    
+}
+
+.text {
+    display: block;
+    width: 182px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
 .col-item
 {
     border: 1px solid #E1E1E1;

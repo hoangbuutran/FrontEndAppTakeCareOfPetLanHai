@@ -6,6 +6,7 @@ import { SanPhamService } from '../../../shared/Service/SanPham.service';
 import { ShoppingCartService } from '../../../shared/Service/ShoppingCart.service';
 import { SanPhamModel } from '../../../shared/Model/SanPham.model';
 import { ToastrService } from 'ngx-toastr';
+import { LinkServerModel } from '../../../shared/Model/LinkServer.model';
 
 @Component({
   selector: 'app-view-san-pham-detail',
@@ -23,6 +24,7 @@ export class ViewSanPhamDetailComponent implements OnInit {
   IdSanPhamDetail: any;
   IdShopDetail: any;
   TenShop: any;
+  listLinkHinhAnh = new Array<string>();
   NgayNhapDetail: any;
   TenSanPhamDetail: any;
   sanPhamDetail: any;
@@ -48,12 +50,22 @@ export class ViewSanPhamDetailComponent implements OnInit {
       this.IdSanPhamDetail = res.data.IdSanPham;
       this.IdShopDetail = res.data.IdShop;
       this.TenSanPhamDetail = res.data.TenSanPham;
+      this.getLink();
+      // tslint:disable-next-line:no-shadowed-variable
       this.loaiSanPhamService.view(this.IdLoaiSanPhamDetail).subscribe(res => {
         this.TenLoaiSanPham = res.data.TenLoaiSanPham;
       });
+      // tslint:disable-next-line:no-shadowed-variable
       this.shopService.view(this.IdShopDetail).subscribe(res => {
         this.TenShop = res.data.TenShop;
       });
+    });
+  }
+
+  getLink() {
+    this.listLinkHinhAnh = [];
+    this.HinhAnhSanPhamsDetail.forEach(element => {
+      this.listLinkHinhAnh.push(LinkServerModel.URL + 'Images/' + element.LinkHinhAnh);
     });
   }
 

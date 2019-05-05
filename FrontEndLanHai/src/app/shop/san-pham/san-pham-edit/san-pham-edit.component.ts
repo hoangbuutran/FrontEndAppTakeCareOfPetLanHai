@@ -29,9 +29,10 @@ export class SanPhamEditComponent implements OnInit {
 
   myFiles: string[] = [];
   urls = new Array<string>();
-
+  urlServer = LinkServerModel.URL;
   hinhAnhDetails: HinhAnhSanPhamModel[];
   listLinkHinhAnh = new Array<string>();
+  anhChinhImage:any;
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -51,6 +52,7 @@ export class SanPhamEditComponent implements OnInit {
     this.SanPhamEditForm = this.fb.group({
       IdSanPham: [''],
       TenSanPham: ['', Validators.required],
+      HinhAnhChinh: [''],
       IdLoaiSanPham: [''],
       Gia: ['', Validators.required],
       SoLuong: ['', Validators.required],
@@ -67,6 +69,7 @@ export class SanPhamEditComponent implements OnInit {
     this.shopService.viewShopVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
       this.SanPhamEditForm.get('IdShop').patchValue(res.data.IdShop);
       this.loaiSanPhamService.loaiSanPhamListWithIdShop();
+      // tslint:disable-next-line:no-shadowed-variable
       this.hinhAnhSanPhamService.viewHinhAnhSanPhamVoiIdSanPham(this.id).subscribe(res => {
         this.hinhAnhDetails = res.data;
         this.getLink();
@@ -74,15 +77,15 @@ export class SanPhamEditComponent implements OnInit {
     });
   }
   getFileDetails(e) {
-    for (var i = 0; i < e.target.files.length; i++) {
+    for (let i = 0; i < e.target.files.length; i++) {
       this.myFiles.push(e.target.files[i]);
     }
 
     this.urls = [];
-    let files = e.target.files;
+    const files = e.target.files;
     if (files) {
-      for (let file of files) {
-        let reader = new FileReader();
+      for (const file of files) {
+        const reader = new FileReader();
         // tslint:disable-next-line:no-shadowed-variable
         reader.onload = (e: any) => {
           this.urls.push(e.target.result);
@@ -115,6 +118,8 @@ export class SanPhamEditComponent implements OnInit {
       this.SanPhamEditForm.get('IdLoaiSanPham').patchValue(res.data.IdLoaiSanPham);
       this.SanPhamEditForm.get('Gia').patchValue(res.data.Gia);
       this.SanPhamEditForm.get('SoLuong').patchValue(res.data.SoLuong);
+      this.SanPhamEditForm.get('HinhAnhChinh').patchValue(res.data.HinhAnhChinh);
+      this.anhChinhImage = res.data.HinhAnhChinh;
       this.SanPhamEditForm.get('DacDiem').patchValue(res.data.DacDiem);
       this.SanPhamEditForm.get('TrangThai').patchValue(res.data.TrangThai);
     });

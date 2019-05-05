@@ -54,6 +54,7 @@ export class HoaDonDetailComponent implements OnInit {
         this.trangThai = res.data.TrangThai;
         this.tongGiaTriHoaDon = res.data.TongGia;
         this.idNguoiDung = res.data.IdNguoiDung;
+        // tslint:disable-next-line:no-shadowed-variable
         this.nguoiDungService.view(this.idNguoiDung).subscribe(res => {
           this.tenNguoiDungDetail = res.data.TenNguoiDung;
           this.diaChiDetail = res.data.DiaChi;

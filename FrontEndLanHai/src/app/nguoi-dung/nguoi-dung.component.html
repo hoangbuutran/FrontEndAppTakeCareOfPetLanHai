@@ -27,16 +27,27 @@
                     </li>
                     
                     <!-- User Account Menu -->
-                    <li class="dropdown user user-menu">
+                    <li class="dropdown user user-menu" style="width: 173px !important;">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- <img src="assets/Image/avatar5.png" class="user-image" alt="User Image"> -->
-                            <img [src]="imageDaiDien" class="user-image" alt="User Image">
+                            <div *ngIf="imageDaiDienNotPlus == null || imageDaiDienNotPlus == ''; else login">
+                                <img src="assets/img/user1-128x128.jpg" class="user-image" alt="a" />
+                            </div>
+                            <ng-template #login>
+                                <img [src]="imageDaiDienNotPlus" class="user-image" alt="User Image">
+                            </ng-template>
                             <span class="hidden-xs">{{ tenNguoiDung }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="user-header">
                                 <!-- <img src="assets/Image/avatar5.png" class="img-circle" alt="User Image"> -->
-                                <img [src]="imageDaiDien" class="img-circle" alt="User Image">
+                                <!-- <img [src]="imageDaiDien" class="img-circle" alt="User Image"> -->
+                                <div *ngIf="imageDaiDienNotPlus == null || imageDaiDienNotPlus == ''; else login">
+                                    <img src="assets/img/user1-128x128.jpg" class="user-image" alt="a" />
+                                </div>
+                                <ng-template #login>
+                                    <img [src]="imageDaiDienNotPlus" class="user-image" alt="User Image">
+                                </ng-template>
                                 <p>
                                     {{ tenNguoiDung }} - vai trò người dùng
                                 </p>

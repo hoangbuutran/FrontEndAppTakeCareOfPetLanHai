@@ -15,6 +15,8 @@ export class NguoiDungComponent implements OnInit {
   tenNguoiDung: any;
   sessionuser: any;
   imageDaiDien: any;
+  imageDaiDienNotPlus: any;
+  urlServer = LinkServerModel.URL;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -26,6 +28,7 @@ export class NguoiDungComponent implements OnInit {
     this.sessionuser = this.sessionService.getToken();
     this.nguoiDungService.viewNguoiDungVoiIDTaiKhoan(this.sessionuser.IdTaiKhoan).subscribe(res => {
       this.imageDaiDien = LinkServerModel.URL + 'Images/' + res.data.HinhAnh;
+      this.imageDaiDienNotPlus = res.data.HinhAnh;
       this.idNguoiDung = res.data.IdNguoiDung;
       this.tenNguoiDung = res.data.TenNguoiDung;
     });

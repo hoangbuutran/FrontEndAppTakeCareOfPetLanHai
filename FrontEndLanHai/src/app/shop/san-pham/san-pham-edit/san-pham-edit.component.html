@@ -39,6 +39,16 @@
               </div>
             </div>
             <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Hình ảnh chính</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" formControlName="HinhAnhChinh" style="visibility: hidden;" placeholder="Số lượng hiện có">
+                <img style="height: 123px !important;" [src] = "urlServer+'Images/'+anhChinhImage" style="border:1px solid #021a40" class="img-responsive">
+              </div>
+            </div>
+
+            
+
+            <div class="form-group">
               <div class="col-sm-12">
                 <div class="btn btn-info col-md-3 full-right" id="buttonxoaanhcu" (click)="xoaAnhCu()" style="float: right; align-content: center">Xóa ảnh củ</div>
               </div>
@@ -47,10 +57,10 @@
               <label for="inputEmail3" class="col-sm-2 control-label">Hình ảnh cho sản phẩm</label>
               <div class="col-sm-9 center-block">
                 <div>
-                  <img *ngFor="let url of listLinkHinhAnh" [src]="url" class="rounded mb-3" style="width: 353px;height:330px; border-radius: 10px">
+                  <img *ngFor="let url of listLinkHinhAnh" [src]="url" class="rounded mb-3" style="width: 280px;height:168px; border:1px solid #021a40">
                 </div>
                 <div>
-                  <img *ngFor="let url of urls" [src]="url" value="" class="rounded mb-3" style="width:353px;height:330px; border-radius: 10px">
+                  <img *ngFor="let url of urls" [src]="url" value="" class="rounded mb-3" style="width: 280px;height:168px; border:1px solid #021a40">
                 </div>
               </div>
             </div>
